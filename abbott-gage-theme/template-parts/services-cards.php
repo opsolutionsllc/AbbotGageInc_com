@@ -21,14 +21,15 @@ $services_items = get_field('services_items');
             </p>
         </div>
         
-        <div class="services-grid">
+        <div class="row g-4">
             <?php if ( $services_items ) : ?>
                 <?php foreach ( $services_items as $service ) : 
                     $link = $service['link'];
                     $link_url = is_array( $link ) ? $link['url'] : ( $link ?: '#' );
                     $link_title = is_array( $link ) ? $link['title'] : 'Learn More';
                     ?>
-                    <div class="service-card<?php echo $service['featured'] ? ' featured' : ''; ?>">
+                    <div class="col-12 col-md-6 col-lg-3">
+                    <div class="service-card h-100<?php echo $service['featured'] ? ' featured' : ''; ?>">
                         <?php if ( $service['featured'] && ! empty( $service['featured_badge'] ) ) : ?>
                             <div class="featured-badge"><?php echo esc_html( $service['featured_badge'] ); ?></div>
                         <?php endif; ?>
@@ -59,10 +60,12 @@ $services_items = get_field('services_items');
                             <?php echo esc_html( $link_title ); ?> <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
+                    </div>
                 <?php endforeach; ?>
             <?php else : ?>
                 <!-- Default services if none are set in ACF -->
-                <div class="service-card">
+                <div class="col-12 col-md-6 col-lg-3">
+                <div class="service-card h-100">
                     <div class="service-icon">
                         <i class="fas fa-flask"></i>
                     </div>
@@ -83,8 +86,10 @@ $services_items = get_field('services_items');
                         <?php esc_html_e( 'Learn More', 'abbott-gage' ); ?> <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
+                </div>
                 
-                <div class="service-card featured">
+                <div class="col-12 col-md-6 col-lg-3">
+                <div class="service-card h-100 featured">
                     <div class="featured-badge"><?php esc_html_e( 'Popular', 'abbott-gage' ); ?></div>
                     <div class="service-icon">
                         <i class="fas fa-truck"></i>
@@ -106,8 +111,10 @@ $services_items = get_field('services_items');
                         <?php esc_html_e( 'Learn More', 'abbott-gage' ); ?> <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
+                </div>
                 
-                <div class="service-card">
+                <div class="col-12 col-md-6 col-lg-3">
+                <div class="service-card h-100">
                     <div class="service-icon">
                         <i class="fas fa-wrench"></i>
                     </div>
@@ -128,8 +135,10 @@ $services_items = get_field('services_items');
                         <?php esc_html_e( 'Learn More', 'abbott-gage' ); ?> <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
+                </div>
                 
-                <div class="service-card">
+                <div class="col-12 col-md-6 col-lg-3">
+                <div class="service-card h-100">
                     <div class="service-icon">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
@@ -149,6 +158,7 @@ $services_items = get_field('services_items');
                     <a href="<?php echo esc_url( home_url( '/sales' ) ); ?>" class="service-link">
                         <?php esc_html_e( 'Learn More', 'abbott-gage' ); ?> <i class="fas fa-arrow-right"></i>
                     </a>
+                </div>
                 </div>
             <?php endif; ?>
         </div>

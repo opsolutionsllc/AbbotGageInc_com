@@ -99,8 +99,12 @@ Edit your hero banner with:
 ### 4. Contact Page
 
 **Fields Available:**
-- Form Title & Description
-- Contact Form 7 Shortcode
+- **Contact Form Tab:**
+  - Form Title & Description
+  - Contact Form 7 Shortcode
+- **Quote Form Tab:**
+  - Quote Form Title & Description
+  - Quote Form 7 Shortcode
 - Contact Info Title
 - Certifications Title & Badges (repeater)
 - Map Section Title

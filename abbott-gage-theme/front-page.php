@@ -32,7 +32,8 @@ get_header();
     ?>
     <section class="about-section section">
         <div class="container">
-            <div class="about-grid">
+            <div class="row g-4 align-items-center">
+                <div class="col-12 col-lg-6">
                 <div class="about-content">
                     <h2><?php echo esc_html( $home_about_title ); ?></h2>
                     <p class="lead">
@@ -101,6 +102,8 @@ get_header();
                         </a>
                     <?php endif; ?>
                 </div>
+                </div>
+                <div class="col-12 col-lg-6">
                 <div class="about-image">
                     <?php if ( $home_about_image ) : ?>
                         <img src="<?php echo esc_url( $home_about_image['url'] ); ?>" 
@@ -111,6 +114,7 @@ get_header();
                              alt="<?php esc_attr_e( 'Precision Measuring Equipment', 'abbott-gage' ); ?>"
                              loading="lazy">
                     <?php endif; ?>
+                </div>
                 </div>
             </div>
         </div>
@@ -137,10 +141,11 @@ $why_reasons = get_field('why_reasons');
                     <?php echo esc_html( $why_description ); ?>
                 </p>
             </div>
-            <div class="reasons-grid">
+            <div class="row g-4">
                 <?php if ( $why_reasons ) : ?>
                     <?php foreach ( $why_reasons as $reason ) : ?>
-                        <div class="reason-card">
+                        <div class="col-12 col-md-6 col-lg-4">
+                        <div class="reason-card h-100">
                             <div class="reason-icon">
                                 <i class="<?php echo esc_attr( $reason['icon'] ); ?>"></i>
                             </div>
@@ -149,50 +154,63 @@ $why_reasons = get_field('why_reasons');
                                 <p><?php echo esc_html( $reason['description'] ); ?></p>
                             <?php endif; ?>
                         </div>
+                        </div>
                     <?php endforeach; ?>
                 <?php else : ?>
                     <!-- Default reasons if none are set -->
-                    <div class="reason-card">
+                    <div class="col-12 col-md-6 col-lg-4">
+                    <div class="reason-card h-100">
                         <div class="reason-icon">
                             <i class="fas fa-history"></i>
                         </div>
                         <h3><?php esc_html_e( '30+ Years Experience', 'abbott-gage' ); ?></h3>
                         <p><?php esc_html_e( 'Decades of expertise in precision measuring tools and calibration services.', 'abbott-gage' ); ?></p>
                     </div>
-                    <div class="reason-card">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                    <div class="reason-card h-100">
                         <div class="reason-icon">
                             <i class="fas fa-microscope"></i>
                         </div>
                         <h3><?php esc_html_e( 'State-of-the-Art Lab', 'abbott-gage' ); ?></h3>
                         <p><?php esc_html_e( 'Advanced equipment ensuring the highest accuracy and precision.', 'abbott-gage' ); ?></p>
                     </div>
-                    <div class="reason-card">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                    <div class="reason-card h-100">
                         <div class="reason-icon">
                             <i class="fas fa-user-friends"></i>
                         </div>
                         <h3><?php esc_html_e( 'Expert Team', 'abbott-gage' ); ?></h3>
                         <p><?php esc_html_e( 'Knowledgeable, experienced technicians dedicated to your needs.', 'abbott-gage' ); ?></p>
                     </div>
-                    <div class="reason-card">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                    <div class="reason-card h-100">
                         <div class="reason-icon">
                             <i class="fas fa-shipping-fast"></i>
                         </div>
                         <h3><?php esc_html_e( 'Fast Turnaround', 'abbott-gage' ); ?></h3>
                         <p><?php esc_html_e( 'Quick and efficient service to minimize your downtime.', 'abbott-gage' ); ?></p>
                     </div>
-                    <div class="reason-card">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                    <div class="reason-card h-100">
                         <div class="reason-icon">
                             <i class="fas fa-check-circle"></i>
                         </div>
                         <h3><?php esc_html_e( 'Quality Assurance', 'abbott-gage' ); ?></h3>
                         <p><?php esc_html_e( 'NIST traceable standards and ISO 9001:2015 certification.', 'abbott-gage' ); ?></p>
                     </div>
-                    <div class="reason-card">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                    <div class="reason-card h-100">
                         <div class="reason-icon">
                             <i class="fas fa-handshake"></i>
                         </div>
                         <h3><?php esc_html_e( 'Customer Service', 'abbott-gage' ); ?></h3>
                         <p><?php esc_html_e( 'Personalized attention and professional support for every client.', 'abbott-gage' ); ?></p>
+                    </div>
                     </div>
                 <?php endif; ?>
             </div>

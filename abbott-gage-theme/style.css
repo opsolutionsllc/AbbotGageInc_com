@@ -21,11 +21,11 @@ Abbott Gage Inc Theme is distributed under the terms of the GNU GPL
    CSS Custom Properties (Variables)
    =================================== */
 :root {
-  /* Brand Colors - Professional Blue & Gray Palette */
-  --color-primary: #2563EB;        /* Modernized Professional Blue */
-  --color-primary-dark: #1D4ED8;   /* Darker Blue for hover states */
-  --color-primary-light: #3B82F6;  /* Lighter Blue for accents */
-  --color-secondary: #0284C7;      /* Vibrant Cyan Blue for CTAs */
+  /* Brand Colors - Industrial Navy & Copper Palette */
+  --color-primary: #1E3A5F;        /* Deep Navy - Professional & Trustworthy */
+  --color-primary-dark: #152944;   /* Darker Navy for hover states */
+  --color-primary-light: #2B4F7C;  /* Lighter Navy for accents */
+  --color-secondary: #C87533;      /* Copper - Industrial & Premium */
   --color-accent: #10B981;         /* Green for success/quality indicators */
   --color-warning: #F59E0B;        /* Amber for warnings/highlights */
   
@@ -162,10 +162,11 @@ strong, b {
 }
 
 .container {
-  max-width: var(--container-max-width);
-  margin: 0 auto;
-  padding-left: var(--container-padding);
-  padding-right: var(--container-padding);
+  max-width: var(--container-max-width) !important;
+  margin: 0 auto !important;
+  padding-left: var(--container-padding) !important;
+  padding-right: var(--container-padding) !important;
+  width: 100% !important;
 }
 
 .container-fluid {

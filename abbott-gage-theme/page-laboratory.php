@@ -40,28 +40,32 @@ get_header();
                     <!-- What We Calibrate -->
                     <div class="calibration-equipment-section">
                         <h3><?php esc_html_e( 'What We Calibrate', 'abbott-gage' ); ?></h3>
-                        <div class="equipment-list-grid">
-                            <div class="equipment-category">
-                                <h4><?php esc_html_e( 'Dimensional Equipment', 'abbott-gage' ); ?></h4>
-                                <ul>
-                                    <li><?php esc_html_e( 'Micrometers & Calipers', 'abbott-gage' ); ?></li>
-                                    <li><?php esc_html_e( 'Height Gages & Depth Gages', 'abbott-gage' ); ?></li>
-                                    <li><?php esc_html_e( 'Indicators & Comparators', 'abbott-gage' ); ?></li>
-                                    <li><?php esc_html_e( 'Surface Plates & Gage Blocks', 'abbott-gage' ); ?></li>
-                                    <li><?php esc_html_e( 'Pin Gages & Ring Gages', 'abbott-gage' ); ?></li>
-                                    <li><?php esc_html_e( 'Angle Plates & V-Blocks', 'abbott-gage' ); ?></li>
-                                </ul>
+                        <div class="row g-4">
+                            <div class="col-12 col-md-6">
+                                <div class="equipment-category h-100">
+                                    <h4><?php esc_html_e( 'Dimensional Equipment', 'abbott-gage' ); ?></h4>
+                                    <ul>
+                                        <li><?php esc_html_e( 'Micrometers & Calipers', 'abbott-gage' ); ?></li>
+                                        <li><?php esc_html_e( 'Height Gages & Depth Gages', 'abbott-gage' ); ?></li>
+                                        <li><?php esc_html_e( 'Indicators & Comparators', 'abbott-gage' ); ?></li>
+                                        <li><?php esc_html_e( 'Surface Plates & Gage Blocks', 'abbott-gage' ); ?></li>
+                                        <li><?php esc_html_e( 'Pin Gages & Ring Gages', 'abbott-gage' ); ?></li>
+                                        <li><?php esc_html_e( 'Angle Plates & V-Blocks', 'abbott-gage' ); ?></li>
+                                    </ul>
+                                </div>
                             </div>
                             
-                            <div class="equipment-category">
-                                <h4><?php esc_html_e( 'Electronic Equipment', 'abbott-gage' ); ?></h4>
-                                <ul>
-                                    <li><?php esc_html_e( 'Multimeters & Voltmeters', 'abbott-gage' ); ?></li>
-                                    <li><?php esc_html_e( 'Oscilloscopes', 'abbott-gage' ); ?></li>
-                                    <li><?php esc_html_e( 'Thermometers & Thermocouples', 'abbott-gage' ); ?></li>
-                                    <li><?php esc_html_e( 'Balances & Scales', 'abbott-gage' ); ?></li>
-                                    <li><?php esc_html_e( 'Tachometers', 'abbott-gage' ); ?></li>
-                                </ul>
+                            <div class="col-12 col-md-6">
+                                <div class="equipment-category h-100">
+                                    <h4><?php esc_html_e( 'Electronic Equipment', 'abbott-gage' ); ?></h4>
+                                    <ul>
+                                        <li><?php esc_html_e( 'Multimeters & Voltmeters', 'abbott-gage' ); ?></li>
+                                        <li><?php esc_html_e( 'Oscilloscopes', 'abbott-gage' ); ?></li>
+                                        <li><?php esc_html_e( 'Thermometers & Thermocouples', 'abbott-gage' ); ?></li>
+                                        <li><?php esc_html_e( 'Balances & Scales', 'abbott-gage' ); ?></li>
+                                        <li><?php esc_html_e( 'Tachometers', 'abbott-gage' ); ?></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -69,33 +73,44 @@ get_header();
                     <!-- Benefits -->
                     <div class="benefits-section">
                         <h3><?php esc_html_e( 'Laboratory Calibration Benefits', 'abbott-gage' ); ?></h3>
-                        <div class="benefits-grid">
-                            <div class="benefit-item">
-                                <i class="fas fa-certificate"></i>
-                                <div>
-                                    <h4><?php esc_html_e( 'Full Certification', 'abbott-gage' ); ?></h4>
-                                    <p><?php esc_html_e( 'Complete documentation with NIST traceability', 'abbott-gage' ); ?></p>
+                        <div class="row g-4">
+                            <div class="col-12 col-md-6">
+                                <div class="benefit-item h-100">
+                                    <i class="fas fa-certificate"></i>
+                                    <div>
+                                        <h4><?php esc_html_e( 'Full Certification', 'abbott-gage' ); ?></h4>
+                                        <p><?php esc_html_e( 'Complete documentation with NIST traceability', 'abbott-gage' ); ?></p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="benefit-item">
-                                <i class="fas fa-microscope"></i>
-                                <div>
-                                    <h4><?php esc_html_e( 'Controlled Environment', 'abbott-gage' ); ?></h4>
-                                    <p><?php esc_html_e( 'Temperature and humidity controlled lab', 'abbott-gage' ); ?></p>
+                            
+                            <div class="col-12 col-md-6">
+                                <div class="benefit-item h-100">
+                                    <i class="fas fa-microscope"></i>
+                                    <div>
+                                        <h4><?php esc_html_e( 'Controlled Environment', 'abbott-gage' ); ?></h4>
+                                        <p><?php esc_html_e( 'Temperature and humidity controlled lab', 'abbott-gage' ); ?></p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="benefit-item">
-                                <i class="fas fa-clock"></i>
-                                <div>
-                                    <h4><?php esc_html_e( 'Quick Turnaround', 'abbott-gage' ); ?></h4>
-                                    <p><?php esc_html_e( 'Fast processing to minimize downtime', 'abbott-gage' ); ?></p>
+                            
+                            <div class="col-12 col-md-6">
+                                <div class="benefit-item h-100">
+                                    <i class="fas fa-clock"></i>
+                                    <div>
+                                        <h4><?php esc_html_e( 'Quick Turnaround', 'abbott-gage' ); ?></h4>
+                                        <p><?php esc_html_e( 'Fast processing to minimize downtime', 'abbott-gage' ); ?></p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="benefit-item">
-                                <i class="fas fa-tools"></i>
-                                <div>
-                                    <h4><?php esc_html_e( 'State-of-the-Art Facility', 'abbott-gage' ); ?></h4>
-                                    <p><?php esc_html_e( 'Modern equipment and proven procedures', 'abbott-gage' ); ?></p>
+                            
+                            <div class="col-12 col-md-6">
+                                <div class="benefit-item h-100">
+                                    <i class="fas fa-tools"></i>
+                                    <div>
+                                        <h4><?php esc_html_e( 'State-of-the-Art Facility', 'abbott-gage' ); ?></h4>
+                                        <p><?php esc_html_e( 'Modern equipment and proven procedures', 'abbott-gage' ); ?></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -106,7 +121,7 @@ get_header();
                     <div class="info-box">
                         <h3><?php esc_html_e( 'Send Your Equipment', 'abbott-gage' ); ?></h3>
                         <p><?php esc_html_e( 'Ready to get your equipment calibrated?', 'abbott-gage' ); ?></p>
-                        <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn-primary btn-block">
+                        <a href="<?php echo esc_url( home_url( '/contact#quote' ) ); ?>" class="btn btn-primary btn-block">
                             <?php esc_html_e( 'Request Service', 'abbott-gage' ); ?>
                         </a>
                     </div>

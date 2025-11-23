@@ -40,33 +40,44 @@ get_header();
                     <!-- Benefits Section -->
                     <div class="benefits-section">
                         <h3><?php esc_html_e( 'On-Site Advantages', 'abbott-gage' ); ?></h3>
-                        <div class="benefits-grid">
-                            <div class="benefit-item">
-                                <i class="fas fa-shipping-fast"></i>
-                                <div>
-                                    <h4><?php esc_html_e( 'Reduced Downtime', 'abbott-gage' ); ?></h4>
-                                    <p><?php esc_html_e( 'Equipment stays at your facility, eliminating shipping time and keeping your operations running.', 'abbott-gage' ); ?></p>
+                        <div class="row g-4">
+                            <div class="col-12 col-md-6">
+                                <div class="benefit-item h-100">
+                                    <i class="fas fa-shipping-fast"></i>
+                                    <div>
+                                        <h4><?php esc_html_e( 'Reduced Downtime', 'abbott-gage' ); ?></h4>
+                                        <p><?php esc_html_e( 'Equipment stays at your facility, eliminating shipping time and keeping your operations running.', 'abbott-gage' ); ?></p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="benefit-item">
-                                <i class="fas fa-dollar-sign"></i>
-                                <div>
-                                    <h4><?php esc_html_e( 'Cost-Effective', 'abbott-gage' ); ?></h4>
-                                    <p><?php esc_html_e( 'No packaging or shipping costs. We come to you with everything needed for calibration.', 'abbott-gage' ); ?></p>
+                            
+                            <div class="col-12 col-md-6">
+                                <div class="benefit-item h-100">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <div>
+                                        <h4><?php esc_html_e( 'Cost-Effective', 'abbott-gage' ); ?></h4>
+                                        <p><?php esc_html_e( 'No packaging or shipping costs. We come to you with everything needed for calibration.', 'abbott-gage' ); ?></p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="benefit-item">
-                                <i class="fas fa-user-tie"></i>
-                                <div>
-                                    <h4><?php esc_html_e( 'Expert Technicians', 'abbott-gage' ); ?></h4>
-                                    <p><?php esc_html_e( 'Certified professionals with decades of experience in precision measurement.', 'abbott-gage' ); ?></p>
+                            
+                            <div class="col-12 col-md-6">
+                                <div class="benefit-item h-100">
+                                    <i class="fas fa-user-tie"></i>
+                                    <div>
+                                        <h4><?php esc_html_e( 'Expert Technicians', 'abbott-gage' ); ?></h4>
+                                        <p><?php esc_html_e( 'Certified professionals with decades of experience in precision measurement.', 'abbott-gage' ); ?></p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="benefit-item">
-                                <i class="fas fa-file-alt"></i>
-                                <div>
-                                    <h4><?php esc_html_e( 'Complete Documentation', 'abbott-gage' ); ?></h4>
-                                    <p><?php esc_html_e( 'Full certification with NIST traceable standards provided on-site.', 'abbott-gage' ); ?></p>
+                            
+                            <div class="col-12 col-md-6">
+                                <div class="benefit-item h-100">
+                                    <i class="fas fa-file-alt"></i>
+                                    <div>
+                                        <h4><?php esc_html_e( 'Complete Documentation', 'abbott-gage' ); ?></h4>
+                                        <p><?php esc_html_e( 'Full certification with NIST traceable standards provided on-site.', 'abbott-gage' ); ?></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -104,7 +115,7 @@ get_header();
                     <div class="info-box">
                         <h3><?php esc_html_e( 'Schedule Service', 'abbott-gage' ); ?></h3>
                         <p><?php esc_html_e( 'Contact us to schedule a convenient time for our technicians to visit your facility.', 'abbott-gage' ); ?></p>
-                        <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn-primary btn-block">
+                        <a href="<?php echo esc_url( home_url( '/contact#quote' ) ); ?>" class="btn btn-primary btn-block">
                             <?php esc_html_e( 'Request Service', 'abbott-gage' ); ?>
                         </a>
                     </div>

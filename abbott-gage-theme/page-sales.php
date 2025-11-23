@@ -43,8 +43,9 @@ get_header();
                 </p>
             </div>
             
-            <div class="product-categories-grid">
-                <div class="product-category-card">
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-lg-3">
+                <div class="product-category-card h-100">
                     <div class="category-icon">
                         <i class="fas fa-ruler-combined"></i>
                     </div>
@@ -56,8 +57,10 @@ get_header();
                         <li><?php esc_html_e( 'Digital & Mechanical', 'abbott-gage' ); ?></li>
                     </ul>
                 </div>
+                </div>
                 
-                <div class="product-category-card">
+                <div class="col-12 col-md-6 col-lg-3">
+                <div class="product-category-card h-100">
                     <div class="category-icon">
                         <i class="fas fa-ruler"></i>
                     </div>
@@ -69,8 +72,10 @@ get_header();
                         <li><?php esc_html_e( 'Specialty Calipers', 'abbott-gage' ); ?></li>
                     </ul>
                 </div>
+                </div>
                 
-                <div class="product-category-card">
+                <div class="col-12 col-md-6 col-lg-3">
+                <div class="product-category-card h-100">
                     <div class="category-icon">
                         <i class="fas fa-arrows-alt-v"></i>
                     </div>
@@ -82,8 +87,10 @@ get_header();
                         <li><?php esc_html_e( 'Accessories', 'abbott-gage' ); ?></li>
                     </ul>
                 </div>
+                </div>
                 
-                <div class="product-category-card">
+                <div class="col-12 col-md-6 col-lg-3">
+                <div class="product-category-card h-100">
                     <div class="category-icon">
                         <i class="fas fa-circle-notch"></i>
                     </div>
@@ -95,8 +102,10 @@ get_header();
                         <li><?php esc_html_e( 'Indicator Stands', 'abbott-gage' ); ?></li>
                     </ul>
                 </div>
+                </div>
                 
-                <div class="product-category-card">
+                <div class="col-12 col-md-6 col-lg-3">
+                <div class="product-category-card h-100">
                     <div class="category-icon">
                         <i class="fas fa-cubes"></i>
                     </div>
@@ -108,8 +117,10 @@ get_header();
                         <li><?php esc_html_e( 'V-Blocks', 'abbott-gage' ); ?></li>
                     </ul>
                 </div>
+                </div>
                 
-                <div class="product-category-card">
+                <div class="col-12 col-md-6 col-lg-3">
+                <div class="product-category-card h-100">
                     <div class="category-icon">
                         <i class="fas fa-cog"></i>
                     </div>
@@ -121,8 +132,10 @@ get_header();
                         <li><?php esc_html_e( 'Calibration Equipment', 'abbott-gage' ); ?></li>
                     </ul>
                 </div>
+                </div>
                 
-                <div class="product-category-card">
+                <div class="col-12 col-md-6 col-lg-3">
+                <div class="product-category-card h-100">
                     <div class="category-icon">
                         <i class="fas fa-tachometer-alt"></i>
                     </div>
@@ -134,8 +147,10 @@ get_header();
                         <li><?php esc_html_e( 'Dead Weight Testers', 'abbott-gage' ); ?></li>
                     </ul>
                 </div>
+                </div>
                 
-                <div class="product-category-card">
+                <div class="col-12 col-md-6 col-lg-3">
+                <div class="product-category-card h-100">
                     <div class="category-icon">
                         <i class="fas fa-bolt"></i>
                     </div>
@@ -147,8 +162,10 @@ get_header();
                         <li><?php esc_html_e( 'Test Equipment', 'abbott-gage' ); ?></li>
                     </ul>
                 </div>
+                </div>
                 
-                <div class="product-category-card">
+                <div class="col-12 col-md-6 col-lg-3">
+                <div class="product-category-card h-100">
                     <div class="category-icon">
                         <i class="fas fa-grip-vertical"></i>
                     </div>
@@ -170,53 +187,65 @@ get_header();
             <div class="section-header text-center">
                 <h2><?php esc_html_e( 'Why Buy From Abbott Gage?', 'abbott-gage' ); ?></h2>
             </div>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-certificate"></i>
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="benefit-card h-100">
+                        <div class="benefit-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3><?php esc_html_e( 'Authorized Distributor', 'abbott-gage' ); ?></h3>
+                        <p><?php esc_html_e( 'Official distributor for all major precision tool brands', 'abbott-gage' ); ?></p>
                     </div>
-                    <h3><?php esc_html_e( 'Authorized Distributor', 'abbott-gage' ); ?></h3>
-                    <p><?php esc_html_e( 'Official distributor for all major precision tool brands', 'abbott-gage' ); ?></p>
                 </div>
                 
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-dollar-sign"></i>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="benefit-card h-100">
+                        <div class="benefit-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <h3><?php esc_html_e( 'Competitive Pricing', 'abbott-gage' ); ?></h3>
+                        <p><?php esc_html_e( 'Best prices on quality precision measuring equipment', 'abbott-gage' ); ?></p>
                     </div>
-                    <h3><?php esc_html_e( 'Competitive Pricing', 'abbott-gage' ); ?></h3>
-                    <p><?php esc_html_e( 'Best prices on quality precision measuring equipment', 'abbott-gage' ); ?></p>
                 </div>
                 
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-user-tie"></i>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="benefit-card h-100">
+                        <div class="benefit-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3><?php esc_html_e( 'Expert Guidance', 'abbott-gage' ); ?></h3>
+                        <p><?php esc_html_e( 'Professional advice to select the right tools for your needs', 'abbott-gage' ); ?></p>
                     </div>
-                    <h3><?php esc_html_e( 'Expert Guidance', 'abbott-gage' ); ?></h3>
-                    <p><?php esc_html_e( 'Professional advice to select the right tools for your needs', 'abbott-gage' ); ?></p>
                 </div>
                 
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-shipping-fast"></i>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="benefit-card h-100">
+                        <div class="benefit-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h3><?php esc_html_e( 'Fast Delivery', 'abbott-gage' ); ?></h3>
+                        <p><?php esc_html_e( 'Quick shipping or local pickup options available', 'abbott-gage' ); ?></p>
                     </div>
-                    <h3><?php esc_html_e( 'Fast Delivery', 'abbott-gage' ); ?></h3>
-                    <p><?php esc_html_e( 'Quick shipping or local pickup options available', 'abbott-gage' ); ?></p>
                 </div>
                 
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-tools"></i>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="benefit-card h-100">
+                        <div class="benefit-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3><?php esc_html_e( 'Service & Support', 'abbott-gage' ); ?></h3>
+                        <p><?php esc_html_e( 'Calibration and repair services for equipment purchased', 'abbott-gage' ); ?></p>
                     </div>
-                    <h3><?php esc_html_e( 'Service & Support', 'abbott-gage' ); ?></h3>
-                    <p><?php esc_html_e( 'Calibration and repair services for equipment purchased', 'abbott-gage' ); ?></p>
                 </div>
                 
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-file-invoice-dollar"></i>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="benefit-card h-100">
+                        <div class="benefit-icon">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <h3><?php esc_html_e( 'Flexible Payment', 'abbott-gage' ); ?></h3>
+                        <p><?php esc_html_e( 'Multiple payment options and NET 30 terms available', 'abbott-gage' ); ?></p>
                     </div>
-                    <h3><?php esc_html_e( 'Flexible Payment', 'abbott-gage' ); ?></h3>
-                    <p><?php esc_html_e( 'Multiple payment options and NET 30 terms available', 'abbott-gage' ); ?></p>
                 </div>
             </div>
         </div>

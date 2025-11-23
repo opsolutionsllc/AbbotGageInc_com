@@ -15,23 +15,29 @@
         <?php if ( is_active_sidebar( 'footer-1' ) || is_active_sidebar( 'footer-2' ) || is_active_sidebar( 'footer-3' ) ) : ?>
             <div class="footer-widgets">
                 <div class="container">
-                    <div class="footer-widgets-inner">
+                    <div class="row g-4">
                         
                         <?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
+                            <div class="col-12 col-md-4">
                             <div class="footer-widget-area footer-widget-1">
                                 <?php dynamic_sidebar( 'footer-1' ); ?>
+                            </div>
                             </div>
                         <?php endif; ?>
                         
                         <?php if ( is_active_sidebar( 'footer-2' ) ) : ?>
+                            <div class="col-12 col-md-4">
                             <div class="footer-widget-area footer-widget-2">
                                 <?php dynamic_sidebar( 'footer-2' ); ?>
+                            </div>
                             </div>
                         <?php endif; ?>
                         
                         <?php if ( is_active_sidebar( 'footer-3' ) ) : ?>
+                            <div class="col-12 col-md-4">
                             <div class="footer-widget-area footer-widget-3">
                                 <?php dynamic_sidebar( 'footer-3' ); ?>
+                            </div>
                             </div>
                         <?php endif; ?>
                         
@@ -43,9 +49,10 @@
         <!-- Footer Main -->
         <div class="footer-main">
             <div class="container">
-                <div class="footer-main-inner">
+                <div class="row g-4">
                     
                     <!-- Company Info -->
+                    <div class="col-12 col-md-6 col-lg-3">
                     <div class="footer-company">
                         <h3 class="footer-title"><?php bloginfo( 'name' ); ?></h3>
                         <p class="footer-description">
@@ -57,8 +64,10 @@
                             <span class="footer-cert-badge">WOSB Certified</span>
                         </div>
                     </div>
+                    </div>
 
                     <!-- Quick Links -->
+                    <div class="col-12 col-md-6 col-lg-3">
                     <div class="footer-links">
                         <h3 class="footer-title"><?php esc_html_e( 'Quick Links', 'abbott-gage' ); ?></h3>
                         <?php
@@ -74,8 +83,10 @@
                         );
                         ?>
                     </div>
+                    </div>
 
                     <!-- Services -->
+                    <div class="col-12 col-md-6 col-lg-3">
                     <div class="footer-services">
                         <h3 class="footer-title"><?php esc_html_e( 'Our Services', 'abbott-gage' ); ?></h3>
                         <ul class="footer-service-list">
@@ -93,8 +104,10 @@
                             </a></li>
                         </ul>
                     </div>
+                    </div>
 
                     <!-- Contact Info -->
+                    <div class="col-12 col-md-6 col-lg-3">
                     <div class="footer-contact">
                         <h3 class="footer-title"><?php esc_html_e( 'Contact Us', 'abbott-gage' ); ?></h3>
                         <ul class="footer-contact-list">
@@ -128,6 +141,7 @@
                             </div>
                             <p class="payment-terms"><?php esc_html_e( 'NET 30 terms available', 'abbott-gage' ); ?></p>
                         </div>
+                    </div>
                     </div>
 
                 </div>

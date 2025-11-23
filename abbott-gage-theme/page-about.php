@@ -31,11 +31,9 @@ get_header();
         <header class="page-header-section">
             <div class="container">
                 <h1 class="page-title"><?php the_title(); ?></h1>
-                <?php if ( has_excerpt() ) : ?>
-                    <p class="page-description">
-                        <?php the_excerpt(); ?>
-                    </p>
-                <?php endif; ?>
+                <p class="page-description">
+                <?php esc_html_e( 'Learn more about Abbott Gage, Inc. and our commitment to precision and quality', 'abbott-gage' ); ?>
+            </p>
             </div>
         </header>
         

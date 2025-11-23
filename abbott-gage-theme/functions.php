@@ -148,15 +148,23 @@ function abbott_gage_scripts() {
         null 
     );
 
-    // Main stylesheet
-    wp_enqueue_style( 'abbott-gage-style', get_stylesheet_uri(), array(), '1.0.0' );
+    // Bootstrap CSS - Load first so custom styles can override
+    wp_enqueue_style( 
+        'bootstrap', 
+        'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css', 
+        array(), 
+        '5.3.2' 
+    );
 
-    // Additional theme styles
+    // Main stylesheet
+    wp_enqueue_style( 'abbott-gage-style', get_stylesheet_uri(), array( 'bootstrap' ), '1.0.1' );
+
+    // Additional theme styles - depends on Bootstrap so custom styles override
     wp_enqueue_style( 
         'abbott-gage-main', 
         get_template_directory_uri() . '/assets/css/main.css', 
-        array( 'abbott-gage-style' ), 
-        '1.0.0' 
+        array( 'abbott-gage-style', 'bootstrap' ), 
+        '1.0.1' 
     );
 
     // Contact Form 7 custom styles
@@ -164,7 +172,7 @@ function abbott_gage_scripts() {
         'abbott-gage-cf7', 
         get_template_directory_uri() . '/assets/css/contact-form-7.css', 
         array( 'abbott-gage-main' ), 
-        '1.0.0' 
+        '1.0.1' 
     );
 
     // Font Awesome
@@ -175,12 +183,21 @@ function abbott_gage_scripts() {
         '6.4.0' 
     );
 
+    // Bootstrap Bundle JS (includes Popper.js) - for interactive components
+    wp_enqueue_script( 
+        'bootstrap-bundle', 
+        'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js', 
+        array(), 
+        '5.3.2', 
+        true 
+    );
+
     // Main JavaScript
     wp_enqueue_script( 
         'abbott-gage-script', 
         get_template_directory_uri() . '/assets/js/main.js', 
         array( 'jquery' ), 
-        '1.0.0', 
+        '1.0.1', 
         true 
     );
 
@@ -189,7 +206,7 @@ function abbott_gage_scripts() {
         'abbott-gage-navigation', 
         get_template_directory_uri() . '/assets/js/navigation.js', 
         array(), 
-        '1.0.0', 
+        '1.0.1', 
         true 
     );
 

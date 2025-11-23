@@ -39,24 +39,30 @@ get_header();
                         <p class="lead">
                             <?php esc_html_e( 'Abbott Gage, Inc. is proud to be a Factory Authorized Repair Center for major precision measuring tool manufacturers.', 'abbott-gage' ); ?>
                         </p>
-                        <div class="authorized-brands-grid">
-                            <div class="brand-card">
+                        <div class="row g-4 mb-4">
+                            <div class="col-12 col-md-4">
+                            <div class="brand-card h-100">
                                 <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/mit.gif' ); ?>" 
                                      alt="Mitutoyo" loading="lazy">
                                 <h4><?php esc_html_e( 'Mitutoyo', 'abbott-gage' ); ?></h4>
                                 <p><?php esc_html_e( 'Complete line of precision measuring tools', 'abbott-gage' ); ?></p>
                             </div>
-                            <div class="brand-card">
+                            </div>
+                            <div class="col-12 col-md-4">
+                            <div class="brand-card h-100">
                                 <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/fowler.gif' ); ?>" 
                                      alt="Fowler" loading="lazy">
                                 <h4><?php esc_html_e( 'Fowler', 'abbott-gage' ); ?></h4>
                                 <p><?php esc_html_e( 'High precision measuring instruments', 'abbott-gage' ); ?></p>
                             </div>
-                            <div class="brand-card">
+                            </div>
+                            <div class="col-12 col-md-4">
+                            <div class="brand-card h-100">
                                 <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/brownsharpe.gif' ); ?>" 
                                      alt="Brown & Sharpe" loading="lazy">
                                 <h4><?php esc_html_e( 'Brown & Sharpe', 'abbott-gage' ); ?></h4>
                                 <p><?php esc_html_e( 'Micro-Hites and Tesa-Hites', 'abbott-gage' ); ?></p>
+                            </div>
                             </div>
                         </div>
                         <p>
@@ -149,7 +155,7 @@ get_header();
                     <div class="info-box">
                         <h3><?php esc_html_e( 'Request Repair Service', 'abbott-gage' ); ?></h3>
                         <p><?php esc_html_e( 'Need equipment repaired? Contact us for a quote.', 'abbott-gage' ); ?></p>
-                        <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn-primary btn-block">
+                        <a href="<?php echo esc_url( home_url( '/contact#quote' ) ); ?>" class="btn btn-primary btn-block">
                             <?php esc_html_e( 'Get a Quote', 'abbott-gage' ); ?>
                         </a>
                     </div>

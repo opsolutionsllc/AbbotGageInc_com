@@ -70,7 +70,7 @@ $hero_buttons = get_field('hero_buttons');
             <?php else : ?>
                 <!-- Default buttons if none are set -->
                 <div class="hero-cta">
-                    <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn-secondary btn-lg">
+                    <a href="<?php echo esc_url( home_url( '/contact#quote' ) ); ?>" class="btn btn-secondary btn-lg">
                         <i class="fas fa-paper-plane"></i>
                         <?php esc_html_e( 'Request a Quote', 'abbott-gage' ); ?>
                     </a>

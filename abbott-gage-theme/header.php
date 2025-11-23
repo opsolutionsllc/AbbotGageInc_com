@@ -96,15 +96,15 @@
                                 </button>
                             </div>
 
+                        <div class="menu-primary-container">
                             <?php
-                            // Main menu - shared between desktop and mobile
+                            // Main menu
                             wp_nav_menu(
                                 array(
                                     'theme_location' => 'primary',
                                     'menu_id'        => 'primary-menu',
                                     'menu_class'     => 'primary-menu',
-                                    'container'      => 'div',
-                                    'container_class' => 'menu-primary-container',
+                                    'container'      => false,
                                     'fallback_cb'    => false,
                                 )
                             );
@@ -136,9 +136,10 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="mobile-menu-cta">
-                                <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn-primary">
+                        <div class="mobile-menu-cta">
+                                <a href="<?php echo esc_url( home_url( '/contact#quote' ) ); ?>" class="btn btn-primary">
                                     <i class="fas fa-clipboard-list"></i>
                                     <?php esc_html_e( 'Get a Quote', 'abbott-gage' ); ?>
                                 </a>
@@ -147,7 +148,7 @@
 
                         <!-- Desktop CTA -->
                         <div class="header-cta-desktop">
-                            <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn-primary btn-cta-main">
+                            <a href="<?php echo esc_url( home_url( '/contact#quote' ) ); ?>" class="btn btn-primary btn-cta-main">
                                 <span class="btn-text"><?php esc_html_e( 'Get a Quote', 'abbott-gage' ); ?></span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>

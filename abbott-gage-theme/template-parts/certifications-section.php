@@ -21,10 +21,11 @@ $certifications_items = get_field('certifications_items');
             </p>
         </div>
         
-        <div class="certifications-grid">
+        <div class="row g-4 justify-content-center">
             <?php if ( $certifications_items ) : ?>
                 <?php foreach ( $certifications_items as $cert ) : ?>
-                    <div class="certification-card">
+                    <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="certification-card h-100">
                         <div class="certification-image">
                             <?php if ( ! empty( $cert['image'] ) ) : ?>
                                 <img src="<?php echo esc_url( $cert['image']['url'] ); ?>" 
@@ -51,10 +52,12 @@ $certifications_items = get_field('certifications_items');
                             <?php endif; ?>
                         </div>
                     </div>
+                    </div>
                 <?php endforeach; ?>
             <?php else : ?>
                 <!-- Default certifications if none are set in ACF -->
-                <div class="certification-card">
+                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="certification-card h-100">
                     <div class="certification-image">
                         <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/PRI_Certification.png' ); ?>" 
                              alt="<?php esc_attr_e( 'ISO 9001:2015 Certification', 'abbott-gage' ); ?>"
@@ -71,8 +74,10 @@ $certifications_items = get_field('certifications_items');
                         </a>
                     </div>
                 </div>
+                </div>
                 
-                <div class="certification-card">
+                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="certification-card h-100">
                     <div class="certification-image">
                         <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/equipment/womens_business_enterprise.gif' ); ?>" 
                              alt="<?php esc_attr_e( 'WBENC Certification', 'abbott-gage' ); ?>"
@@ -89,8 +94,10 @@ $certifications_items = get_field('certifications_items');
                         </a>
                     </div>
                 </div>
+                </div>
                 
-                <div class="certification-card">
+                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="certification-card h-100">
                     <div class="certification-image">
                         <div class="cert-icon">
                             <i class="fas fa-certificate"></i>
@@ -107,8 +114,10 @@ $certifications_items = get_field('certifications_items');
                         </a>
                     </div>
                 </div>
+                </div>
                 
-                <div class="certification-card">
+                <div class="col-12 col-sm-6 col-lg-3">
+                <div class="certification-card h-100">
                     <div class="certification-image">
                         <div class="cert-icon">
                             <i class="fas fa-balance-scale"></i>
@@ -118,6 +127,7 @@ $certifications_items = get_field('certifications_items');
                         <h3><?php esc_html_e( 'NIST Traceable', 'abbott-gage' ); ?></h3>
                         <p><?php esc_html_e( 'All certifications are traceable to the National Institute of Standards and Technology.', 'abbott-gage' ); ?></p>
                     </div>
+                </div>
                 </div>
             <?php endif; ?>
         </div>

@@ -1092,6 +1092,13 @@ add_action('acf/include_fields', function() {
         'key' => 'group_contact_page',
         'title' => 'Contact Page Content',
         'fields' => array(
+            // Contact Form Tab
+            array(
+                'key' => 'field_contact_tab',
+                'label' => 'Contact Form',
+                'type' => 'tab',
+                'placement' => 'left',
+            ),
             array(
                 'key' => 'field_contact_form_title',
                 'label' => 'Form Title',
@@ -1112,11 +1119,47 @@ add_action('acf/include_fields', function() {
                 'label' => 'Contact Form 7 Shortcode',
                 'name' => 'contact_form_shortcode',
                 'type' => 'text',
-                'instructions' => 'Enter the Contact Form 7 shortcode',
+                'instructions' => 'Enter the Contact Form 7 shortcode for the contact form',
+            ),
+            // Quote Form Tab
+            array(
+                'key' => 'field_quote_tab',
+                'label' => 'Quote Form',
+                'type' => 'tab',
+                'placement' => 'left',
+            ),
+            array(
+                'key' => 'field_quote_form_title',
+                'label' => 'Form Title',
+                'name' => 'quote_form_title',
+                'type' => 'text',
+                'default_value' => 'Request a Quote',
+            ),
+            array(
+                'key' => 'field_quote_form_description',
+                'label' => 'Form Description',
+                'name' => 'quote_form_description',
+                'type' => 'textarea',
+                'rows' => 2,
+                'default_value' => 'Need calibration, repair, or sales services? Get a detailed quote tailored to your needs.',
+            ),
+            array(
+                'key' => 'field_quote_form_shortcode',
+                'label' => 'Quote Form 7 Shortcode',
+                'name' => 'quote_form_shortcode',
+                'type' => 'text',
+                'instructions' => 'Enter the Contact Form 7 shortcode for the quote form',
+            ),
+            // Contact Info Tab
+            array(
+                'key' => 'field_contact_info_tab',
+                'label' => 'Contact Information',
+                'type' => 'tab',
+                'placement' => 'left',
             ),
             array(
                 'key' => 'field_contact_info_title',
-                'label' => 'Contact Info Title',
+                'label' => 'Section Title',
                 'name' => 'contact_info_title',
                 'type' => 'text',
                 'default_value' => 'Contact Information',
@@ -1145,9 +1188,16 @@ add_action('acf/include_fields', function() {
                     ),
                 ),
             ),
+            // Map Section Tab
+            array(
+                'key' => 'field_contact_map_tab',
+                'label' => 'Map Section',
+                'type' => 'tab',
+                'placement' => 'left',
+            ),
             array(
                 'key' => 'field_contact_map_title',
-                'label' => 'Map Section Title',
+                'label' => 'Section Title',
                 'name' => 'contact_map_title',
                 'type' => 'text',
                 'default_value' => 'Our Location',
