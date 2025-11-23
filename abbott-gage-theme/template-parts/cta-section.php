@@ -6,14 +6,12 @@
  * @since 1.0.0
  */
 
-// Get ACF fields with fallbacks
-$cta_title = abbott_gage_get_option( 'cta_title', 'Ready to Get Started?' );
-$cta_description = abbott_gage_get_option( 'cta_description', 'Contact us today for a free quote on our calibration, repair, or sales services.' );
-$cta_btn_1_text = abbott_gage_get_option( 'cta_button_1_text', 'Contact Us' );
-$cta_btn_1_link = abbott_gage_get_option( 'cta_button_1_link', home_url( '/contact' ) );
-$cta_btn_2_text = abbott_gage_get_option( 'cta_button_2_text', 'Call 1-800-481-4243' );
-$cta_btn_2_phone = abbott_gage_get_option( 'cta_button_2_phone', '+18004814243' );
-$cta_hours = abbott_gage_get_option( 'cta_hours_text', 'Monday - Friday: 8:00 AM - 5:00 PM CST' );
+// Get ACF fields
+$cta_title = get_field('cta_title') ?: 'Ready to Get Started?';
+$cta_description = get_field('cta_description') ?: 'Contact us today for a free quote on our calibration, repair, or sales services.';
+$cta_buttons = get_field('cta_buttons');
+$cta_hours_show = get_field('cta_hours_show');
+$business_hours = get_field('business_hours', 'option');
 ?>
 
 <section class="cta-section section bg-primary">
@@ -23,26 +21,44 @@ $cta_hours = abbott_gage_get_option( 'cta_hours_text', 'Monday - Friday: 8:00 AM
             <p class="cta-description">
                 <?php echo esc_html( $cta_description ); ?>
             </p>
-            <div class="cta-buttons">
-                <?php if ( $cta_btn_1_text && $cta_btn_1_link ) : ?>
-                    <a href="<?php echo esc_url( $cta_btn_1_link ); ?>" class="btn btn-secondary btn-lg">
+            
+            <?php if ( $cta_buttons ) : ?>
+                <div class="cta-buttons">
+                    <?php foreach ( $cta_buttons as $button ) : ?>
+                        <a href="<?php echo esc_url( $button['url'] ); ?>" 
+                           class="btn <?php echo esc_attr( $button['style'] ?: 'btn-secondary' ); ?> btn-lg">
+                            <?php if ( ! empty( $button['icon'] ) ) : ?>
+                                <i class="<?php echo esc_attr( $button['icon'] ); ?>"></i>
+                            <?php endif; ?>
+                            <?php echo esc_html( $button['text'] ); ?>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
+            <?php else : ?>
+                <!-- Default buttons if none are set -->
+                <div class="cta-buttons">
+                    <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn-secondary btn-lg">
                         <i class="fas fa-phone-alt"></i>
-                        <?php echo esc_html( $cta_btn_1_text ); ?>
+                        <?php esc_html_e( 'Contact Us', 'abbott-gage' ); ?>
                     </a>
-                <?php endif; ?>
-                
-                <?php if ( $cta_btn_2_text && $cta_btn_2_phone ) : ?>
-                    <a href="tel:<?php echo esc_attr( $cta_btn_2_phone ); ?>" class="btn btn-outline btn-lg">
+                    <a href="tel:+18004814243" class="btn btn-outline-light btn-lg">
                         <i class="fas fa-phone"></i>
-                        <?php echo esc_html( $cta_btn_2_text ); ?>
+                        <?php esc_html_e( 'Call 1-800-481-4243', 'abbott-gage' ); ?>
                     </a>
-                <?php endif; ?>
-            </div>
-            <?php if ( $cta_hours ) : ?>
+                </div>
+            <?php endif; ?>
+            
+            <?php if ( $cta_hours_show !== false ) : ?>
                 <div class="cta-hours">
                     <p>
                         <i class="far fa-clock"></i>
-                        <?php echo esc_html( $cta_hours ); ?>
+                        <?php 
+                        if ( $business_hours ) {
+                            echo nl2br( esc_html( $business_hours ) );
+                        } else {
+                            esc_html_e( 'Monday - Friday: 8:00 AM - 5:00 PM CST', 'abbott-gage' );
+                        }
+                        ?>
                     </p>
                 </div>
             <?php endif; ?>

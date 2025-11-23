@@ -92,6 +92,7 @@ body {
   line-height: 1.6;
   color: var(--color-dark);
   background-color: var(--color-white);
+  position: relative;
 }
 
 img {
@@ -156,6 +157,10 @@ strong, b {
 /* ===================================
    Layout Components
    =================================== */
+#page {
+  position: relative;
+}
+
 .container {
   max-width: var(--container-max-width);
   margin: 0 auto;

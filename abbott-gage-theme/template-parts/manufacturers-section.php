@@ -6,29 +6,11 @@
  * @since 1.0.0
  */
 
-// Get ACF fields with fallbacks
-$manufacturers_title = abbott_gage_get_option( 'manufacturers_title', 'Authorized Distributor & Service Center' );
-$manufacturers_description = abbott_gage_get_option( 'manufacturers_description', 'Partnered with industry-leading manufacturers' );
-$show_logos = abbott_gage_get_option( 'show_manufacturer_logos', true );
-$cta_text = abbott_gage_get_option( 'manufacturers_cta_text', 'View All Manufacturer Partners' );
-$cta_link = abbott_gage_get_option( 'manufacturers_cta_link', home_url( '/manufacturers' ) );
-
-// List of manufacturer logos
-$manufacturers = array(
-    array( 'name' => 'Mitutoyo', 'file' => 'mit.gif', 'factory_authorized' => true ),
-    array( 'name' => 'Brown & Sharpe', 'file' => 'brownsharpe.gif', 'factory_authorized' => true ),
-    array( 'name' => 'Fowler', 'file' => 'fowler.gif', 'factory_authorized' => true ),
-    array( 'name' => 'Snap-On', 'file' => 'snapon.gif', 'factory_authorized' => false ),
-    array( 'name' => 'Starrett', 'file' => 'starrett.gif', 'factory_authorized' => false ),
-    array( 'name' => 'Hioki', 'file' => 'hioki.gif', 'factory_authorized' => false ),
-    array( 'name' => 'Ashcroft', 'file' => 'ashcroft.gif', 'factory_authorized' => false ),
-    array( 'name' => 'Williams', 'file' => 'williams.gif', 'factory_authorized' => false ),
-    array( 'name' => 'CDI Torque', 'file' => 'cditorque.gif', 'factory_authorized' => false ),
-    array( 'name' => 'Ames', 'file' => 'ames.gif', 'factory_authorized' => false ),
-    array( 'name' => 'Hedland', 'file' => 'hedland.gif', 'factory_authorized' => false ),
-    array( 'name' => 'Meyer Gage', 'file' => 'meyergage.gif', 'factory_authorized' => false ),
-    array( 'name' => 'GageMaker', 'file' => 'gagemaker.gif', 'factory_authorized' => false ),
-);
+// Get ACF fields
+$manufacturers_title = get_field('manufacturers_title') ?: 'Authorized Distributor & Service Center';
+$manufacturers_description = get_field('manufacturers_description') ?: 'Partnered with industry-leading manufacturers';
+$manufacturers_items = get_field('manufacturers_items');
+$manufacturers_button = get_field('manufacturers_button');
 ?>
 
 <section class="manufacturers-section section">
@@ -40,32 +22,121 @@ $manufacturers = array(
             </p>
         </div>
         
-        <?php if ( $show_logos ) : ?>
-            <div class="manufacturers-grid">
-                <?php foreach ( $manufacturers as $manufacturer ) : 
-                    $image_path = get_template_directory() . '/assets/images/manufacturers/' . $manufacturer['file'];
-                    if ( file_exists( $image_path ) ) :
-                        $image_url = get_template_directory_uri() . '/assets/images/manufacturers/' . $manufacturer['file'];
-                        ?>
-                        <div class="manufacturer-item">
-                            <img src="<?php echo esc_url( $image_url ); ?>" 
-                                 alt="<?php echo esc_attr( $manufacturer['name'] ); ?>" 
-                                 loading="lazy">
-                            <?php if ( $manufacturer['factory_authorized'] ) : ?>
-                                <div class="manufacturer-badge"><?php esc_html_e( 'Factory Authorized', 'abbott-gage' ); ?></div>
-                            <?php endif; ?>
-                        </div>
-                    <?php endif;
-                endforeach; ?>
-            </div>
-        <?php endif; ?>
+        <div class="manufacturers-grid">
+            <?php if ( $manufacturers_items ) : ?>
+                <?php foreach ( $manufacturers_items as $manufacturer ) : ?>
+                    <div class="manufacturer-item">
+                        <img src="<?php echo esc_url( $manufacturer['logo']['url'] ); ?>" 
+                             alt="<?php echo esc_attr( $manufacturer['logo']['alt'] ?: $manufacturer['name'] ); ?>" 
+                             loading="lazy">
+                        <?php if ( $manufacturer['authorized'] ) : ?>
+                            <div class="manufacturer-badge"><?php esc_html_e( 'Factory Authorized', 'abbott-gage' ); ?></div>
+                        <?php endif; ?>
+                    </div>
+                <?php endforeach; ?>
+            <?php else : ?>
+                <!-- Default manufacturers if none are set in ACF -->
+                <div class="manufacturer-item">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/mit.gif' ); ?>" 
+                         alt="<?php esc_attr_e( 'Mitutoyo', 'abbott-gage' ); ?>" 
+                         loading="lazy">
+                    <div class="manufacturer-badge"><?php esc_html_e( 'Factory Authorized', 'abbott-gage' ); ?></div>
+                </div>
+                
+                <div class="manufacturer-item">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/brownsharpe.gif' ); ?>" 
+                         alt="<?php esc_attr_e( 'Brown & Sharpe', 'abbott-gage' ); ?>" 
+                         loading="lazy">
+                    <div class="manufacturer-badge"><?php esc_html_e( 'Factory Authorized', 'abbott-gage' ); ?></div>
+                </div>
+                
+                <div class="manufacturer-item">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/fowler.gif' ); ?>" 
+                         alt="<?php esc_attr_e( 'Fowler', 'abbott-gage' ); ?>" 
+                         loading="lazy">
+                    <div class="manufacturer-badge"><?php esc_html_e( 'Factory Authorized', 'abbott-gage' ); ?></div>
+                </div>
+                
+                <div class="manufacturer-item">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/snapon.gif' ); ?>" 
+                         alt="<?php esc_attr_e( 'Snap-On', 'abbott-gage' ); ?>" 
+                         loading="lazy">
+                </div>
+                
+                <div class="manufacturer-item">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/starrett.gif' ); ?>" 
+                         alt="<?php esc_attr_e( 'Starrett', 'abbott-gage' ); ?>" 
+                         loading="lazy">
+                </div>
+                
+                <div class="manufacturer-item">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/hioki.gif' ); ?>" 
+                         alt="<?php esc_attr_e( 'Hioki', 'abbott-gage' ); ?>" 
+                         loading="lazy">
+                </div>
+                
+                <div class="manufacturer-item">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/ashcroft.gif' ); ?>" 
+                         alt="<?php esc_attr_e( 'Ashcroft', 'abbott-gage' ); ?>" 
+                         loading="lazy">
+                </div>
+                
+                <div class="manufacturer-item">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/williams.gif' ); ?>" 
+                         alt="<?php esc_attr_e( 'Williams', 'abbott-gage' ); ?>" 
+                         loading="lazy">
+                </div>
+                
+                <div class="manufacturer-item">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/cditorque.gif' ); ?>" 
+                         alt="<?php esc_attr_e( 'CDI Torque', 'abbott-gage' ); ?>" 
+                         loading="lazy">
+                </div>
+                
+                <div class="manufacturer-item">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/ames.gif' ); ?>" 
+                         alt="<?php esc_attr_e( 'Ames', 'abbott-gage' ); ?>" 
+                         loading="lazy">
+                </div>
+                
+                <div class="manufacturer-item">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/hedland.gif' ); ?>" 
+                         alt="<?php esc_attr_e( 'Hedland', 'abbott-gage' ); ?>" 
+                         loading="lazy">
+                </div>
+                
+                <div class="manufacturer-item">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/meyergage.gif' ); ?>" 
+                         alt="<?php esc_attr_e( 'Meyer Gage', 'abbott-gage' ); ?>" 
+                         loading="lazy">
+                </div>
+                
+                <div class="manufacturer-item">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/gagemaker.gif' ); ?>" 
+                         alt="<?php esc_attr_e( 'GageMaker', 'abbott-gage' ); ?>" 
+                         loading="lazy">
+                </div>
+            <?php endif; ?>
+        </div>
         
-        <?php if ( $cta_text && $cta_link ) : ?>
-            <div class="text-center mt-5">
-                <a href="<?php echo esc_url( $cta_link ); ?>" class="btn btn-outline">
-                    <?php echo esc_html( $cta_text ); ?>
-                </a>
-            </div>
-        <?php endif; ?>
+        <?php 
+        // Only show the button if we're NOT on the manufacturers page
+        if ( ! is_page_template( 'page-manufacturers.php' ) ) :
+            if ( $manufacturers_button ) : ?>
+                <div class="text-center mt-5">
+                    <a href="<?php echo esc_url( $manufacturers_button['url'] ); ?>" 
+                       class="btn btn-outline"
+                       <?php if ( ! empty( $manufacturers_button['target'] ) ) : ?>target="<?php echo esc_attr( $manufacturers_button['target'] ); ?>"<?php endif; ?>>
+                        <?php echo esc_html( $manufacturers_button['title'] ?: 'View All Manufacturer Partners' ); ?>
+                    </a>
+                </div>
+            <?php else : ?>
+                <div class="text-center mt-5">
+                    <a href="<?php echo esc_url( home_url( '/manufacturers' ) ); ?>" class="btn btn-outline">
+                        <?php esc_html_e( 'View All Manufacturer Partners', 'abbott-gage' ); ?>
+                    </a>
+                </div>
+            <?php endif;
+        endif; ?>
     </div>
 </section>

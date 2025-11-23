@@ -9,16 +9,12 @@ Get your Abbott Gage Inc website up and running in 30 minutes!
 This theme includes everything you need for a professional precision measuring tools and calibration services website, including:
 
 ✅ Modern, responsive design  
-✅ **Easy content editing with ACF (no coding!)**  
 ✅ Pre-built page templates  
 ✅ SEO optimization  
 ✅ Mobile-friendly navigation  
 ✅ Contact form integration  
 ✅ Manufacturer showcases  
 ✅ Service pages  
-
-### ⚠️ Important
-**This theme requires the Advanced Custom Fields (ACF) plugin** - a free WordPress plugin that allows you to edit all content easily without any coding knowledge.
 
 ---
 
@@ -38,20 +34,10 @@ This theme includes everything you need for a professional precision measuring t
 
 ## Step 2: Install Required Plugins (5 minutes)
 
-### ⚠️ REQUIRED (Theme won't work without this):
-
-1. **Advanced Custom Fields (ACF)** - FREE plugin for content editing
-   - Search for "Advanced Custom Fields"
-   - Install the plugin by **Delicious Brains**
-   - Activate it
-   - You'll see a new "Theme Settings" menu appear
-
-### Recommended:
-
 Go to **Plugins → Add New** and install:
 
-2. **Contact Form 7** - For contact forms
-3. **Yoast SEO** - For SEO optimization
+1. **Contact Form 7** - For contact forms
+2. **Yoast SEO** - For SEO optimization
 
 **Optional but recommended:**
 - WP Mail SMTP (email delivery)
@@ -62,42 +48,7 @@ Go to **Plugins → Add New** and install:
 
 ---
 
-## Step 3: Edit Your Content with ACF (10 minutes)
-
-Now that ACF is installed, you can customize all content on your site!
-
-### Access Theme Settings
-
-Go to WordPress Admin → **Theme Settings**
-
-Here you can edit:
-- Header contact information (phone, email)
-- Services section (all 4 service cards)
-- Call-to-action sections
-- Manufacturers section
-- Certifications section
-- Footer content
-- Business information
-
-### Edit Homepage Content
-
-Go to **Pages → Homepage → Edit**
-
-Here you can edit:
-- Hero section (main banner)
-- About section
-- Why Choose Us section
-
-### 📖 Full Instructions
-
-For detailed step-by-step instructions on editing every section, see:
-**[docs/ACF-USER-GUIDE.md](docs/ACF-USER-GUIDE.md)**
-
-✅ **Content customized!**
-
----
-
-## Step 4: Basic Settings (5 minutes)
+## Step 3: Basic Settings (5 minutes)
 
 ### Permalinks
 1. Go to **Settings → Permalinks**

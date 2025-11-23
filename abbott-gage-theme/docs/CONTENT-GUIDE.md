@@ -22,46 +22,29 @@ The homepage uses the `front-page.php` template which automatically includes:
 
 ## About Page
 
-**Suggested Content:**
+Uses the `page-about.php` template with built-in styled sections.
 
-### Main Content
+**Template Includes:**
+- Introduction section with image
+- Company History section (pre-populated)
+- Our Commitment section (pre-populated)
+- Certifications & Credentials grid
+- Official certifications display
+- Team section (pre-populated)
+- Call-to-action section
+
+**Content to Add:**
+
+### Main Content (Page Editor)
 
 **Title:** About Abbott Gage, Inc.
 
-**Introduction:**
+**Content (Introduction):**
 ```
 Abbott Gage, Inc. has been a trusted name in precision measuring tools and calibration services for over three decades. Based in Childersburg, Alabama, we serve clients across the United States with professional calibration, certification, and repair services.
 ```
 
-### Company History Section
-
-```
-Founded over 30 years ago, Abbott Gage, Inc. was established with a commitment to providing the highest quality precision measuring equipment and services to industries requiring exact measurements and certifications.
-
-Through the years, we have built lasting relationships with our clients by delivering exceptional service, maintaining the highest standards, and continuously investing in state-of-the-art equipment and training for our team.
-```
-
-### Our Commitment
-
-```
-At Abbott Gage, Inc., we understand that precision matters. Whether you need laboratory calibration, on-site service, equipment repairs, or new tools, we approach every job with the same dedication to accuracy and excellence.
-
-Our ISO 9001:2015 certification and NIST-traceable standards ensure that every calibration meets or exceeds industry requirements. As a woman-owned small business (WBENC and WOSB certified), we take pride in our role as a diverse supplier for businesses and government contracts.
-```
-
-### Team Section
-
-```
-Our experienced team of technicians and calibration specialists brings decades of combined expertise to every project. We invest in ongoing training to stay current with the latest technologies and industry standards.
-```
-
-### Certifications Highlights
-
-- ISO 9001:2015 Certified Quality Management System
-- WBENC Certified Woman-Owned Business
-- WOSB Certified Woman-Owned Small Business
-- NIST Traceable Standards
-- Factory Authorized Service Center for Mitutoyo, Fowler, and Brown & Sharpe
+**Note:** Only add the introduction paragraph in the WordPress page editor. The Company History, Our Commitment, and Team sections are automatically styled and displayed by the template
 
 ---
 

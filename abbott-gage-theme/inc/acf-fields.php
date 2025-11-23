@@ -1,9 +1,7 @@
 <?php
 /**
  * ACF Field Groups Registration
- * 
- * This file registers all Advanced Custom Fields for the Abbott Gage theme.
- * Allows users to easily modify all content through the WordPress admin.
+ * ACF Pro 6.6.2
  *
  * @package Abbott_Gage
  * @since 1.0.0
@@ -15,35 +13,168 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Create ACF Options Page for Global Settings
+ */
+if( function_exists('acf_add_options_page') ) {
+    
+    acf_add_options_page(array(
+        'page_title'    => 'Global Settings',
+        'menu_title'    => 'Global Settings',
+        'menu_slug'     => 'global-settings',
+        'capability'    => 'edit_posts',
+        'icon_url'      => 'dashicons-admin-settings',
+        'redirect'      => false
+    ));
+    
+}
+
+/**
+ * Common Icon Choices for Dropdowns
+ */
+function abbott_gage_get_icon_choices() {
+    return array(
+        // Certifications & Quality
+        'fas fa-certificate' => '🏅 Certificate',
+        'fas fa-award' => '🏆 Award/Trophy',
+        'fas fa-medal' => '🥇 Medal',
+        'fas fa-stamp' => '📋 Stamp',
+        'fas fa-check-circle' => '✓ Check Circle',
+        'fas fa-check-square' => '☑ Check Square',
+        'fas fa-shield-alt' => '🛡️ Shield',
+        'fas fa-balance-scale' => '⚖️ Balance Scale',
+        
+        // Tools & Equipment
+        'fas fa-tools' => '🔧 Tools',
+        'fas fa-wrench' => '🔧 Wrench',
+        'fas fa-screwdriver' => '🪛 Screwdriver',
+        'fas fa-hammer' => '🔨 Hammer',
+        'fas fa-cogs' => '⚙️ Gears/Settings',
+        'fas fa-cog' => '⚙️ Single Gear',
+        
+        // Science & Lab
+        'fas fa-flask' => '🧪 Laboratory Flask',
+        'fas fa-microscope' => '🔬 Microscope',
+        'fas fa-atom' => '⚛️ Atom/Science',
+        'fas fa-vial' => '🧪 Vial',
+        'fas fa-temperature-high' => '🌡️ Temperature',
+        
+        // Business & Service
+        'fas fa-handshake' => '🤝 Handshake',
+        'fas fa-user-friends' => '👥 Team/People',
+        'fas fa-users' => '👥 Multiple Users',
+        'fas fa-user-check' => '✓ Verified User',
+        'fas fa-graduation-cap' => '🎓 Education/Training',
+        'fas fa-briefcase' => '💼 Business/Briefcase',
+        
+        // Time & History
+        'fas fa-history' => '🕐 History/Time',
+        'fas fa-clock' => '🕐 Clock',
+        'fas fa-calendar' => '📅 Calendar',
+        'fas fa-hourglass-half' => '⏳ Hourglass',
+        
+        // Service & Delivery
+        'fas fa-truck' => '🚚 Truck/Delivery',
+        'fas fa-shipping-fast' => '📦 Fast Shipping',
+        'fas fa-box' => '📦 Package/Box',
+        'fas fa-dolly' => '🛒 Cart/Dolly',
+        
+        // Communication
+        'fas fa-phone' => '📞 Phone',
+        'fas fa-phone-alt' => '☎️ Phone Alt',
+        'fas fa-envelope' => '✉️ Email/Envelope',
+        'fas fa-comments' => '💬 Comments',
+        'fas fa-comment' => '💬 Comment',
+        'fas fa-fax' => '📠 Fax',
+        
+        // Location
+        'fas fa-map-marker-alt' => '📍 Location Pin',
+        'fas fa-building' => '🏢 Building',
+        'fas fa-industry' => '🏭 Factory/Industry',
+        'fas fa-warehouse' => '🏭 Warehouse',
+        
+        // Shopping & Sales
+        'fas fa-shopping-cart' => '🛒 Shopping Cart',
+        'fas fa-shopping-bag' => '🛍️ Shopping Bag',
+        'fas fa-cash-register' => '💰 Cash Register',
+        'fas fa-dollar-sign' => '💵 Dollar Sign',
+        
+        // Documents
+        'fas fa-file-pdf' => '📄 PDF File',
+        'fas fa-file-alt' => '📄 Document',
+        'fas fa-clipboard-check' => '📋 Clipboard Check',
+        'fas fa-clipboard-list' => '📋 Clipboard List',
+        
+        // Actions
+        'fas fa-arrow-right' => '→ Arrow Right',
+        'fas fa-arrow-circle-right' => '➡️ Arrow Circle Right',
+        'fas fa-chevron-right' => '› Chevron Right',
+        'fas fa-angle-right' => '› Angle Right',
+        
+        // Misc
+        'fas fa-star' => '⭐ Star',
+        'fas fa-heart' => '❤️ Heart',
+        'fas fa-thumbs-up' => '👍 Thumbs Up',
+        'fas fa-lightbulb' => '💡 Light Bulb',
+        'fas fa-rocket' => '🚀 Rocket',
+        'fas fa-paper-plane' => '✈️ Paper Plane',
+        'fas fa-info-circle' => 'ℹ️ Info Circle',
+        'fas fa-question-circle' => '❓ Question Circle',
+        'fas fa-exclamation-circle' => '❗ Exclamation Circle',
+    );
+}
+
+/**
  * Register ACF Field Groups
  */
-function abbott_gage_register_acf_fields() {
+add_action('acf/include_fields', function() {
     if ( ! function_exists( 'acf_add_local_field_group' ) ) {
         return;
     }
+    
+    $icon_choices = abbott_gage_get_icon_choices();
 
-    // ========================================
-    // HEADER SETTINGS
-    // ========================================
-    acf_add_local_field_group( array(
-        'key' => 'group_header_settings',
-        'title' => 'Header Settings',
+    // ==========================================
+    // GLOBAL SETTINGS - Options Page
+    // ==========================================
+    acf_add_local_field_group(array(
+        'key' => 'group_global_settings',
+        'title' => 'Global Settings',
         'fields' => array(
+            // Contact Information Tab
+            array(
+                'key' => 'field_contact_tab',
+                'label' => 'Contact Information',
+                'name' => '',
+                'type' => 'tab',
+                'placement' => 'top',
+            ),
+            array(
+                'key' => 'field_company_name',
+                'label' => 'Company Name',
+                'name' => 'company_name',
+                'type' => 'text',
+                'default_value' => 'Abbott Gage, Inc.',
+            ),
             array(
                 'key' => 'field_phone_primary',
-                'label' => 'Primary Phone Number',
+                'label' => 'Primary Phone',
                 'name' => 'phone_primary',
                 'type' => 'text',
                 'default_value' => '(256) 378-3286',
-                'placeholder' => '(256) 378-3286',
             ),
             array(
                 'key' => 'field_phone_toll_free',
-                'label' => 'Toll Free Phone Number',
+                'label' => 'Toll Free Phone',
                 'name' => 'phone_toll_free',
                 'type' => 'text',
                 'default_value' => '1-800-481-4243',
-                'placeholder' => '1-800-481-4243',
+            ),
+            array(
+                'key' => 'field_fax',
+                'label' => 'Fax Number',
+                'name' => 'fax',
+                'type' => 'text',
+                'default_value' => '(256) 378-3287',
             ),
             array(
                 'key' => 'field_email',
@@ -53,17 +184,66 @@ function abbott_gage_register_acf_fields() {
                 'default_value' => 'info@abbottgageinc.com',
             ),
             array(
-                'key' => 'field_header_cta_text',
-                'label' => 'Header CTA Button Text',
-                'name' => 'header_cta_text',
+                'key' => 'field_address_street',
+                'label' => 'Street Address',
+                'name' => 'address_street',
                 'type' => 'text',
-                'default_value' => 'Get a Quote',
+                'default_value' => '40 Industrial Park',
             ),
             array(
-                'key' => 'field_header_cta_link',
-                'label' => 'Header CTA Button Link',
-                'name' => 'header_cta_link',
-                'type' => 'page_link',
+                'key' => 'field_address_city',
+                'label' => 'City',
+                'name' => 'address_city',
+                'type' => 'text',
+                'default_value' => 'Childersburg',
+            ),
+            array(
+                'key' => 'field_address_state',
+                'label' => 'State',
+                'name' => 'address_state',
+                'type' => 'text',
+                'default_value' => 'AL',
+            ),
+            array(
+                'key' => 'field_address_zip',
+                'label' => 'ZIP Code',
+                'name' => 'address_zip',
+                'type' => 'text',
+                'default_value' => '35044',
+            ),
+            array(
+                'key' => 'field_business_hours',
+                'label' => 'Business Hours',
+                'name' => 'business_hours',
+                'type' => 'textarea',
+                'rows' => 3,
+                'default_value' => "Monday - Friday\n8:00 AM - 5:00 PM CST",
+            ),
+            
+            // Social Media Tab
+            array(
+                'key' => 'field_social_tab',
+                'label' => 'Social Media',
+                'name' => '',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_facebook_url',
+                'label' => 'Facebook URL',
+                'name' => 'facebook_url',
+                'type' => 'url',
+            ),
+            array(
+                'key' => 'field_linkedin_url',
+                'label' => 'LinkedIn URL',
+                'name' => 'linkedin_url',
+                'type' => 'url',
+            ),
+            array(
+                'key' => 'field_twitter_url',
+                'label' => 'Twitter URL',
+                'name' => 'twitter_url',
+                'type' => 'url',
             ),
         ),
         'location' => array(
@@ -71,16 +251,16 @@ function abbott_gage_register_acf_fields() {
                 array(
                     'param' => 'options_page',
                     'operator' => '==',
-                    'value' => 'theme-general-settings',
+                    'value' => 'global-settings',
                 ),
             ),
         ),
-    ) );
+    ));
 
-    // ========================================
+    // ==========================================
     // HERO SECTION
-    // ========================================
-    acf_add_local_field_group( array(
+    // ==========================================
+    acf_add_local_field_group(array(
         'key' => 'group_hero_section',
         'title' => 'Hero Section',
         'fields' => array(
@@ -90,6 +270,7 @@ function abbott_gage_register_acf_fields() {
                 'name' => 'hero_title',
                 'type' => 'text',
                 'default_value' => 'Precision Measuring Tools & Calibration Services',
+                'required' => 1,
             ),
             array(
                 'key' => 'field_hero_subtitle',
@@ -98,60 +279,87 @@ function abbott_gage_register_acf_fields() {
                 'type' => 'textarea',
                 'rows' => 3,
                 'default_value' => 'State-of-the-art measuring equipment to provide you with the greatest accuracy. On-site calibration service for your dimensional and electronic instruments.',
+                'required' => 1,
             ),
             array(
-                'key' => 'field_hero_background_image',
-                'label' => 'Hero Background Image',
-                'name' => 'hero_background_image',
-                'type' => 'image',
-                'return_format' => 'url',
+                'key' => 'field_hero_features',
+                'label' => 'Hero Features',
+                'name' => 'hero_features',
+                'type' => 'repeater',
+                'min' => 0,
+                'max' => 5,
+                'layout' => 'table',
+                'button_label' => 'Add Feature',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_hero_feature_icon',
+                        'label' => 'Icon',
+                        'name' => 'icon',
+                        'type' => 'select',
+                        'choices' => $icon_choices,
+                        'default_value' => 'fas fa-check-circle',
+                        'ui' => 1,
+                        'wrapper' => array('width' => '40'),
+                    ),
+                    array(
+                        'key' => 'field_hero_feature_text',
+                        'label' => 'Feature Text',
+                        'name' => 'text',
+                        'type' => 'text',
+                        'wrapper' => array('width' => '60'),
+                    ),
+                ),
             ),
             array(
-                'key' => 'field_hero_feature_1',
-                'label' => 'Hero Feature 1',
-                'name' => 'hero_feature_1',
-                'type' => 'text',
-                'default_value' => 'ISO 9001:2015 Certified',
-            ),
-            array(
-                'key' => 'field_hero_feature_2',
-                'label' => 'Hero Feature 2',
-                'name' => 'hero_feature_2',
-                'type' => 'text',
-                'default_value' => 'NIST Traceable',
-            ),
-            array(
-                'key' => 'field_hero_feature_3',
-                'label' => 'Hero Feature 3',
-                'name' => 'hero_feature_3',
-                'type' => 'text',
-                'default_value' => '30+ Years Experience',
-            ),
-            array(
-                'key' => 'field_hero_cta_1_text',
-                'label' => 'Primary CTA Button Text',
-                'name' => 'hero_cta_1_text',
-                'type' => 'text',
-                'default_value' => 'Request a Quote',
-            ),
-            array(
-                'key' => 'field_hero_cta_1_link',
-                'label' => 'Primary CTA Button Link',
-                'name' => 'hero_cta_1_link',
-                'type' => 'page_link',
-            ),
-            array(
-                'key' => 'field_hero_cta_2_text',
-                'label' => 'Secondary CTA Button Text',
-                'name' => 'hero_cta_2_text',
-                'type' => 'text',
-                'default_value' => 'Our Services',
-            ),
-            array(
-                'key' => 'field_hero_cta_2_link',
-                'label' => 'Secondary CTA Button Link',
-                'name' => 'hero_cta_2_link',
-                'type' => 'page_link',
+                'key' => 'field_hero_buttons',
+                'label' => 'Hero Buttons',
+                'name' => 'hero_buttons',
+                'type' => 'repeater',
+                'min' => 0,
+                'max' => 2,
+                'layout' => 'table',
+                'button_label' => 'Add Button',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_hero_button_text',
+                        'label' => 'Button Text',
+                        'name' => 'text',
+                        'type' => 'text',
+                        'wrapper' => array('width' => '25'),
+                    ),
+                    array(
+                        'key' => 'field_hero_button_url',
+                        'label' => 'Button URL',
+                        'name' => 'url',
+                        'type' => 'link',
+                        'return_format' => 'array',
+                        'wrapper' => array('width' => '35'),
+                    ),
+                    array(
+                        'key' => 'field_hero_button_icon',
+                        'label' => 'Icon',
+                        'name' => 'icon',
+                        'type' => 'select',
+                        'choices' => $icon_choices,
+                        'default_value' => 'fas fa-paper-plane',
+                        'allow_null' => 1,
+                        'ui' => 1,
+                        'wrapper' => array('width' => '20'),
+                    ),
+                    array(
+                        'key' => 'field_hero_button_style',
+                        'label' => 'Button Style',
+                        'name' => 'style',
+                        'type' => 'select',
+                        'choices' => array(
+                            'btn-secondary' => 'Secondary (Orange)',
+                            'btn-outline-light' => 'Outline Light',
+                            'btn-primary' => 'Primary (Blue)',
+                        ),
+                        'default_value' => 'btn-secondary',
+                        'wrapper' => array('width' => '20'),
+                    ),
+                ),
             ),
         ),
         'location' => array(
@@ -163,12 +371,12 @@ function abbott_gage_register_acf_fields() {
                 ),
             ),
         ),
-    ) );
+    ));
 
-    // ========================================
+    // ==========================================
     // SERVICES SECTION
-    // ========================================
-    acf_add_local_field_group( array(
+    // ==========================================
+    acf_add_local_field_group(array(
         'key' => 'group_services_section',
         'title' => 'Services Section',
         'fields' => array(
@@ -183,344 +391,265 @@ function abbott_gage_register_acf_fields() {
                 'key' => 'field_services_description',
                 'label' => 'Section Description',
                 'name' => 'services_description',
-                'type' => 'textarea',
-                'rows' => 2,
+                'type' => 'text',
                 'default_value' => 'Comprehensive solutions for all your precision measuring needs',
             ),
-            // Service 1 - Laboratory Calibration
             array(
-                'key' => 'field_service_1_title',
-                'label' => 'Service 1 - Title',
-                'name' => 'service_1_title',
-                'type' => 'text',
-                'default_value' => 'Laboratory Calibration',
-            ),
-            array(
-                'key' => 'field_service_1_description',
-                'label' => 'Service 1 - Description',
-                'name' => 'service_1_description',
-                'type' => 'textarea',
-                'rows' => 3,
-                'default_value' => 'Send your equipment to our state-of-the-art lab for precise calibration and certification.',
-            ),
-            array(
-                'key' => 'field_service_1_icon',
-                'label' => 'Service 1 - Icon Class',
-                'name' => 'service_1_icon',
-                'type' => 'text',
-                'default_value' => 'fas fa-flask',
-                'instructions' => 'Font Awesome icon class (e.g., fas fa-flask)',
-            ),
-            array(
-                'key' => 'field_service_1_link',
-                'label' => 'Service 1 - Link',
-                'name' => 'service_1_link',
-                'type' => 'page_link',
-            ),
-            array(
-                'key' => 'field_service_1_feature_1',
-                'label' => 'Service 1 - Feature 1',
-                'name' => 'service_1_feature_1',
-                'type' => 'text',
-                'default_value' => 'NIST Traceable Standards',
-            ),
-            array(
-                'key' => 'field_service_1_feature_2',
-                'label' => 'Service 1 - Feature 2',
-                'name' => 'service_1_feature_2',
-                'type' => 'text',
-                'default_value' => 'ISO 9001:2015 Certified',
-            ),
-            array(
-                'key' => 'field_service_1_feature_3',
-                'label' => 'Service 1 - Feature 3',
-                'name' => 'service_1_feature_3',
-                'type' => 'text',
-                'default_value' => 'Fast Turnaround Time',
-            ),
-            // Service 2 - Onsite Calibration
-            array(
-                'key' => 'field_service_2_title',
-                'label' => 'Service 2 - Title',
-                'name' => 'service_2_title',
-                'type' => 'text',
-                'default_value' => 'Onsite Calibration',
-            ),
-            array(
-                'key' => 'field_service_2_description',
-                'label' => 'Service 2 - Description',
-                'name' => 'service_2_description',
-                'type' => 'textarea',
-                'rows' => 3,
-                'default_value' => 'Professional on-site calibration services. Minimize downtime with our mobile service.',
-            ),
-            array(
-                'key' => 'field_service_2_icon',
-                'label' => 'Service 2 - Icon Class',
-                'name' => 'service_2_icon',
-                'type' => 'text',
-                'default_value' => 'fas fa-truck',
-            ),
-            array(
-                'key' => 'field_service_2_link',
-                'label' => 'Service 2 - Link',
-                'name' => 'service_2_link',
-                'type' => 'page_link',
-            ),
-            array(
-                'key' => 'field_service_2_featured',
-                'label' => 'Service 2 - Featured?',
-                'name' => 'service_2_featured',
-                'type' => 'true_false',
-                'default_value' => 1,
-            ),
-            array(
-                'key' => 'field_service_2_feature_1',
-                'label' => 'Service 2 - Feature 1',
-                'name' => 'service_2_feature_1',
-                'type' => 'text',
-                'default_value' => 'At Your Facility',
-            ),
-            array(
-                'key' => 'field_service_2_feature_2',
-                'label' => 'Service 2 - Feature 2',
-                'name' => 'service_2_feature_2',
-                'type' => 'text',
-                'default_value' => 'Minimal Downtime',
-            ),
-            array(
-                'key' => 'field_service_2_feature_3',
-                'label' => 'Service 2 - Feature 3',
-                'name' => 'service_2_feature_3',
-                'type' => 'text',
-                'default_value' => 'Full Documentation',
-            ),
-            // Service 3 - Repair Services
-            array(
-                'key' => 'field_service_3_title',
-                'label' => 'Service 3 - Title',
-                'name' => 'service_3_title',
-                'type' => 'text',
-                'default_value' => 'Repair Services',
-            ),
-            array(
-                'key' => 'field_service_3_description',
-                'label' => 'Service 3 - Description',
-                'name' => 'service_3_description',
-                'type' => 'textarea',
-                'rows' => 3,
-                'default_value' => 'Factory authorized repair center for major brands. Expert repair and maintenance services.',
-            ),
-            array(
-                'key' => 'field_service_3_icon',
-                'label' => 'Service 3 - Icon Class',
-                'name' => 'service_3_icon',
-                'type' => 'text',
-                'default_value' => 'fas fa-wrench',
-            ),
-            array(
-                'key' => 'field_service_3_link',
-                'label' => 'Service 3 - Link',
-                'name' => 'service_3_link',
-                'type' => 'page_link',
-            ),
-            array(
-                'key' => 'field_service_3_feature_1',
-                'label' => 'Service 3 - Feature 1',
-                'name' => 'service_3_feature_1',
-                'type' => 'text',
-                'default_value' => 'Factory Authorized',
-            ),
-            array(
-                'key' => 'field_service_3_feature_2',
-                'label' => 'Service 3 - Feature 2',
-                'name' => 'service_3_feature_2',
-                'type' => 'text',
-                'default_value' => 'Expert Technicians',
-            ),
-            array(
-                'key' => 'field_service_3_feature_3',
-                'label' => 'Service 3 - Feature 3',
-                'name' => 'service_3_feature_3',
-                'type' => 'text',
-                'default_value' => 'Quality Parts',
-            ),
-            // Service 4 - Sales
-            array(
-                'key' => 'field_service_4_title',
-                'label' => 'Service 4 - Title',
-                'name' => 'service_4_title',
-                'type' => 'text',
-                'default_value' => 'Tool Sales',
-            ),
-            array(
-                'key' => 'field_service_4_description',
-                'label' => 'Service 4 - Description',
-                'name' => 'service_4_description',
-                'type' => 'textarea',
-                'rows' => 3,
-                'default_value' => 'Distributor for all major precision tool manufacturers at competitive prices.',
-            ),
-            array(
-                'key' => 'field_service_4_icon',
-                'label' => 'Service 4 - Icon Class',
-                'name' => 'service_4_icon',
-                'type' => 'text',
-                'default_value' => 'fas fa-shopping-cart',
-            ),
-            array(
-                'key' => 'field_service_4_link',
-                'label' => 'Service 4 - Link',
-                'name' => 'service_4_link',
-                'type' => 'page_link',
-            ),
-            array(
-                'key' => 'field_service_4_feature_1',
-                'label' => 'Service 4 - Feature 1',
-                'name' => 'service_4_feature_1',
-                'type' => 'text',
-                'default_value' => 'Major Brands',
-            ),
-            array(
-                'key' => 'field_service_4_feature_2',
-                'label' => 'Service 4 - Feature 2',
-                'name' => 'service_4_feature_2',
-                'type' => 'text',
-                'default_value' => 'Competitive Pricing',
-            ),
-            array(
-                'key' => 'field_service_4_feature_3',
-                'label' => 'Service 4 - Feature 3',
-                'name' => 'service_4_feature_3',
-                'type' => 'text',
-                'default_value' => 'Expert Guidance',
+                'key' => 'field_services_items',
+                'label' => 'Services',
+                'name' => 'services_items',
+                'type' => 'repeater',
+                'min' => 1,
+                'layout' => 'block',
+                'button_label' => 'Add Service',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_service_icon',
+                        'label' => 'Service Icon',
+                        'name' => 'icon',
+                        'type' => 'select',
+                        'choices' => $icon_choices,
+                        'default_value' => 'fas fa-flask',
+                        'required' => 1,
+                        'ui' => 1,
+                    ),
+                    array(
+                        'key' => 'field_service_title',
+                        'label' => 'Service Title',
+                        'name' => 'title',
+                        'type' => 'text',
+                        'required' => 1,
+                    ),
+                    array(
+                        'key' => 'field_service_description',
+                        'label' => 'Description',
+                        'name' => 'description',
+                        'type' => 'textarea',
+                        'rows' => 3,
+                        'required' => 1,
+                    ),
+                    array(
+                        'key' => 'field_service_features',
+                        'label' => 'Features List',
+                        'name' => 'features',
+                        'type' => 'repeater',
+                        'min' => 0,
+                        'max' => 5,
+                        'layout' => 'table',
+                        'button_label' => 'Add Feature',
+                        'sub_fields' => array(
+                            array(
+                                'key' => 'field_service_feature_text',
+                                'label' => 'Feature',
+                                'name' => 'text',
+                                'type' => 'text',
+                            ),
+                        ),
+                    ),
+                    array(
+                        'key' => 'field_service_link',
+                        'label' => 'Service Link',
+                        'name' => 'link',
+                        'type' => 'link',
+                        'return_format' => 'array',
+                    ),
+                    array(
+                        'key' => 'field_service_featured',
+                        'label' => 'Featured Service',
+                        'name' => 'featured',
+                        'type' => 'true_false',
+                        'ui' => 1,
+                        'message' => 'Mark as featured/popular service',
+                    ),
+                    array(
+                        'key' => 'field_service_featured_badge',
+                        'label' => 'Featured Badge Text',
+                        'name' => 'featured_badge',
+                        'type' => 'text',
+                        'default_value' => 'Popular',
+                        'conditional_logic' => array(
+                            array(
+                                array(
+                                    'field' => 'field_service_featured',
+                                    'operator' => '==',
+                                    'value' => '1',
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
             ),
         ),
         'location' => array(
             array(
                 array(
-                    'param' => 'options_page',
+                    'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'theme-general-settings',
+                    'value' => 'front-page.php',
                 ),
             ),
         ),
-    ) );
+    ));
 
-    // ========================================
-    // ABOUT SECTION
-    // ========================================
-    acf_add_local_field_group( array(
-        'key' => 'group_about_section',
-        'title' => 'About Section',
+    // ==========================================
+    // CERTIFICATIONS SECTION
+    // ==========================================
+    acf_add_local_field_group(array(
+        'key' => 'group_certifications_section',
+        'title' => 'Certifications Section',
         'fields' => array(
             array(
-                'key' => 'field_about_title',
-                'label' => 'About Title',
-                'name' => 'about_title',
+                'key' => 'field_certifications_title',
+                'label' => 'Section Title',
+                'name' => 'certifications_title',
                 'type' => 'text',
-                'default_value' => 'About Abbott Gage, Inc.',
+                'default_value' => 'Our Certifications',
             ),
             array(
-                'key' => 'field_about_lead',
-                'label' => 'About Lead Text',
-                'name' => 'about_lead',
-                'type' => 'textarea',
-                'rows' => 2,
-                'default_value' => 'Over three decades of excellence in precision measuring tools and calibration services.',
+                'key' => 'field_certifications_description',
+                'label' => 'Section Description',
+                'name' => 'certifications_description',
+                'type' => 'text',
+                'default_value' => 'Certified excellence you can trust',
             ),
             array(
-                'key' => 'field_about_content',
-                'label' => 'About Content',
-                'name' => 'about_content',
-                'type' => 'wysiwyg',
-                'tabs' => 'all',
-                'toolbar' => 'full',
-                'media_upload' => 0,
+                'key' => 'field_certifications_items',
+                'label' => 'Certifications',
+                'name' => 'certifications_items',
+                'type' => 'repeater',
+                'min' => 1,
+                'layout' => 'block',
+                'button_label' => 'Add Certification',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_certification_image',
+                        'label' => 'Certification Image',
+                        'name' => 'image',
+                        'type' => 'image',
+                        'return_format' => 'array',
+                        'preview_size' => 'thumbnail',
+                        'instructions' => 'Upload an image OR select an icon below (not both)',
+                    ),
+                    array(
+                        'key' => 'field_certification_icon',
+                        'label' => 'Icon (alternative to image)',
+                        'name' => 'icon',
+                        'type' => 'select',
+                        'choices' => $icon_choices,
+                        'default_value' => 'fas fa-certificate',
+                        'instructions' => 'Select an icon if you don\'t have an image',
+                        'allow_null' => 1,
+                        'ui' => 1,
+                        'conditional_logic' => array(
+                            array(
+                                array(
+                                    'field' => 'field_certification_image',
+                                    'operator' => '==empty',
+                                ),
+                            ),
+                        ),
+                    ),
+                    array(
+                        'key' => 'field_certification_title',
+                        'label' => 'Title',
+                        'name' => 'title',
+                        'type' => 'text',
+                        'required' => 1,
+                    ),
+                    array(
+                        'key' => 'field_certification_description',
+                        'label' => 'Description',
+                        'name' => 'description',
+                        'type' => 'textarea',
+                        'rows' => 3,
+                    ),
+                    array(
+                        'key' => 'field_certification_pdf',
+                        'label' => 'Certificate PDF',
+                        'name' => 'pdf',
+                        'type' => 'file',
+                        'return_format' => 'array',
+                        'mime_types' => 'pdf',
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'front-page.php',
+                ),
+            ),
+        ),
+    ));
+
+    // ==========================================
+    // MANUFACTURERS SECTION
+    // ==========================================
+    acf_add_local_field_group(array(
+        'key' => 'group_manufacturers_section',
+        'title' => 'Manufacturers Section',
+        'fields' => array(
+            array(
+                'key' => 'field_manufacturers_title',
+                'label' => 'Section Title',
+                'name' => 'manufacturers_title',
+                'type' => 'text',
+                'default_value' => 'Authorized Distributor & Service Center',
             ),
             array(
-                'key' => 'field_about_image',
-                'label' => 'About Image',
-                'name' => 'about_image',
-                'type' => 'image',
+                'key' => 'field_manufacturers_description',
+                'label' => 'Section Description',
+                'name' => 'manufacturers_description',
+                'type' => 'text',
+                'default_value' => 'Partnered with industry-leading manufacturers',
+            ),
+            array(
+                'key' => 'field_manufacturers_items',
+                'label' => 'Manufacturers',
+                'name' => 'manufacturers_items',
+                'type' => 'repeater',
+                'min' => 1,
+                'layout' => 'table',
+                'button_label' => 'Add Manufacturer',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_manufacturer_logo',
+                        'label' => 'Logo',
+                        'name' => 'logo',
+                        'type' => 'image',
+                        'return_format' => 'array',
+                        'preview_size' => 'thumbnail',
+                        'required' => 1,
+                        'wrapper' => array('width' => '30'),
+                    ),
+                    array(
+                        'key' => 'field_manufacturer_name',
+                        'label' => 'Name',
+                        'name' => 'name',
+                        'type' => 'text',
+                        'required' => 1,
+                        'wrapper' => array('width' => '40'),
+                    ),
+                    array(
+                        'key' => 'field_manufacturer_authorized',
+                        'label' => 'Factory Authorized',
+                        'name' => 'authorized',
+                        'type' => 'true_false',
+                        'ui' => 1,
+                        'wrapper' => array('width' => '30'),
+                    ),
+                ),
+            ),
+            array(
+                'key' => 'field_manufacturers_button',
+                'label' => 'View All Button',
+                'name' => 'manufacturers_button',
+                'type' => 'link',
                 'return_format' => 'array',
             ),
-            array(
-                'key' => 'field_about_feature_1_icon',
-                'label' => 'Feature 1 - Icon',
-                'name' => 'about_feature_1_icon',
-                'type' => 'text',
-                'default_value' => 'fas fa-certificate',
-            ),
-            array(
-                'key' => 'field_about_feature_1_title',
-                'label' => 'Feature 1 - Title',
-                'name' => 'about_feature_1_title',
-                'type' => 'text',
-                'default_value' => 'ISO 9001:2015 Certified',
-            ),
-            array(
-                'key' => 'field_about_feature_1_text',
-                'label' => 'Feature 1 - Text',
-                'name' => 'about_feature_1_text',
-                'type' => 'text',
-                'default_value' => 'Meeting international quality standards',
-            ),
-            array(
-                'key' => 'field_about_feature_2_icon',
-                'label' => 'Feature 2 - Icon',
-                'name' => 'about_feature_2_icon',
-                'type' => 'text',
-                'default_value' => 'fas fa-award',
-            ),
-            array(
-                'key' => 'field_about_feature_2_title',
-                'label' => 'Feature 2 - Title',
-                'name' => 'about_feature_2_title',
-                'type' => 'text',
-                'default_value' => 'Woman-Owned Business',
-            ),
-            array(
-                'key' => 'field_about_feature_2_text',
-                'label' => 'Feature 2 - Text',
-                'name' => 'about_feature_2_text',
-                'type' => 'text',
-                'default_value' => 'WBENC and WOSB certified',
-            ),
-            array(
-                'key' => 'field_about_feature_3_icon',
-                'label' => 'Feature 3 - Icon',
-                'name' => 'about_feature_3_icon',
-                'type' => 'text',
-                'default_value' => 'fas fa-tools',
-            ),
-            array(
-                'key' => 'field_about_feature_3_title',
-                'label' => 'Feature 3 - Title',
-                'name' => 'about_feature_3_title',
-                'type' => 'text',
-                'default_value' => 'Factory Authorized',
-            ),
-            array(
-                'key' => 'field_about_feature_3_text',
-                'label' => 'Feature 3 - Text',
-                'name' => 'about_feature_3_text',
-                'type' => 'text',
-                'default_value' => 'Certified repair center for major brands',
-            ),
-            array(
-                'key' => 'field_about_cta_text',
-                'label' => 'About CTA Button Text',
-                'name' => 'about_cta_text',
-                'type' => 'text',
-                'default_value' => 'Learn More About Us',
-            ),
-            array(
-                'key' => 'field_about_cta_link',
-                'label' => 'About CTA Button Link',
-                'name' => 'about_cta_link',
-                'type' => 'page_link',
-            ),
         ),
         'location' => array(
             array(
@@ -531,186 +660,14 @@ function abbott_gage_register_acf_fields() {
                 ),
             ),
         ),
-    ) );
+    ));
 
-    // ========================================
-    // WHY CHOOSE US SECTION
-    // ========================================
-    acf_add_local_field_group( array(
-        'key' => 'group_why_choose_us',
-        'title' => 'Why Choose Us Section',
-        'fields' => array(
-            array(
-                'key' => 'field_why_choose_title',
-                'label' => 'Section Title',
-                'name' => 'why_choose_title',
-                'type' => 'text',
-                'default_value' => 'Why Choose Abbott Gage, Inc.?',
-            ),
-            array(
-                'key' => 'field_why_choose_description',
-                'label' => 'Section Description',
-                'name' => 'why_choose_description',
-                'type' => 'textarea',
-                'rows' => 2,
-                'default_value' => 'Your trusted partner for precision measurement solutions',
-            ),
-            // Reason 1
-            array(
-                'key' => 'field_reason_1_icon',
-                'label' => 'Reason 1 - Icon',
-                'name' => 'reason_1_icon',
-                'type' => 'text',
-                'default_value' => 'fas fa-history',
-            ),
-            array(
-                'key' => 'field_reason_1_title',
-                'label' => 'Reason 1 - Title',
-                'name' => 'reason_1_title',
-                'type' => 'text',
-                'default_value' => '30+ Years Experience',
-            ),
-            array(
-                'key' => 'field_reason_1_text',
-                'label' => 'Reason 1 - Text',
-                'name' => 'reason_1_text',
-                'type' => 'textarea',
-                'rows' => 2,
-                'default_value' => 'Decades of expertise in precision measuring tools and calibration services.',
-            ),
-            // Reason 2
-            array(
-                'key' => 'field_reason_2_icon',
-                'label' => 'Reason 2 - Icon',
-                'name' => 'reason_2_icon',
-                'type' => 'text',
-                'default_value' => 'fas fa-microscope',
-            ),
-            array(
-                'key' => 'field_reason_2_title',
-                'label' => 'Reason 2 - Title',
-                'name' => 'reason_2_title',
-                'type' => 'text',
-                'default_value' => 'State-of-the-Art Lab',
-            ),
-            array(
-                'key' => 'field_reason_2_text',
-                'label' => 'Reason 2 - Text',
-                'name' => 'reason_2_text',
-                'type' => 'textarea',
-                'rows' => 2,
-                'default_value' => 'Advanced equipment ensuring the highest accuracy and precision.',
-            ),
-            // Reason 3
-            array(
-                'key' => 'field_reason_3_icon',
-                'label' => 'Reason 3 - Icon',
-                'name' => 'reason_3_icon',
-                'type' => 'text',
-                'default_value' => 'fas fa-user-friends',
-            ),
-            array(
-                'key' => 'field_reason_3_title',
-                'label' => 'Reason 3 - Title',
-                'name' => 'reason_3_title',
-                'type' => 'text',
-                'default_value' => 'Expert Team',
-            ),
-            array(
-                'key' => 'field_reason_3_text',
-                'label' => 'Reason 3 - Text',
-                'name' => 'reason_3_text',
-                'type' => 'textarea',
-                'rows' => 2,
-                'default_value' => 'Knowledgeable, experienced technicians dedicated to your needs.',
-            ),
-            // Reason 4
-            array(
-                'key' => 'field_reason_4_icon',
-                'label' => 'Reason 4 - Icon',
-                'name' => 'reason_4_icon',
-                'type' => 'text',
-                'default_value' => 'fas fa-shipping-fast',
-            ),
-            array(
-                'key' => 'field_reason_4_title',
-                'label' => 'Reason 4 - Title',
-                'name' => 'reason_4_title',
-                'type' => 'text',
-                'default_value' => 'Fast Turnaround',
-            ),
-            array(
-                'key' => 'field_reason_4_text',
-                'label' => 'Reason 4 - Text',
-                'name' => 'reason_4_text',
-                'type' => 'textarea',
-                'rows' => 2,
-                'default_value' => 'Quick and efficient service to minimize your downtime.',
-            ),
-            // Reason 5
-            array(
-                'key' => 'field_reason_5_icon',
-                'label' => 'Reason 5 - Icon',
-                'name' => 'reason_5_icon',
-                'type' => 'text',
-                'default_value' => 'fas fa-check-circle',
-            ),
-            array(
-                'key' => 'field_reason_5_title',
-                'label' => 'Reason 5 - Title',
-                'name' => 'reason_5_title',
-                'type' => 'text',
-                'default_value' => 'Quality Assurance',
-            ),
-            array(
-                'key' => 'field_reason_5_text',
-                'label' => 'Reason 5 - Text',
-                'name' => 'reason_5_text',
-                'type' => 'textarea',
-                'rows' => 2,
-                'default_value' => 'NIST traceable standards and ISO 9001:2015 certification.',
-            ),
-            // Reason 6
-            array(
-                'key' => 'field_reason_6_icon',
-                'label' => 'Reason 6 - Icon',
-                'name' => 'reason_6_icon',
-                'type' => 'text',
-                'default_value' => 'fas fa-handshake',
-            ),
-            array(
-                'key' => 'field_reason_6_title',
-                'label' => 'Reason 6 - Title',
-                'name' => 'reason_6_title',
-                'type' => 'text',
-                'default_value' => 'Customer Service',
-            ),
-            array(
-                'key' => 'field_reason_6_text',
-                'label' => 'Reason 6 - Text',
-                'name' => 'reason_6_text',
-                'type' => 'textarea',
-                'rows' => 2,
-                'default_value' => 'Personalized attention and professional support for every client.',
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'page_template',
-                    'operator' => '==',
-                    'value' => 'front-page.php',
-                ),
-            ),
-        ),
-    ) );
-
-    // ========================================
+    // ==========================================
     // CTA SECTION
-    // ========================================
-    acf_add_local_field_group( array(
+    // ==========================================
+    acf_add_local_field_group(array(
         'key' => 'group_cta_section',
-        'title' => 'Call-to-Action Section',
+        'title' => 'Call to Action Section',
         'fields' => array(
             array(
                 'key' => 'field_cta_title',
@@ -728,387 +685,492 @@ function abbott_gage_register_acf_fields() {
                 'default_value' => 'Contact us today for a free quote on our calibration, repair, or sales services.',
             ),
             array(
-                'key' => 'field_cta_button_1_text',
-                'label' => 'Button 1 Text',
-                'name' => 'cta_button_1_text',
-                'type' => 'text',
-                'default_value' => 'Contact Us',
+                'key' => 'field_cta_buttons',
+                'label' => 'CTA Buttons',
+                'name' => 'cta_buttons',
+                'type' => 'repeater',
+                'min' => 1,
+                'max' => 2,
+                'layout' => 'table',
+                'button_label' => 'Add Button',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_cta_button_text',
+                        'label' => 'Button Text',
+                        'name' => 'text',
+                        'type' => 'text',
+                        'wrapper' => array('width' => '30'),
+                    ),
+                    array(
+                        'key' => 'field_cta_button_url',
+                        'label' => 'Button URL',
+                        'name' => 'url',
+                        'type' => 'text',
+                        'wrapper' => array('width' => '30'),
+                    ),
+                    array(
+                        'key' => 'field_cta_button_icon',
+                        'label' => 'Icon',
+                        'name' => 'icon',
+                        'type' => 'select',
+                        'choices' => $icon_choices,
+                        'allow_null' => 1,
+                        'ui' => 1,
+                        'wrapper' => array('width' => '20'),
+                    ),
+                    array(
+                        'key' => 'field_cta_button_style',
+                        'label' => 'Style',
+                        'name' => 'style',
+                        'type' => 'select',
+                        'choices' => array(
+                            'btn-secondary' => 'Secondary',
+                            'btn-outline-light' => 'Outline',
+                        ),
+                        'wrapper' => array('width' => '20'),
+                    ),
+                ),
             ),
             array(
-                'key' => 'field_cta_button_1_link',
-                'label' => 'Button 1 Link',
-                'name' => 'cta_button_1_link',
-                'type' => 'page_link',
-            ),
-            array(
-                'key' => 'field_cta_button_2_text',
-                'label' => 'Button 2 Text',
-                'name' => 'cta_button_2_text',
-                'type' => 'text',
-                'default_value' => 'Call 1-800-481-4243',
-            ),
-            array(
-                'key' => 'field_cta_button_2_phone',
-                'label' => 'Button 2 Phone Number',
-                'name' => 'cta_button_2_phone',
-                'type' => 'text',
-                'default_value' => '+18004814243',
-            ),
-            array(
-                'key' => 'field_cta_hours_text',
-                'label' => 'Business Hours Text',
-                'name' => 'cta_hours_text',
-                'type' => 'text',
-                'default_value' => 'Monday - Friday: 8:00 AM - 5:00 PM CST',
+                'key' => 'field_cta_hours_show',
+                'label' => 'Show Business Hours',
+                'name' => 'cta_hours_show',
+                'type' => 'true_false',
+                'ui' => 1,
+                'default_value' => 1,
             ),
         ),
         'location' => array(
             array(
                 array(
-                    'param' => 'options_page',
+                    'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'theme-general-settings',
+                    'value' => 'front-page.php',
                 ),
             ),
         ),
-    ) );
+    ));
 
-    // ========================================
-    // FOOTER SETTINGS
-    // ========================================
-    acf_add_local_field_group( array(
-        'key' => 'group_footer_settings',
-        'title' => 'Footer Settings',
+    // ==========================================
+    // HOMEPAGE - ABOUT SECTION
+    // ==========================================
+    acf_add_local_field_group(array(
+        'key' => 'group_homepage_about',
+        'title' => 'Homepage - About Section',
         'fields' => array(
             array(
-                'key' => 'field_footer_description',
-                'label' => 'Company Description',
-                'name' => 'footer_description',
-                'type' => 'textarea',
-                'rows' => 3,
-                'default_value' => 'Precision measuring tools, calibration, certification, and repair services. Over 30 years of excellence.',
-            ),
-            array(
-                'key' => 'field_footer_address',
-                'label' => 'Street Address',
-                'name' => 'footer_address',
+                'key' => 'field_home_about_title',
+                'label' => 'Section Title',
+                'name' => 'home_about_title',
                 'type' => 'text',
-                'default_value' => '40 Industrial Park',
+                'default_value' => 'About Abbott Gage, Inc.',
             ),
             array(
-                'key' => 'field_footer_city_state_zip',
-                'label' => 'City, State, Zip',
-                'name' => 'footer_city_state_zip',
+                'key' => 'field_home_about_lead',
+                'label' => 'Lead Text',
+                'name' => 'home_about_lead',
                 'type' => 'text',
-                'default_value' => 'Childersburg, AL 35044',
+                'default_value' => 'Over three decades of excellence in precision measuring tools and calibration services.',
             ),
             array(
-                'key' => 'field_footer_fax',
-                'label' => 'Fax Number',
-                'name' => 'footer_fax',
-                'type' => 'text',
-                'default_value' => '(256) 378-3287',
+                'key' => 'field_home_about_content',
+                'label' => 'Content',
+                'name' => 'home_about_content',
+                'type' => 'wysiwyg',
+                'tabs' => 'all',
+                'toolbar' => 'full',
             ),
             array(
-                'key' => 'field_footer_payment_image',
-                'label' => 'Payment Methods Image',
-                'name' => 'footer_payment_image',
-                'type' => 'image',
+                'key' => 'field_home_about_features',
+                'label' => 'Features',
+                'name' => 'home_about_features',
+                'type' => 'repeater',
+                'min' => 0,
+                'max' => 3,
+                'layout' => 'table',
+                'button_label' => 'Add Feature',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_home_about_feature_icon',
+                        'label' => 'Icon',
+                        'name' => 'icon',
+                        'type' => 'select',
+                        'choices' => $icon_choices,
+                        'default_value' => 'fas fa-check-circle',
+                        'ui' => 1,
+                        'wrapper' => array('width' => '30'),
+                    ),
+                    array(
+                        'key' => 'field_home_about_feature_title',
+                        'label' => 'Title',
+                        'name' => 'title',
+                        'type' => 'text',
+                        'wrapper' => array('width' => '35'),
+                    ),
+                    array(
+                        'key' => 'field_home_about_feature_desc',
+                        'label' => 'Description',
+                        'name' => 'description',
+                        'type' => 'text',
+                        'wrapper' => array('width' => '35'),
+                    ),
+                ),
+            ),
+            array(
+                'key' => 'field_home_about_button',
+                'label' => 'Button',
+                'name' => 'home_about_button',
+                'type' => 'link',
                 'return_format' => 'array',
             ),
+            array(
+                'key' => 'field_home_about_image',
+                'label' => 'Image',
+                'name' => 'home_about_image',
+                'type' => 'image',
+                'return_format' => 'array',
+                'preview_size' => 'medium',
+            ),
         ),
         'location' => array(
             array(
                 array(
-                    'param' => 'options_page',
+                    'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'theme-general-settings',
+                    'value' => 'front-page.php',
                 ),
             ),
         ),
-    ) );
+    ));
 
-    // ========================================
-    // MANUFACTURERS SECTION
-    // ========================================
-    acf_add_local_field_group( array(
-        'key' => 'group_manufacturers_section',
-        'title' => 'Manufacturers Section',
+    // ==========================================
+    // HOMEPAGE - WHY CHOOSE US SECTION
+    // ==========================================
+    acf_add_local_field_group(array(
+        'key' => 'group_why_choose_us',
+        'title' => 'Homepage - Why Choose Us',
         'fields' => array(
             array(
-                'key' => 'field_manufacturers_title',
+                'key' => 'field_why_title',
                 'label' => 'Section Title',
-                'name' => 'manufacturers_title',
+                'name' => 'why_title',
                 'type' => 'text',
-                'default_value' => 'Authorized Distributor & Service Center',
+                'default_value' => 'Why Choose Abbott Gage, Inc.?',
             ),
             array(
-                'key' => 'field_manufacturers_description',
+                'key' => 'field_why_description',
                 'label' => 'Section Description',
-                'name' => 'manufacturers_description',
+                'name' => 'why_description',
+                'type' => 'text',
+                'default_value' => 'Your trusted partner for precision measurement solutions',
+            ),
+            array(
+                'key' => 'field_why_reasons',
+                'label' => 'Reasons',
+                'name' => 'why_reasons',
+                'type' => 'repeater',
+                'min' => 1,
+                'layout' => 'block',
+                'button_label' => 'Add Reason',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_why_reason_icon',
+                        'label' => 'Icon',
+                        'name' => 'icon',
+                        'type' => 'select',
+                        'choices' => $icon_choices,
+                        'default_value' => 'fas fa-check-circle',
+                        'required' => 1,
+                        'ui' => 1,
+                    ),
+                    array(
+                        'key' => 'field_why_reason_title',
+                        'label' => 'Title',
+                        'name' => 'title',
+                        'type' => 'text',
+                        'required' => 1,
+                    ),
+                    array(
+                        'key' => 'field_why_reason_description',
+                        'label' => 'Description',
+                        'name' => 'description',
+                        'type' => 'textarea',
+                        'rows' => 2,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'front-page.php',
+                ),
+            ),
+        ),
+    ));
+
+    // ==========================================
+    // ABOUT PAGE
+    // ==========================================
+    acf_add_local_field_group(array(
+        'key' => 'group_about_page',
+        'title' => 'About Page Content',
+        'fields' => array(
+            array(
+                'key' => 'field_about_intro_image',
+                'label' => 'Introduction Image',
+                'name' => 'about_intro_image',
+                'type' => 'image',
+                'return_format' => 'array',
+                'preview_size' => 'medium',
+            ),
+            
+            // Company Story Section
+            array(
+                'key' => 'field_about_story_tab',
+                'label' => 'Company Story',
+                'name' => '',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_about_history_title',
+                'label' => 'History Title',
+                'name' => 'about_history_title',
+                'type' => 'text',
+                'default_value' => 'Company History',
+            ),
+            array(
+                'key' => 'field_about_history_content',
+                'label' => 'History Content',
+                'name' => 'about_history_content',
+                'type' => 'wysiwyg',
+                'tabs' => 'all',
+                'toolbar' => 'full',
+            ),
+            array(
+                'key' => 'field_about_commitment_title',
+                'label' => 'Commitment Title',
+                'name' => 'about_commitment_title',
+                'type' => 'text',
+                'default_value' => 'Our Commitment',
+            ),
+            array(
+                'key' => 'field_about_commitment_content',
+                'label' => 'Commitment Content',
+                'name' => 'about_commitment_content',
+                'type' => 'wysiwyg',
+                'tabs' => 'all',
+                'toolbar' => 'full',
+            ),
+            
+            // Certifications & Credentials
+            array(
+                'key' => 'field_about_highlights_tab',
+                'label' => 'Certifications',
+                'name' => '',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_about_highlights_title',
+                'label' => 'Section Title',
+                'name' => 'about_highlights_title',
+                'type' => 'text',
+                'default_value' => 'Our Certifications & Credentials',
+            ),
+            array(
+                'key' => 'field_about_highlights',
+                'label' => 'Highlights',
+                'name' => 'about_highlights',
+                'type' => 'repeater',
+                'min' => 1,
+                'layout' => 'block',
+                'button_label' => 'Add Highlight',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_about_highlight_icon',
+                        'label' => 'Icon',
+                        'name' => 'icon',
+                        'type' => 'select',
+                        'choices' => $icon_choices,
+                        'default_value' => 'fas fa-certificate',
+                        'required' => 1,
+                        'ui' => 1,
+                    ),
+                    array(
+                        'key' => 'field_about_highlight_title',
+                        'label' => 'Title',
+                        'name' => 'title',
+                        'type' => 'text',
+                        'required' => 1,
+                    ),
+                    array(
+                        'key' => 'field_about_highlight_description',
+                        'label' => 'Description',
+                        'name' => 'description',
+                        'type' => 'textarea',
+                        'rows' => 2,
+                    ),
+                ),
+            ),
+            
+            // Team Section
+            array(
+                'key' => 'field_about_team_tab',
+                'label' => 'Team Section',
+                'name' => '',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_about_team_title',
+                'label' => 'Team Title',
+                'name' => 'about_team_title',
+                'type' => 'text',
+                'default_value' => 'Our Expert Team',
+            ),
+            array(
+                'key' => 'field_about_team_description',
+                'label' => 'Team Description',
+                'name' => 'about_team_description',
+                'type' => 'text',
+                'default_value' => 'Experienced technicians and calibration specialists dedicated to precision and quality',
+            ),
+            array(
+                'key' => 'field_about_team_content',
+                'label' => 'Team Content',
+                'name' => 'about_team_content',
+                'type' => 'wysiwyg',
+                'tabs' => 'all',
+                'toolbar' => 'full',
+            ),
+            array(
+                'key' => 'field_about_team_features',
+                'label' => 'Team Features',
+                'name' => 'about_team_features',
+                'type' => 'repeater',
+                'min' => 0,
+                'max' => 3,
+                'layout' => 'table',
+                'button_label' => 'Add Feature',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_about_team_feature_icon',
+                        'label' => 'Icon',
+                        'name' => 'icon',
+                        'type' => 'select',
+                        'choices' => $icon_choices,
+                        'default_value' => 'fas fa-user-check',
+                        'ui' => 1,
+                        'wrapper' => array('width' => '30'),
+                    ),
+                    array(
+                        'key' => 'field_about_team_feature_title',
+                        'label' => 'Title',
+                        'name' => 'title',
+                        'type' => 'text',
+                        'wrapper' => array('width' => '70'),
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-about.php',
+                ),
+            ),
+        ),
+    ));
+
+    // ==========================================
+    // CONTACT PAGE
+    // ==========================================
+    acf_add_local_field_group(array(
+        'key' => 'group_contact_page',
+        'title' => 'Contact Page Content',
+        'fields' => array(
+            array(
+                'key' => 'field_contact_form_title',
+                'label' => 'Form Title',
+                'name' => 'contact_form_title',
+                'type' => 'text',
+                'default_value' => 'Send Us a Message',
+            ),
+            array(
+                'key' => 'field_contact_form_description',
+                'label' => 'Form Description',
+                'name' => 'contact_form_description',
                 'type' => 'textarea',
                 'rows' => 2,
-                'default_value' => 'Partnered with industry-leading manufacturers',
+                'default_value' => 'Fill out the form below and we\'ll get back to you as soon as possible.',
             ),
             array(
-                'key' => 'field_show_manufacturer_logos',
-                'label' => 'Show Manufacturer Logos',
-                'name' => 'show_manufacturer_logos',
-                'type' => 'true_false',
-                'default_value' => 1,
-                'instructions' => 'Displays the manufacturer logos from assets/images/manufacturers/',
-            ),
-            array(
-                'key' => 'field_manufacturers_cta_text',
-                'label' => 'CTA Button Text',
-                'name' => 'manufacturers_cta_text',
+                'key' => 'field_contact_form_shortcode',
+                'label' => 'Contact Form 7 Shortcode',
+                'name' => 'contact_form_shortcode',
                 'type' => 'text',
-                'default_value' => 'View All Manufacturer Partners',
+                'instructions' => 'Enter the Contact Form 7 shortcode',
             ),
             array(
-                'key' => 'field_manufacturers_cta_link',
-                'label' => 'CTA Button Link',
-                'name' => 'manufacturers_cta_link',
-                'type' => 'page_link',
+                'key' => 'field_contact_info_title',
+                'label' => 'Contact Info Title',
+                'name' => 'contact_info_title',
+                'type' => 'text',
+                'default_value' => 'Contact Information',
             ),
-        ),
-        'location' => array(
             array(
-                array(
-                    'param' => 'options_page',
-                    'operator' => '==',
-                    'value' => 'theme-general-settings',
-                ),
-            ),
-        ),
-    ) );
-
-    // ========================================
-    // CERTIFICATIONS SECTION
-    // ========================================
-    acf_add_local_field_group( array(
-        'key' => 'group_certifications_section',
-        'title' => 'Certifications Section',
-        'fields' => array(
-            array(
-                'key' => 'field_certifications_title',
-                'label' => 'Section Title',
-                'name' => 'certifications_title',
+                'key' => 'field_contact_cert_title',
+                'label' => 'Certifications Title',
+                'name' => 'contact_cert_title',
                 'type' => 'text',
                 'default_value' => 'Our Certifications',
             ),
             array(
-                'key' => 'field_certifications_description',
-                'label' => 'Section Description',
-                'name' => 'certifications_description',
-                'type' => 'textarea',
-                'rows' => 2,
-                'default_value' => 'Certified excellence you can trust',
+                'key' => 'field_contact_certifications',
+                'label' => 'Certification Badges',
+                'name' => 'contact_certifications',
+                'type' => 'repeater',
+                'min' => 0,
+                'layout' => 'table',
+                'button_label' => 'Add Badge',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_contact_cert_text',
+                        'label' => 'Badge Text',
+                        'name' => 'text',
+                        'type' => 'text',
+                    ),
+                ),
             ),
-            // Certification 1 - ISO
             array(
-                'key' => 'field_cert_1_title',
-                'label' => 'Certification 1 - Title',
-                'name' => 'cert_1_title',
+                'key' => 'field_contact_map_title',
+                'label' => 'Map Section Title',
+                'name' => 'contact_map_title',
                 'type' => 'text',
-                'default_value' => 'ISO 9001:2015 Certified',
+                'default_value' => 'Our Location',
             ),
             array(
-                'key' => 'field_cert_1_description',
-                'label' => 'Certification 1 - Description',
-                'name' => 'cert_1_description',
+                'key' => 'field_contact_map_embed',
+                'label' => 'Google Maps Embed Code',
+                'name' => 'contact_map_embed',
                 'type' => 'textarea',
-                'rows' => 2,
-                'default_value' => 'Our quality management system meets international standards for excellence.',
-            ),
-            array(
-                'key' => 'field_cert_1_image',
-                'label' => 'Certification 1 - Image',
-                'name' => 'cert_1_image',
-                'type' => 'image',
-                'return_format' => 'array',
-            ),
-            array(
-                'key' => 'field_cert_1_pdf',
-                'label' => 'Certification 1 - PDF Document',
-                'name' => 'cert_1_pdf',
-                'type' => 'file',
-                'return_format' => 'array',
-                'mime_types' => 'pdf',
-            ),
-            // Certification 2 - WBENC
-            array(
-                'key' => 'field_cert_2_title',
-                'label' => 'Certification 2 - Title',
-                'name' => 'cert_2_title',
-                'type' => 'text',
-                'default_value' => 'WBENC Certified',
-            ),
-            array(
-                'key' => 'field_cert_2_description',
-                'label' => 'Certification 2 - Description',
-                'name' => 'cert_2_description',
-                'type' => 'textarea',
-                'rows' => 2,
-                'default_value' => 'Certified Women\'s Business Enterprise by the Women\'s Business Enterprise National Council.',
-            ),
-            array(
-                'key' => 'field_cert_2_image',
-                'label' => 'Certification 2 - Image',
-                'name' => 'cert_2_image',
-                'type' => 'image',
-                'return_format' => 'array',
-            ),
-            array(
-                'key' => 'field_cert_2_pdf',
-                'label' => 'Certification 2 - PDF Document',
-                'name' => 'cert_2_pdf',
-                'type' => 'file',
-                'return_format' => 'array',
-                'mime_types' => 'pdf',
-            ),
-            // Certification 3 - WOSB
-            array(
-                'key' => 'field_cert_3_title',
-                'label' => 'Certification 3 - Title',
-                'name' => 'cert_3_title',
-                'type' => 'text',
-                'default_value' => 'WOSB Certified',
-            ),
-            array(
-                'key' => 'field_cert_3_description',
-                'label' => 'Certification 3 - Description',
-                'name' => 'cert_3_description',
-                'type' => 'textarea',
-                'rows' => 2,
-                'default_value' => 'Woman-Owned Small Business certified, supporting diversity in federal contracting.',
-            ),
-            array(
-                'key' => 'field_cert_3_image',
-                'label' => 'Certification 3 - Image',
-                'name' => 'cert_3_image',
-                'type' => 'image',
-                'return_format' => 'array',
-            ),
-            array(
-                'key' => 'field_cert_3_pdf',
-                'label' => 'Certification 3 - PDF Document',
-                'name' => 'cert_3_pdf',
-                'type' => 'file',
-                'return_format' => 'array',
-                'mime_types' => 'pdf',
-            ),
-            // Certification 4 - NIST
-            array(
-                'key' => 'field_cert_4_title',
-                'label' => 'Certification 4 - Title',
-                'name' => 'cert_4_title',
-                'type' => 'text',
-                'default_value' => 'NIST Traceable',
-            ),
-            array(
-                'key' => 'field_cert_4_description',
-                'label' => 'Certification 4 - Description',
-                'name' => 'cert_4_description',
-                'type' => 'textarea',
-                'rows' => 2,
-                'default_value' => 'All certifications are traceable to the National Institute of Standards and Technology.',
-            ),
-            array(
-                'key' => 'field_cert_4_icon',
-                'label' => 'Certification 4 - Icon Class',
-                'name' => 'cert_4_icon',
-                'type' => 'text',
-                'default_value' => 'fas fa-balance-scale',
-                'instructions' => 'Font Awesome icon class (used if no image provided)',
+                'rows' => 4,
+                'instructions' => 'Paste the Google Maps embed iframe code here',
             ),
         ),
         'location' => array(
             array(
                 array(
-                    'param' => 'options_page',
+                    'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'theme-general-settings',
+                    'value' => 'page-contact.php',
                 ),
             ),
         ),
-    ) );
+    ));
 
-    // ========================================
-    // BUSINESS INFO (for Schema & SEO)
-    // ========================================
-    acf_add_local_field_group( array(
-        'key' => 'group_business_info',
-        'title' => 'Business Information',
-        'fields' => array(
-            array(
-                'key' => 'field_business_name',
-                'label' => 'Business Name',
-                'name' => 'business_name',
-                'type' => 'text',
-                'default_value' => 'Abbott Gage, Inc.',
-            ),
-            array(
-                'key' => 'field_business_description',
-                'label' => 'Business Description',
-                'name' => 'business_description',
-                'type' => 'textarea',
-                'rows' => 3,
-                'default_value' => 'Precision measuring tools, calibration, certification, and repair services. ISO 9001:2015 certified, woman-owned business.',
-            ),
-            array(
-                'key' => 'field_business_latitude',
-                'label' => 'Latitude',
-                'name' => 'business_latitude',
-                'type' => 'text',
-                'default_value' => '33.2829',
-            ),
-            array(
-                'key' => 'field_business_longitude',
-                'label' => 'Longitude',
-                'name' => 'business_longitude',
-                'type' => 'text',
-                'default_value' => '-86.3553',
-            ),
-            array(
-                'key' => 'field_business_hours',
-                'label' => 'Business Hours (Schema format)',
-                'name' => 'business_hours',
-                'type' => 'text',
-                'default_value' => 'Mo-Fr 08:00-17:00',
-                'instructions' => 'Format: Mo-Fr 08:00-17:00',
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'options_page',
-                    'operator' => '==',
-                    'value' => 'theme-general-settings',
-                ),
-            ),
-        ),
-    ) );
-}
-add_action( 'acf/init', 'abbott_gage_register_acf_fields' );
-
-/**
- * Register ACF Options Pages
- */
-function abbott_gage_register_acf_options_pages() {
-    if ( ! function_exists( 'acf_add_options_page' ) ) {
-        return;
-    }
-
-    acf_add_options_page( array(
-        'page_title'  => 'Theme General Settings',
-        'menu_title'  => 'Theme Settings',
-        'menu_slug'   => 'theme-general-settings',
-        'capability'  => 'edit_posts',
-        'icon_url'    => 'dashicons-admin-settings',
-        'position'    => 60,
-        'redirect'    => false,
-    ) );
-}
-add_action( 'acf/init', 'abbott_gage_register_acf_options_pages' );
+});
 

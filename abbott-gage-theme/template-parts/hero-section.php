@@ -6,20 +6,14 @@
  * @since 1.0.0
  */
 
-// Get ACF fields with fallbacks
-$hero_title = get_field( 'hero_title' ) ?: 'Precision Measuring Tools & Calibration Services';
-$hero_subtitle = get_field( 'hero_subtitle' ) ?: 'State-of-the-art measuring equipment to provide you with the greatest accuracy. On-site calibration service for your dimensional and electronic instruments.';
-$hero_bg_image = get_field( 'hero_background_image' );
-$hero_feature_1 = get_field( 'hero_feature_1' ) ?: 'ISO 9001:2015 Certified';
-$hero_feature_2 = get_field( 'hero_feature_2' ) ?: 'NIST Traceable';
-$hero_feature_3 = get_field( 'hero_feature_3' ) ?: '30+ Years Experience';
-$hero_cta_1_text = get_field( 'hero_cta_1_text' ) ?: 'Request a Quote';
-$hero_cta_1_link = get_field( 'hero_cta_1_link' ) ?: home_url( '/contact' );
-$hero_cta_2_text = get_field( 'hero_cta_2_text' ) ?: 'Our Services';
-$hero_cta_2_link = get_field( 'hero_cta_2_link' ) ?: home_url( '/services' );
+// Get ACF fields
+$hero_title = get_field('hero_title') ?: 'Precision Measuring Tools & Calibration Services';
+$hero_subtitle = get_field('hero_subtitle') ?: 'State-of-the-art measuring equipment to provide you with the greatest accuracy. On-site calibration service for your dimensional and electronic instruments.';
+$hero_features = get_field('hero_features');
+$hero_buttons = get_field('hero_buttons');
 ?>
 
-<section class="hero-section" <?php if ( $hero_bg_image ) : ?>style="background-image: url('<?php echo esc_url( $hero_bg_image ); ?>');"<?php endif; ?>>
+<section class="hero-section">
     <div class="hero-bg"></div>
     <div class="container">
         <div class="hero-content">
@@ -29,43 +23,64 @@ $hero_cta_2_link = get_field( 'hero_cta_2_link' ) ?: home_url( '/services' );
             <p class="hero-subtitle">
                 <?php echo esc_html( $hero_subtitle ); ?>
             </p>
-            <div class="hero-features">
-                <?php if ( $hero_feature_1 ) : ?>
+            
+            <?php if ( $hero_features ) : ?>
+                <div class="hero-features">
+                    <?php foreach ( $hero_features as $feature ) : ?>
+                        <div class="hero-feature">
+                            <i class="<?php echo esc_attr( $feature['icon'] ?: 'fas fa-check-circle' ); ?>"></i>
+                            <span><?php echo esc_html( $feature['text'] ); ?></span>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php else : ?>
+                <!-- Default features if none are set -->
+                <div class="hero-features">
                     <div class="hero-feature">
                         <i class="fas fa-check-circle"></i>
-                        <span><?php echo esc_html( $hero_feature_1 ); ?></span>
+                        <span><?php esc_html_e( 'ISO 9001:2015 Certified', 'abbott-gage' ); ?></span>
                     </div>
-                <?php endif; ?>
-                
-                <?php if ( $hero_feature_2 ) : ?>
                     <div class="hero-feature">
                         <i class="fas fa-check-circle"></i>
-                        <span><?php echo esc_html( $hero_feature_2 ); ?></span>
+                        <span><?php esc_html_e( 'NIST Traceable', 'abbott-gage' ); ?></span>
                     </div>
-                <?php endif; ?>
-                
-                <?php if ( $hero_feature_3 ) : ?>
                     <div class="hero-feature">
                         <i class="fas fa-check-circle"></i>
-                        <span><?php echo esc_html( $hero_feature_3 ); ?></span>
+                        <span><?php esc_html_e( '30+ Years Experience', 'abbott-gage' ); ?></span>
                     </div>
-                <?php endif; ?>
-            </div>
-            <div class="hero-cta">
-                <?php if ( $hero_cta_1_text && $hero_cta_1_link ) : ?>
-                    <a href="<?php echo esc_url( $hero_cta_1_link ); ?>" class="btn btn-secondary btn-lg">
+                </div>
+            <?php endif; ?>
+            
+            <?php if ( $hero_buttons ) : ?>
+                <div class="hero-cta">
+                    <?php foreach ( $hero_buttons as $button ) : 
+                        $button_url = is_array( $button['url'] ) ? $button['url']['url'] : $button['url'];
+                        $button_target = is_array( $button['url'] ) && isset( $button['url']['target'] ) ? $button['url']['target'] : '_self';
+                        ?>
+                        <a href="<?php echo esc_url( $button_url ); ?>" 
+                           class="btn <?php echo esc_attr( $button['style'] ?: 'btn-secondary' ); ?> btn-lg"
+                           target="<?php echo esc_attr( $button_target ); ?>">
+                            <?php if ( ! empty( $button['icon'] ) ) : ?>
+                                <i class="<?php echo esc_attr( $button['icon'] ); ?>"></i>
+                            <?php endif; ?>
+                            <?php echo esc_html( $button['text'] ); ?>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
+            <?php else : ?>
+                <!-- Default buttons if none are set -->
+                <div class="hero-cta">
+                    <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn-secondary btn-lg">
                         <i class="fas fa-paper-plane"></i>
-                        <?php echo esc_html( $hero_cta_1_text ); ?>
+                        <?php esc_html_e( 'Request a Quote', 'abbott-gage' ); ?>
                     </a>
-                <?php endif; ?>
-                
-                <?php if ( $hero_cta_2_text && $hero_cta_2_link ) : ?>
-                    <a href="<?php echo esc_url( $hero_cta_2_link ); ?>" class="btn btn-outline-light btn-lg">
+                    <a href="<?php echo esc_url( home_url( '/services' ) ); ?>" class="btn btn-outline-light btn-lg">
                         <i class="fas fa-info-circle"></i>
-                        <?php echo esc_html( $hero_cta_2_text ); ?>
+                        <?php esc_html_e( 'Our Services', 'abbott-gage' ); ?>
                     </a>
-                <?php endif; ?>
-            </div>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </section>
+

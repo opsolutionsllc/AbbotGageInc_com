@@ -86,6 +86,11 @@
      */
     function initScrollAnimations() {
         const animateElements = $('.service-card, .reason-card, .certification-card, .manufacturer-item');
+        const isMobile = window.innerWidth <= 768;
+        
+        // Reduce animations on mobile
+        const translateAmount = isMobile ? '10px' : '20px';
+        const animationDuration = isMobile ? 300 : 500;
         
         function checkVisibility() {
             const windowHeight = $(window).height();
@@ -99,10 +104,10 @@
                     element.addClass('animated');
                     element.css({
                         'opacity': '0',
-                        'transform': 'translateY(30px)'
+                        'transform': 'translateY(' + translateAmount + ')'
                     }).animate({
                         'opacity': '1'
-                    }, 600, function() {
+                    }, animationDuration, function() {
                         element.css('transform', 'translateY(0)');
                     });
                 }

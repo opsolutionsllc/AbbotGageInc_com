@@ -37,33 +37,36 @@ get_header();
                         <?php esc_html_e( 'Take the guesswork out of the certification process and call Abbott Gage for your calibration needs. Laboratory calibrations by Abbott Gage, Inc. range from basic micrometers and indicators to surface plates and pressure stations.', 'abbott-gage' ); ?>
                     </p>
                     
-                    <h3><?php esc_html_e( 'What We Calibrate', 'abbott-gage' ); ?></h3>
-                    
-                    <div class="equipment-list-grid">
-                        <div class="equipment-category">
-                            <h4><?php esc_html_e( 'Dimensional Equipment', 'abbott-gage' ); ?></h4>
-                            <ul>
-                                <li><?php esc_html_e( 'Micrometers & Calipers', 'abbott-gage' ); ?></li>
-                                <li><?php esc_html_e( 'Height Gages & Depth Gages', 'abbott-gage' ); ?></li>
-                                <li><?php esc_html_e( 'Indicators & Comparators', 'abbott-gage' ); ?></li>
-                                <li><?php esc_html_e( 'Surface Plates & Gage Blocks', 'abbott-gage' ); ?></li>
-                                <li><?php esc_html_e( 'Pin Gages & Ring Gages', 'abbott-gage' ); ?></li>
-                                <li><?php esc_html_e( 'Angle Plates & V-Blocks', 'abbott-gage' ); ?></li>
-                            </ul>
-                        </div>
-                        
-                        <div class="equipment-category">
-                            <h4><?php esc_html_e( 'Electronic Equipment', 'abbott-gage' ); ?></h4>
-                            <ul>
-                                <li><?php esc_html_e( 'Multimeters & Voltmeters', 'abbott-gage' ); ?></li>
-                                <li><?php esc_html_e( 'Oscilloscopes', 'abbott-gage' ); ?></li>
-                                <li><?php esc_html_e( 'Thermometers & Thermocouples', 'abbott-gage' ); ?></li>
-                                <li><?php esc_html_e( 'Balances & Scales', 'abbott-gage' ); ?></li>
-                                <li><?php esc_html_e( 'Tachometers', 'abbott-gage' ); ?></li>
-                            </ul>
+                    <!-- What We Calibrate -->
+                    <div class="calibration-equipment-section">
+                        <h3><?php esc_html_e( 'What We Calibrate', 'abbott-gage' ); ?></h3>
+                        <div class="equipment-list-grid">
+                            <div class="equipment-category">
+                                <h4><?php esc_html_e( 'Dimensional Equipment', 'abbott-gage' ); ?></h4>
+                                <ul>
+                                    <li><?php esc_html_e( 'Micrometers & Calipers', 'abbott-gage' ); ?></li>
+                                    <li><?php esc_html_e( 'Height Gages & Depth Gages', 'abbott-gage' ); ?></li>
+                                    <li><?php esc_html_e( 'Indicators & Comparators', 'abbott-gage' ); ?></li>
+                                    <li><?php esc_html_e( 'Surface Plates & Gage Blocks', 'abbott-gage' ); ?></li>
+                                    <li><?php esc_html_e( 'Pin Gages & Ring Gages', 'abbott-gage' ); ?></li>
+                                    <li><?php esc_html_e( 'Angle Plates & V-Blocks', 'abbott-gage' ); ?></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="equipment-category">
+                                <h4><?php esc_html_e( 'Electronic Equipment', 'abbott-gage' ); ?></h4>
+                                <ul>
+                                    <li><?php esc_html_e( 'Multimeters & Voltmeters', 'abbott-gage' ); ?></li>
+                                    <li><?php esc_html_e( 'Oscilloscopes', 'abbott-gage' ); ?></li>
+                                    <li><?php esc_html_e( 'Thermometers & Thermocouples', 'abbott-gage' ); ?></li>
+                                    <li><?php esc_html_e( 'Balances & Scales', 'abbott-gage' ); ?></li>
+                                    <li><?php esc_html_e( 'Tachometers', 'abbott-gage' ); ?></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     
+                    <!-- Benefits -->
                     <div class="benefits-section">
                         <h3><?php esc_html_e( 'Laboratory Calibration Benefits', 'abbott-gage' ); ?></h3>
                         <div class="benefits-grid">
@@ -86,6 +89,13 @@ get_header();
                                 <div>
                                     <h4><?php esc_html_e( 'Quick Turnaround', 'abbott-gage' ); ?></h4>
                                     <p><?php esc_html_e( 'Fast processing to minimize downtime', 'abbott-gage' ); ?></p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-tools"></i>
+                                <div>
+                                    <h4><?php esc_html_e( 'State-of-the-Art Facility', 'abbott-gage' ); ?></h4>
+                                    <p><?php esc_html_e( 'Modern equipment and proven procedures', 'abbott-gage' ); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -116,6 +126,17 @@ get_header();
                                 <i class="fas fa-envelope"></i>
                                 <a href="mailto:info@abbottgageinc.com">info@abbottgageinc.com</a>
                             </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-box highlight">
+                        <h4><?php esc_html_e( 'Why Lab Calibration?', 'abbott-gage' ); ?></h4>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Controlled environment</li>
+                            <li><i class="fas fa-check"></i> Highest accuracy</li>
+                            <li><i class="fas fa-check"></i> NIST traceable</li>
+                            <li><i class="fas fa-check"></i> ISO 9001:2015 certified</li>
+                            <li><i class="fas fa-check"></i> Full documentation</li>
                         </ul>
                     </div>
                     

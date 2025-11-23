@@ -205,52 +205,28 @@ add_action( 'wp_enqueue_scripts', 'abbott_gage_scripts' );
  */
 function abbott_gage_schema_markup() {
     if ( is_front_page() || is_page() ) {
-        $business_name = abbott_gage_get_option( 'business_name', 'Abbott Gage, Inc.' );
-        $business_desc = abbott_gage_get_option( 'business_description', 'Precision measuring tools, calibration, certification, and repair services. ISO 9001:2015 certified, woman-owned business.' );
-        $phone = abbott_gage_get_option( 'phone_primary', '(256) 378-3286' );
-        $email = abbott_gage_get_option( 'email', 'info@abbottgageinc.com' );
-        $address = abbott_gage_get_option( 'footer_address', '40 Industrial Park' );
-        $city_state = abbott_gage_get_option( 'footer_city_state_zip', 'Childersburg, AL 35044' );
-        $latitude = abbott_gage_get_option( 'business_latitude', '33.2829' );
-        $longitude = abbott_gage_get_option( 'business_longitude', '-86.3553' );
-        $hours = abbott_gage_get_option( 'business_hours', 'Mo-Fr 08:00-17:00' );
-        
-        // Parse city, state, zip
-        $address_parts = explode( ',', $city_state );
-        $city = isset( $address_parts[0] ) ? trim( $address_parts[0] ) : 'Childersburg';
-        $state_zip = isset( $address_parts[1] ) ? trim( $address_parts[1] ) : 'AL 35044';
-        $state_zip_parts = explode( ' ', $state_zip );
-        $state = isset( $state_zip_parts[0] ) ? $state_zip_parts[0] : 'AL';
-        $zip = isset( $state_zip_parts[1] ) ? $state_zip_parts[1] : '35044';
-        
-        // Format phone for schema
-        $phone_schema = preg_replace( '/[^0-9+]/', '', $phone );
-        if ( strpos( $phone_schema, '+' ) !== 0 ) {
-            $phone_schema = '+1-' . $phone_schema;
-        }
-        
         $schema = array(
             '@context'      => 'https://schema.org',
             '@type'         => 'LocalBusiness',
-            'name'          => $business_name,
-            'description'   => $business_desc,
+            'name'          => 'Abbott Gage, Inc.',
+            'description'   => 'Precision measuring tools, calibration, certification, and repair services. ISO 9001:2015 certified, woman-owned business.',
             'url'           => home_url(),
-            'telephone'     => $phone_schema,
-            'email'         => $email,
+            'telephone'     => '+1-256-378-3286',
+            'email'         => 'info@abbottgageinc.com',
             'address'       => array(
                 '@type'           => 'PostalAddress',
-                'streetAddress'   => $address,
-                'addressLocality' => $city,
-                'addressRegion'   => $state,
-                'postalCode'      => $zip,
+                'streetAddress'   => '40 Industrial Park',
+                'addressLocality' => 'Childersburg',
+                'addressRegion'   => 'AL',
+                'postalCode'      => '35044',
                 'addressCountry'  => 'US',
             ),
             'geo'           => array(
                 '@type'     => 'GeoCoordinates',
-                'latitude'  => $latitude,
-                'longitude' => $longitude,
+                'latitude'  => '33.2829',
+                'longitude' => '-86.3553',
             ),
-            'openingHours'  => $hours,
+            'openingHours'  => 'Mo-Fr 08:00-17:00',
             'priceRange'    => '$$',
         );
         
@@ -318,11 +294,6 @@ function abbott_gage_body_classes( $classes ) {
 add_filter( 'body_class', 'abbott_gage_body_classes' );
 
 /**
- * ACF Fields Registration
- */
-require get_template_directory() . '/inc/acf-fields.php';
-
-/**
  * Customizer Additions
  */
 require get_template_directory() . '/inc/customizer.php';
@@ -333,39 +304,7 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/template-tags.php';
 
 /**
- * Check if ACF is active and show admin notice if not
+ * ACF Field Groups (ACF Pro 6.6.2)
  */
-function abbott_gage_check_acf() {
-    if ( ! class_exists( 'ACF' ) && current_user_can( 'install_plugins' ) ) {
-        add_action( 'admin_notices', 'abbott_gage_acf_notice' );
-    }
-}
-add_action( 'after_setup_theme', 'abbott_gage_check_acf' );
-
-/**
- * Display ACF required notice
- */
-function abbott_gage_acf_notice() {
-    ?>
-    <div class="notice notice-error">
-        <p><strong><?php esc_html_e( 'Abbott Gage Theme:', 'abbott-gage' ); ?></strong> 
-        <?php esc_html_e( 'This theme requires the Advanced Custom Fields (ACF) plugin to be installed and activated.', 'abbott-gage' ); ?>
-        <a href="<?php echo esc_url( admin_url( 'plugin-install.php?s=advanced+custom+fields&tab=search&type=term' ) ); ?>">
-            <?php esc_html_e( 'Install ACF Now', 'abbott-gage' ); ?>
-        </a>
-        </p>
-    </div>
-    <?php
-}
-
-/**
- * Helper function to get ACF field with fallback
- */
-function abbott_gage_get_option( $field_name, $default = '' ) {
-    if ( function_exists( 'get_field' ) ) {
-        $value = get_field( $field_name, 'option' );
-        return $value ? $value : $default;
-    }
-    return $default;
-}
+require get_template_directory() . '/inc/acf-fields.php';
 

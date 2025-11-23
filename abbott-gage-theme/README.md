@@ -13,39 +13,8 @@ A modern, professional WordPress theme designed specifically for Abbott Gage Inc
 - **Requires PHP:** 7.4+
 - **License:** GNU General Public License v2 or later
 - **Text Domain:** abbott-gage
-- **⚠️ Required Plugin:** Advanced Custom Fields (Free)
 
 ---
-
-## ⚠️ Important - Plugin Requirement
-
-**This theme requires the Advanced Custom Fields (ACF) plugin to function properly.**
-
-All content on the site is managed through ACF fields, allowing non-technical users to easily modify everything through the WordPress admin panel.
-
-### Quick Setup:
-1. Install WordPress theme
-2. Install & activate **Advanced Custom Fields** (free plugin)
-3. Go to **Theme Settings** in WordPress Admin
-4. Edit your content!
-
-### Installing ACF:
-1. WordPress Admin → Plugins → Add New
-2. Search: "Advanced Custom Fields"
-3. Install & activate the plugin by **Delicious Brains**
-4. Done! You'll now see "Theme Settings" menu
-
----
-
-## Editing Content
-
-**All content is editable through Advanced Custom Fields!** No coding required.
-
-### Where to Edit:
-- **Header/Footer/Services/CTAs:** WordPress Admin → Theme Settings
-- **Homepage Sections:** Pages → Homepage → Edit
-
-📖 **Full User Guide:** See [docs/ACF-USER-GUIDE.md](docs/ACF-USER-GUIDE.md) for detailed instructions on editing every section.
 
 ## Features
 

@@ -49,10 +49,7 @@
                     <div class="footer-company">
                         <h3 class="footer-title"><?php bloginfo( 'name' ); ?></h3>
                         <p class="footer-description">
-                            <?php 
-                            $footer_desc = abbott_gage_get_option( 'footer_description', 'Precision measuring tools, calibration, certification, and repair services. Over 30 years of excellence.' );
-                            echo esc_html( $footer_desc );
-                            ?>
+                            <?php esc_html_e( 'Precision measuring tools, calibration, certification, and repair services. Over 30 years of excellence.', 'abbott-gage' ); ?>
                         </p>
                         <div class="footer-certifications">
                             <span class="footer-cert-badge">ISO 9001:2015</span>
@@ -101,74 +98,36 @@
                     <div class="footer-contact">
                         <h3 class="footer-title"><?php esc_html_e( 'Contact Us', 'abbott-gage' ); ?></h3>
                         <ul class="footer-contact-list">
-                            <?php
-                            $footer_address = abbott_gage_get_option( 'footer_address', '40 Industrial Park' );
-                            $footer_city_state = abbott_gage_get_option( 'footer_city_state_zip', 'Childersburg, AL 35044' );
-                            $phone_primary = abbott_gage_get_option( 'phone_primary', '(256) 378-3286' );
-                            $phone_toll_free = abbott_gage_get_option( 'phone_toll_free', '1-800-481-4243' );
-                            $footer_fax = abbott_gage_get_option( 'footer_fax', '(256) 378-3287' );
-                            $email = abbott_gage_get_option( 'email', 'info@abbottgageinc.com' );
-                            ?>
-                            
                             <li>
                                 <i class="fas fa-map-marker-alt"></i>
-                                <span><?php echo esc_html( $footer_address ); ?><br><?php echo esc_html( $footer_city_state ); ?></span>
+                                <span>40 Industrial Park<br>Childersburg, AL 35044</span>
                             </li>
-                            
-                            <?php if ( $phone_primary ) :
-                                $phone_link = preg_replace( '/[^0-9+]/', '', $phone_primary );
-                                if ( strpos( $phone_link, '+' ) !== 0 ) {
-                                    $phone_link = '+1' . $phone_link;
-                                }
-                                ?>
-                                <li>
-                                    <i class="fas fa-phone"></i>
-                                    <a href="tel:<?php echo esc_attr( $phone_link ); ?>"><?php echo esc_html( $phone_primary ); ?></a>
-                                </li>
-                            <?php endif; ?>
-                            
-                            <?php if ( $phone_toll_free ) :
-                                $phone_toll_link = preg_replace( '/[^0-9+]/', '', $phone_toll_free );
-                                if ( strpos( $phone_toll_link, '+' ) !== 0 ) {
-                                    $phone_toll_link = '+1' . $phone_toll_link;
-                                }
-                                ?>
-                                <li>
-                                    <i class="fas fa-phone-alt"></i>
-                                    <a href="tel:<?php echo esc_attr( $phone_toll_link ); ?>"><?php echo esc_html( $phone_toll_free ); ?> (Gage)</a>
-                                </li>
-                            <?php endif; ?>
-                            
-                            <?php if ( $footer_fax ) : ?>
-                                <li>
-                                    <i class="fas fa-fax"></i>
-                                    <span><?php echo esc_html( $footer_fax ); ?></span>
-                                </li>
-                            <?php endif; ?>
-                            
-                            <?php if ( $email ) : ?>
-                                <li>
-                                    <i class="far fa-envelope"></i>
-                                    <a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a>
-                                </li>
-                            <?php endif; ?>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <a href="tel:+12563783286">(256) 378-3286</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone-alt"></i>
+                                <a href="tel:+18004814243">1-800-481-4243 (Gage)</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-fax"></i>
+                                <span>(256) 378-3287</span>
+                            </li>
+                            <li>
+                                <i class="far fa-envelope"></i>
+                                <a href="mailto:info@abbottgageinc.com">info@abbottgageinc.com</a>
+                            </li>
                         </ul>
-                        <?php
-                        $payment_image = abbott_gage_get_option( 'footer_payment_image', false );
-                        if ( $payment_image && is_array( $payment_image ) ) :
-                            ?>
-                            <div class="footer-payment-methods">
-                                <img src="<?php echo esc_url( $payment_image['url'] ); ?>" 
-                                     alt="<?php echo esc_attr( isset( $payment_image['alt'] ) ? $payment_image['alt'] : 'Accepted Payment Methods' ); ?>" 
+                        <div class="footer-payment-methods">
+                            <p class="payment-label"><?php esc_html_e( 'WE ACCEPT', 'abbott-gage' ); ?></p>
+                            <div class="payment-methods-image">
+                                <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/cards-accepted.png' ); ?>" 
+                                     alt="<?php esc_attr_e( 'Accepted Payment Methods', 'abbott-gage' ); ?>"
                                      loading="lazy">
                             </div>
-                        <?php elseif ( file_exists( get_template_directory() . '/assets/images/payment-methods.png' ) ) : ?>
-                            <div class="footer-payment-methods">
-                                <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/payment-methods.png' ); ?>" 
-                                     alt="<?php esc_attr_e( 'Accepted Payment Methods', 'abbott-gage' ); ?>" 
-                                     loading="lazy">
-                            </div>
-                        <?php endif; ?>
+                            <p class="payment-terms"><?php esc_html_e( 'NET 30 terms available', 'abbott-gage' ); ?></p>
+                        </div>
                     </div>
 
                 </div>
