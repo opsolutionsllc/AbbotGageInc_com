@@ -5,6 +5,15 @@
  *
  * @package Abbott_Gage
  * @since 1.0.0
+ * 
+ * YOAST SEO SETTINGS:
+ * Focus Keyphrase: calibration services quote
+ * Alternative Keyphrases: contact calibration company, request calibration service
+ * 
+ * SEO Title: Contact Abbott Gage | Request Calibration Quote | Get Expert Assistance
+ * 
+ * Meta Description: Contact Abbott Gage Inc for precision calibration services. Request a quote, 
+ * schedule service, or speak with our expert team. Phone, email, or online form available.
  */
 
 get_header();
@@ -200,8 +209,24 @@ $business_hours = get_field('business_hours', 'option');
             <h3 class="text-center"><?php echo esc_html( $contact_map_title ); ?></h3>
             <div class="map-placeholder">
                 <?php if ( $contact_map_embed ) : ?>
-                    <?php echo wp_kses_post( $contact_map_embed ); ?>
+                    <?php 
+                    // Allow iframe in output for Google Maps
+                    $allowed_html = array(
+                        'iframe' => array(
+                            'src' => array(),
+                            'width' => array(),
+                            'height' => array(),
+                            'style' => array(),
+                            'allowfullscreen' => array(),
+                            'loading' => array(),
+                            'referrerpolicy' => array(),
+                            'frameborder' => array(),
+                        ),
+                    );
+                    echo wp_kses( $contact_map_embed, $allowed_html );
+                    ?>
                 <?php else : ?>
+                    <!-- Debug: Map embed field is empty -->
                     <p><?php esc_html_e( 'Google Maps embed can be added here', 'abbott-gage' ); ?></p>
                     <p><small><?php echo esc_html( $address_street . ', ' . $address_city . ', ' . $address_state . ' ' . $address_zip ); ?></small></p>
                 <?php endif; ?>

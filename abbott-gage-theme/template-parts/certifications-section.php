@@ -60,7 +60,7 @@ $certifications_items = get_field('certifications_items');
                 <div class="certification-card h-100">
                     <div class="certification-image">
                         <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/PRI_Certification.png' ); ?>" 
-                             alt="<?php esc_attr_e( 'ISO 9001:2015 Certification', 'abbott-gage' ); ?>"
+                             alt="<?php esc_attr_e( 'ISO 9001:2015 quality management certification badge - Abbott Gage Inc', 'abbott-gage' ); ?>"
                              loading="lazy">
                     </div>
                     <div class="certification-content">
@@ -80,7 +80,7 @@ $certifications_items = get_field('certifications_items');
                 <div class="certification-card h-100">
                     <div class="certification-image">
                         <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/equipment/womens_business_enterprise.gif' ); ?>" 
-                             alt="<?php esc_attr_e( 'WBENC Certification', 'abbott-gage' ); ?>"
+                             alt="<?php esc_attr_e( 'WBENC woman-owned business enterprise certification', 'abbott-gage' ); ?>"
                              loading="lazy">
                     </div>
                     <div class="certification-content">

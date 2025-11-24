@@ -5,6 +5,15 @@
  *
  * @package Abbott_Gage
  * @since 1.0.0
+ * 
+ * YOAST SEO SETTINGS:
+ * Focus Keyphrase: laboratory calibration services
+ * Alternative Keyphrases: dimensional calibration lab, electronic equipment calibration
+ * 
+ * SEO Title: Laboratory Calibration Services | ISO Certified NIST Traceable | Abbott Gage
+ * 
+ * Meta Description: Professional laboratory calibration services for dimensional & electronic 
+ * equipment. ISO certified, NIST traceable. Micrometers, calipers, gages, multimeters & more.
  */
 
 get_header();
@@ -164,6 +173,41 @@ get_header();
             </div>
         </div>
     </section>
+    
+    <!-- FAQ Section -->
+    <?php 
+    $lab_faqs = array(
+        array(
+            'question' => 'What is NIST traceable calibration?',
+            'answer' => 'NIST traceable calibration means that our calibration standards are traceable back to the National Institute of Standards and Technology (NIST). This ensures that all measurements meet national and international standards, providing documented proof of accuracy through an unbroken chain of calibrations.'
+        ),
+        array(
+            'question' => 'How long does laboratory calibration take?',
+            'answer' => 'Standard laboratory calibration typically takes 3-5 business days from when we receive your equipment. We offer expedited service for urgent needs. Turnaround time may vary depending on the type and quantity of equipment, as well as any necessary repairs.'
+        ),
+        array(
+            'question' => 'Do you provide calibration certificates?',
+            'answer' => 'Yes, every calibration includes a detailed certificate showing the as-found and as-left measurements, traceability information, and technician signature. Our certificates meet ISO/IEC 17025 requirements and are accepted by all major quality management systems.'
+        ),
+        array(
+            'question' => 'How often should I calibrate my equipment?',
+            'answer' => 'Calibration frequency depends on several factors including manufacturer recommendations, industry standards, usage frequency, and environmental conditions. Most precision measuring equipment should be calibrated annually, but some applications may require more frequent calibration. We can help you establish an appropriate calibration schedule.'
+        ),
+        array(
+            'question' => 'What equipment do you calibrate?',
+            'answer' => 'We calibrate a wide range of dimensional and electronic equipment including micrometers, calipers, height gages, indicators, surface plates, gage blocks, multimeters, oscilloscopes, thermometers, pressure gages, and more. If you have specific equipment needs, please contact us to confirm we can service it.'
+        ),
+        array(
+            'question' => 'Can you repair equipment that fails calibration?',
+            'answer' => 'Yes, we offer repair services for equipment that fails calibration or shows excessive wear. As a factory-authorized repair center for major brands like Mitutoyo, Fowler, and Brown & Sharpe, we can perform most repairs in-house and recalibrate the equipment before returning it to you.'
+        )
+    );
+    
+    get_template_part( 'template-parts/faq', 'section', array( 
+        'title' => 'Laboratory Calibration FAQs',
+        'items' => $lab_faqs 
+    ) ); 
+    ?>
     
     <!-- CTA Section -->
     <?php get_template_part( 'template-parts/cta', 'section' ); ?>

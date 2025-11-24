@@ -5,6 +5,15 @@
  *
  * @package Abbott_Gage
  * @since 1.0.0
+ * 
+ * YOAST SEO SETTINGS:
+ * Focus Keyphrase: precision tool manufacturers
+ * Alternative Keyphrases: authorized Mitutoyo distributor, metrology equipment brands
+ * 
+ * SEO Title: Precision Tool Manufacturers | Authorized Service & Distribution Partners
+ * 
+ * Meta Description: Authorized service center & distributor for leading precision tool manufacturers: 
+ * Mitutoyo, Starrett, Fowler, Brown & Sharpe, and more. Factory-trained technicians.
  */
 
 get_header();

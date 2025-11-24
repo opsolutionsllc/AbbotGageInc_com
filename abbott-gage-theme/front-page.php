@@ -5,6 +5,15 @@
  *
  * @package Abbott_Gage
  * @since 1.0.0
+ * 
+ * YOAST SEO SETTINGS:
+ * Focus Keyphrase: precision measuring equipment calibration
+ * Alternative Keyphrases: ISO 9001 calibration services, NIST traceable calibration
+ * 
+ * SEO Title: Abbott Gage Inc | Precision Measuring Equipment & Calibration Services
+ * 
+ * Meta Description: Abbott Gage Inc: ISO 9001:2015 certified precision measuring equipment 
+ * calibration & repair. NIST traceable standards. Woman-owned business. 30+ years experience.
  */
 
 get_header();
@@ -107,11 +116,11 @@ get_header();
                 <div class="about-image">
                     <?php if ( $home_about_image ) : ?>
                         <img src="<?php echo esc_url( $home_about_image['url'] ); ?>" 
-                             alt="<?php echo esc_attr( $home_about_image['alt'] ?: 'Precision Measuring Equipment' ); ?>"
+                             alt="<?php echo esc_attr( $home_about_image['alt'] ?: 'Precision measuring equipment calibration and certification tools' ); ?>"
                              loading="lazy">
                     <?php else : ?>
                         <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/equipment/abbot-gage-tool-graphic.png' ); ?>" 
-                             alt="<?php esc_attr_e( 'Precision Measuring Equipment', 'abbott-gage' ); ?>"
+                             alt="<?php esc_attr_e( 'Precision measuring equipment for calibration services', 'abbott-gage' ); ?>"
                              loading="lazy">
                     <?php endif; ?>
                 </div>

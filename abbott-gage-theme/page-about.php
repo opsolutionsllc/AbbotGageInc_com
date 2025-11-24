@@ -5,6 +5,15 @@
  *
  * @package Abbott_Gage
  * @since 1.0.0
+ * 
+ * YOAST SEO SETTINGS:
+ * Focus Keyphrase: woman owned calibration company
+ * Alternative Keyphrases: ISO 9001 certified metrology lab, WBENC certified calibration services
+ * 
+ * SEO Title: About Abbott Gage | Woman-Owned ISO Certified Calibration Company
+ * 
+ * Meta Description: Learn about Abbott Gage Inc, a woman-owned (WBENC/WOSB) ISO 9001:2015 
+ * certified calibration company. 30+ years providing NIST traceable precision measurement solutions.
  */
 
 get_header();
@@ -60,10 +69,10 @@ get_header();
                     <div class="about-intro-image">
                         <?php if ( $about_intro_image ) : ?>
                             <img src="<?php echo esc_url( $about_intro_image['url'] ); ?>" 
-                                 alt="<?php echo esc_attr( $about_intro_image['alt'] ?: 'Precision Measuring Tools' ); ?>">
+                                 alt="<?php echo esc_attr( $about_intro_image['alt'] ?: 'Precision measuring equipment including micrometers and calipers' ); ?>">
                         <?php else : ?>
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/equipment/abbot-gage-tool-graphic.png" 
-                                 alt="Precision Measuring Tools">
+                                 alt="Precision measuring equipment including micrometers, calipers, and indicators">
                         <?php endif; ?>
                     </div>
                 </div>

@@ -217,61 +217,6 @@ function abbott_gage_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'abbott_gage_scripts' );
 
-/**
- * Add Schema.org markup for LocalBusiness
- */
-function abbott_gage_schema_markup() {
-    if ( is_front_page() || is_page() ) {
-        $schema = array(
-            '@context'      => 'https://schema.org',
-            '@type'         => 'LocalBusiness',
-            'name'          => 'Abbott Gage, Inc.',
-            'description'   => 'Precision measuring tools, calibration, certification, and repair services. ISO 9001:2015 certified, woman-owned business.',
-            'url'           => home_url(),
-            'telephone'     => '+1-256-378-3286',
-            'email'         => 'info@abbottgageinc.com',
-            'address'       => array(
-                '@type'           => 'PostalAddress',
-                'streetAddress'   => '40 Industrial Park',
-                'addressLocality' => 'Childersburg',
-                'addressRegion'   => 'AL',
-                'postalCode'      => '35044',
-                'addressCountry'  => 'US',
-            ),
-            'geo'           => array(
-                '@type'     => 'GeoCoordinates',
-                'latitude'  => '33.2829',
-                'longitude' => '-86.3553',
-            ),
-            'openingHours'  => 'Mo-Fr 08:00-17:00',
-            'priceRange'    => '$$',
-        );
-        
-        echo '<script type="application/ld+json">' . wp_json_encode( $schema ) . '</script>' . "\n";
-    }
-}
-add_action( 'wp_head', 'abbott_gage_schema_markup' );
-
-/**
- * Add Open Graph meta tags for better social sharing
- */
-function abbott_gage_open_graph() {
-    if ( is_singular() ) {
-        global $post;
-        
-        $og_title       = get_the_title();
-        $og_description = get_the_excerpt();
-        $og_url         = get_permalink();
-        $og_image       = has_post_thumbnail() ? get_the_post_thumbnail_url( $post, 'full' ) : get_template_directory_uri() . '/assets/images/default-og-image.jpg';
-        
-        echo '<meta property="og:title" content="' . esc_attr( $og_title ) . '" />' . "\n";
-        echo '<meta property="og:description" content="' . esc_attr( $og_description ) . '" />' . "\n";
-        echo '<meta property="og:url" content="' . esc_url( $og_url ) . '" />' . "\n";
-        echo '<meta property="og:image" content="' . esc_url( $og_image ) . '" />' . "\n";
-        echo '<meta property="og:type" content="website" />' . "\n";
-    }
-}
-add_action( 'wp_head', 'abbott_gage_open_graph' );
 
 /**
  * Custom excerpt length
@@ -324,4 +269,9 @@ require get_template_directory() . '/inc/template-tags.php';
  * ACF Field Groups (ACF Pro 6.6.2)
  */
 require get_template_directory() . '/inc/acf-fields.php';
+
+/**
+ * SEO Functions and Schema Markup
+ */
+require get_template_directory() . '/inc/seo-functions.php';
 

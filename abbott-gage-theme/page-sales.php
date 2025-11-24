@@ -5,6 +5,15 @@
  *
  * @package Abbott_Gage
  * @since 1.0.0
+ * 
+ * YOAST SEO SETTINGS:
+ * Focus Keyphrase: precision measuring tools for sale
+ * Alternative Keyphrases: buy micrometers and calipers, metrology equipment supplier
+ * 
+ * SEO Title: Precision Measuring Equipment Sales | Micrometers, Calipers & Gages
+ * 
+ * Meta Description: Purchase precision measuring equipment from authorized distributors. 
+ * Micrometers, calipers, indicators, gages & more. Expert guidance on tool selection. Fast shipping.
  */
 
 get_header();

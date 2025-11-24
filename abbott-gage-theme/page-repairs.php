@@ -5,6 +5,15 @@
  *
  * @package Abbott_Gage
  * @since 1.0.0
+ * 
+ * YOAST SEO SETTINGS:
+ * Focus Keyphrase: precision measuring equipment repair
+ * Alternative Keyphrases: Mitutoyo authorized repair center, gage and caliper repair
+ * 
+ * SEO Title: Precision Measuring Equipment Repair | Factory Authorized Service Center
+ * 
+ * Meta Description: Factory authorized repair center for Mitutoyo, Fowler & Brown & Sharpe. 
+ * Expert repair services for precision measuring tools. Fast turnaround, quality guaranteed.
  */
 
 get_header();

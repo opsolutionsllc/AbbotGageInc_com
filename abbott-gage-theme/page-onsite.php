@@ -5,6 +5,15 @@
  *
  * @package Abbott_Gage
  * @since 1.0.0
+ * 
+ * YOAST SEO SETTINGS:
+ * Focus Keyphrase: on-site calibration services
+ * Alternative Keyphrases: mobile calibration services, field calibration equipment
+ * 
+ * SEO Title: On-Site Calibration Services | Mobile Lab Service | Abbott Gage Inc
+ * 
+ * Meta Description: Convenient on-site calibration services at your facility. Minimize downtime 
+ * with our mobile calibration lab. Dimensional & electronic equipment certified to NIST standards.
  */
 
 get_header();
