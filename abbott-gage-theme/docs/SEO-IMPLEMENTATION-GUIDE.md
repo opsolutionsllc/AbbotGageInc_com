@@ -215,7 +215,7 @@ For each page, the SEO settings are documented in the template file comments. He
    - Google Analytics
    - Google Tag Manager
 4. Submit your sitemap:
-   - URL: `https://yoursite.com/sitemap_index.xml`
+   - URL: `https://abbottgageinc.com/sitemap_index.xml`
    - Yoast generates this automatically
 
 ### Step 5: Configure Google Business Profile
@@ -268,7 +268,7 @@ The schema markup needs your actual business details. Update these in WordPress:
 Edit line 50-60 in `inc/seo-functions.php` with your actual details:
 ```php
 'telephone' => '+1-256-378-3286',  // Your phone
-'email' => 'info@abbottgage.com',   // Your email
+'email' => 'info@abbottgageinc.com',   // Your email
 ```
 
 ---
@@ -469,7 +469,7 @@ Your theme is already mobile-responsive, but verify:
 ### Low Rankings
 - Verify all pages have unique meta descriptions
 - Check for duplicate content
-- Ensure site is indexed (use `site:yoursite.com` in Google)
+- Ensure site is indexed (use `site:abbottgageinc.com` in Google)
 - Build quality backlinks
 - Improve page speed
 - Add more quality content

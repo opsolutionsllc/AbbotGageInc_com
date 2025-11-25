@@ -77,7 +77,7 @@ For each page, the SEO settings are in the template file header comments. Just c
 1. Go to https://search.google.com/search-console
 2. Add property
 3. Verify ownership
-4. Submit sitemap: `https://yoursite.com/sitemap_index.xml`
+4. Submit sitemap: `https://abbottgageinc.com/sitemap_index.xml`
 
 ### 4. Set Up Google Business Profile
 1. Go to https://www.google.com/business/

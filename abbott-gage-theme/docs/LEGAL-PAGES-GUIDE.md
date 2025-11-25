@@ -79,7 +79,7 @@ You may want to link to these pages from your footer:
 
 [H2] Contact Information
 [paragraph] If you have questions about this Privacy Policy, please contact us at:
-Email: info@abbottgage.com
+Email: info@abbottgageinc.com
 Phone: [your phone number]
 Address: [your address]
 ```
@@ -97,7 +97,7 @@ Address: [your address]
 
 [H2] Contact Information
 [paragraph] For questions about these Terms of Service, please contact us at:
-Email: info@abbottgage.com
+Email: info@abbottgageinc.com
 Phone: [your phone number]
 ```
 

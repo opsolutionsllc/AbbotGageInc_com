@@ -9,7 +9,32 @@
  */
 
 /**
+ * Get business information from ACF options (with fallbacks)
+ */
+function abbott_gage_get_business_info() {
+    return array(
+        'name' => get_field('company_name', 'option') ?: 'Abbott Gage, Inc.',
+        'alternateName' => 'Abbott Gage',
+        'legalName' => 'Abbott Gage, Inc.',
+        'telephone' => get_field('phone_primary', 'option') ?: '+1-256-378-3286',
+        'tollFreeNumber' => get_field('phone_toll_free', 'option') ?: '+1-800-481-4243',
+        'faxNumber' => get_field('fax', 'option') ?: '+1-256-378-3287',
+        'email' => get_field('email', 'option') ?: 'info@abbottgageinc.com',
+        'street' => get_field('address_street', 'option') ?: '40 Industrial Park',
+        'city' => get_field('address_city', 'option') ?: 'Childersburg',
+        'state' => get_field('address_state', 'option') ?: 'AL',
+        'zip' => get_field('address_zip', 'option') ?: '35044',
+        'country' => 'US',
+        'latitude' => '33.2829',
+        'longitude' => '-86.3553',
+        'founded' => '1992',
+        'foundingLocation' => 'Childersburg, Alabama',
+    );
+}
+
+/**
  * Add Schema.org JSON-LD structured data to the site
+ * Comprehensive Local SEO implementation
  */
 function abbott_gage_schema_markup() {
     // Only output on front-end
@@ -17,44 +42,111 @@ function abbott_gage_schema_markup() {
         return;
     }
     
+    $business = abbott_gage_get_business_info();
     $schema = array();
     
-    // Organization Schema - appears on all pages
+    // Enhanced LocalBusiness Schema with ProfessionalService - appears on all pages
     $schema['organization'] = array(
         '@context' => 'https://schema.org',
-        '@type' => 'LocalBusiness',
+        '@type' => array('LocalBusiness', 'ProfessionalService'),
         '@id' => home_url() . '#organization',
-        'name' => 'Abbott Gage Inc',
-        'alternateName' => 'Abbott Gage',
+        'name' => $business['name'],
+        'alternateName' => $business['alternateName'],
+        'legalName' => $business['legalName'],
         'url' => home_url(),
         'logo' => array(
             '@type' => 'ImageObject',
             'url' => get_template_directory_uri() . '/assets/images/abbott-gage-inc-header.jpg',
+            'width' => 600,
+            'height' => 60,
+            'caption' => $business['name'] . ' - Precision Calibration Services'
         ),
-        'description' => 'ISO 9001:2015 certified precision measuring equipment calibration and repair services. Woman-owned business providing NIST traceable calibration services.',
+        'image' => array(
+            '@type' => 'ImageObject',
+            'url' => get_template_directory_uri() . '/assets/images/abbott-gage-inc-header.jpg',
+            'width' => 600,
+            'height' => 60
+        ),
+        'description' => 'ISO 9001:2015 certified precision measuring equipment calibration and repair services. Woman-owned business providing NIST traceable calibration services since 1992.',
+        'slogan' => 'Precision You Can Trust',
+        'foundingDate' => $business['founded'],
+        'foundingLocation' => array(
+            '@type' => 'Place',
+            'address' => array(
+                '@type' => 'PostalAddress',
+                'addressLocality' => 'Childersburg',
+                'addressRegion' => 'AL',
+                'addressCountry' => 'US'
+            )
+        ),
         'priceRange' => '$$',
-        'telephone' => '+1-256-378-3286',
-        'email' => 'info@abbottgageinc.com',
-        'areaServed' => array(
-            '@type' => 'Country',
-            'name' => 'United States'
-        ),
+        'currenciesAccepted' => 'USD',
+        'paymentAccepted' => 'Cash, Check, Credit Card, Visa, Mastercard, American Express, Discover, NET 30 Terms',
+        'telephone' => $business['telephone'],
+        'faxNumber' => $business['faxNumber'],
+        'email' => $business['email'],
+        
+        // Address with proper formatting
         'address' => array(
             '@type' => 'PostalAddress',
-            'streetAddress' => '40 Industrial Park',
-            'addressLocality' => 'Childersburg',
-            'addressRegion' => 'AL',
-            'postalCode' => '35044',
-            'addressCountry' => 'US'
+            'streetAddress' => $business['street'],
+            'addressLocality' => $business['city'],
+            'addressRegion' => $business['state'],
+            'postalCode' => $business['zip'],
+            'addressCountry' => $business['country']
         ),
+        
+        // Geographic coordinates
         'geo' => array(
             '@type' => 'GeoCoordinates',
-            'latitude' => '33.2829',
-            'longitude' => '-86.3553'
+            'latitude' => $business['latitude'],
+            'longitude' => $business['longitude']
         ),
-        'sameAs' => array(
-            // Add social media URLs here when available
+        
+        // Service areas - nationwide
+        'areaServed' => array(
+            array(
+                '@type' => 'Country',
+                'name' => 'United States'
+            ),
+            array(
+                '@type' => 'State',
+                'name' => 'Alabama'
+            ),
+            array(
+                '@type' => 'State',
+                'name' => 'Georgia'
+            ),
+            array(
+                '@type' => 'State',
+                'name' => 'Tennessee'
+            ),
+            array(
+                '@type' => 'State',
+                'name' => 'Mississippi'
+            ),
+            array(
+                '@type' => 'State',
+                'name' => 'Florida'
+            )
         ),
+        
+        // Service categories
+        'knowsAbout' => array(
+            'Calibration Services',
+            'NIST Traceable Calibration',
+            'ISO 9001:2015 Certification',
+            'Precision Measuring Equipment',
+            'Dimensional Calibration',
+            'Electronic Calibration',
+            'On-Site Calibration',
+            'Laboratory Calibration',
+            'Equipment Repair',
+            'Mitutoyo Service Center',
+            'Woman-Owned Business'
+        ),
+        
+        // Business certifications
         'hasCredential' => array(
             array(
                 '@type' => 'EducationalOccupationalCredential',
@@ -80,42 +172,170 @@ function abbott_gage_schema_markup() {
                     'name' => 'Women-Owned Small Business Program'
                 )
             )
+        ),
+        
+        // Social media profiles (add when available)
+        'sameAs' => array_filter(array(
+            get_field('facebook_url', 'option'),
+            get_field('linkedin_url', 'option'),
+            get_field('twitter_url', 'option'),
+        )),
+        
+        // Contact points
+        'contactPoint' => array(
+            array(
+                '@type' => 'ContactPoint',
+                'telephone' => $business['telephone'],
+                'contactType' => 'customer service',
+                'areaServed' => 'US',
+                'availableLanguage' => array('English'),
+                'contactOption' => 'TollFree',
+                'email' => $business['email']
+            ),
+            array(
+                '@type' => 'ContactPoint',
+                'telephone' => $business['tollFreeNumber'],
+                'contactType' => 'sales',
+                'areaServed' => 'US',
+                'availableLanguage' => array('English'),
+                'contactOption' => 'TollFree'
+            ),
+            array(
+                '@type' => 'ContactPoint',
+                'telephone' => $business['telephone'],
+                'contactType' => 'technical support',
+                'areaServed' => 'US',
+                'availableLanguage' => array('English')
+            )
         )
     );
     
-    
-    // Add business hours if available
+    // Enhanced business hours with proper specification
     $schema['organization']['openingHoursSpecification'] = array(
-        '@type' => 'OpeningHoursSpecification',
-        'dayOfWeek' => array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'),
-        'opens' => '08:00',
-        'closes' => '17:00'
+        array(
+            '@type' => 'OpeningHoursSpecification',
+            'dayOfWeek' => 'Monday',
+            'opens' => '08:00',
+            'closes' => '17:00'
+        ),
+        array(
+            '@type' => 'OpeningHoursSpecification',
+            'dayOfWeek' => 'Tuesday',
+            'opens' => '08:00',
+            'closes' => '17:00'
+        ),
+        array(
+            '@type' => 'OpeningHoursSpecification',
+            'dayOfWeek' => 'Wednesday',
+            'opens' => '08:00',
+            'closes' => '17:00'
+        ),
+        array(
+            '@type' => 'OpeningHoursSpecification',
+            'dayOfWeek' => 'Thursday',
+            'opens' => '08:00',
+            'closes' => '17:00'
+        ),
+        array(
+            '@type' => 'OpeningHoursSpecification',
+            'dayOfWeek' => 'Friday',
+            'opens' => '08:00',
+            'closes' => '17:00'
+        )
     );
     
-    // Service Schema for service pages
+    // Enhanced Service Schema for service pages
     if ( is_page() ) {
         $page_template = get_page_template_slug();
         
         $services_data = array(
             'page-laboratory.php' => array(
                 'name' => 'Laboratory Calibration Services',
-                'description' => 'Professional laboratory calibration services for dimensional and electronic equipment. ISO certified, NIST traceable standards.',
-                'serviceType' => 'Calibration Service'
+                'description' => 'Professional laboratory calibration services for dimensional and electronic equipment. ISO 9001:2015 certified, NIST traceable standards.',
+                'serviceType' => 'Calibration Service',
+                'category' => 'Professional Service',
+                'offers' => array(
+                    array(
+                        '@type' => 'Offer',
+                        'itemOffered' => array(
+                            '@type' => 'Service',
+                            'name' => 'Dimensional Calibration',
+                            'description' => 'NIST traceable calibration for micrometers, calipers, indicators, and gages'
+                        )
+                    ),
+                    array(
+                        '@type' => 'Offer',
+                        'itemOffered' => array(
+                            '@type' => 'Service',
+                            'name' => 'Electronic Calibration',
+                            'description' => 'NIST traceable calibration for multimeters, pressure gauges, and test equipment'
+                        )
+                    )
+                )
             ),
             'page-onsite.php' => array(
                 'name' => 'On-Site Calibration Services',
-                'description' => 'Convenient on-site calibration services at your facility. Mobile calibration lab minimizes downtime.',
-                'serviceType' => 'Mobile Calibration Service'
+                'description' => 'Convenient on-site calibration services at your facility. Mobile calibration lab minimizes downtime and maintains NIST traceability.',
+                'serviceType' => 'Mobile Calibration Service',
+                'category' => 'Professional Service',
+                'offers' => array(
+                    array(
+                        '@type' => 'Offer',
+                        'itemOffered' => array(
+                            '@type' => 'Service',
+                            'name' => 'On-Site Dimensional Calibration',
+                            'description' => 'Calibration services performed at your location'
+                        )
+                    ),
+                    array(
+                        '@type' => 'Offer',
+                        'itemOffered' => array(
+                            '@type' => 'Service',
+                            'name' => 'On-Site Electronic Calibration',
+                            'description' => 'Mobile electronic equipment calibration'
+                        )
+                    )
+                )
             ),
             'page-repairs.php' => array(
                 'name' => 'Precision Measuring Equipment Repair',
-                'description' => 'Factory authorized repair center for Mitutoyo, Fowler, and Brown & Sharpe precision measuring tools.',
-                'serviceType' => 'Repair Service'
+                'description' => 'Factory authorized repair center for Mitutoyo, Fowler, and Brown & Sharpe precision measuring tools. Expert technicians with factory training.',
+                'serviceType' => 'Repair Service',
+                'category' => 'Repair and Maintenance',
+                'offers' => array(
+                    array(
+                        '@type' => 'Offer',
+                        'itemOffered' => array(
+                            '@type' => 'Service',
+                            'name' => 'Micrometer Repair',
+                            'description' => 'Professional repair services for all types of micrometers'
+                        )
+                    ),
+                    array(
+                        '@type' => 'Offer',
+                        'itemOffered' => array(
+                            '@type' => 'Service',
+                            'name' => 'Caliper Repair',
+                            'description' => 'Expert repair for digital and analog calipers'
+                        )
+                    )
+                )
             ),
             'page-sales.php' => array(
                 'name' => 'Precision Measuring Equipment Sales',
-                'description' => 'Purchase precision measuring equipment from authorized distributors. Expert guidance on tool selection.',
-                'serviceType' => 'Equipment Sales'
+                'description' => 'Purchase precision measuring equipment from authorized distributors. Expert guidance on tool selection. Fast shipping available.',
+                'serviceType' => 'Equipment Sales',
+                'category' => 'Product and Service',
+                'offers' => array(
+                    array(
+                        '@type' => 'Offer',
+                        'itemOffered' => array(
+                            '@type' => 'Product',
+                            'name' => 'Precision Measuring Tools',
+                            'description' => 'New precision measuring equipment from authorized manufacturers'
+                        )
+                    )
+                )
             )
         );
         
@@ -127,12 +347,36 @@ function abbott_gage_schema_markup() {
                 'serviceType' => $service['serviceType'],
                 'name' => $service['name'],
                 'description' => $service['description'],
+                'category' => $service['category'],
                 'provider' => array(
                     '@id' => home_url() . '#organization'
                 ),
                 'areaServed' => array(
                     '@type' => 'Country',
                     'name' => 'United States'
+                ),
+                'hasOfferCatalog' => array(
+                    '@type' => 'OfferCatalog',
+                    'name' => $service['name'],
+                    'itemListElement' => $service['offers']
+                ),
+                'audience' => array(
+                    '@type' => 'Audience',
+                    'audienceType' => 'Manufacturing, Aerospace, Medical Device, Automotive, Quality Control'
+                )
+            );
+        }
+        
+        // Add Contact Page specific schema
+        if ( $page_template === 'page-contact.php' ) {
+            $schema['contactPage'] = array(
+                '@context' => 'https://schema.org',
+                '@type' => 'ContactPage',
+                'name' => 'Contact Abbott Gage Inc',
+                'description' => 'Contact Abbott Gage for calibration services, equipment sales, or technical support',
+                'url' => get_permalink(),
+                'mainEntity' => array(
+                    '@id' => home_url() . '#organization'
                 )
             );
         }
@@ -368,4 +612,273 @@ function abbott_gage_hreflang_tags() {
     }
 }
 add_action( 'wp_head', 'abbott_gage_hreflang_tags', 3 );
+
+/**
+ * NAP (Name, Address, Phone) Shortcodes for consistent local SEO
+ * Usage: [business_name], [business_address], [business_phone], etc.
+ */
+function abbott_gage_business_name_shortcode() {
+    $business = abbott_gage_get_business_info();
+    return '<span itemprop="name">' . esc_html( $business['name'] ) . '</span>';
+}
+add_shortcode( 'business_name', 'abbott_gage_business_name_shortcode' );
+
+function abbott_gage_business_address_shortcode( $atts ) {
+    $business = abbott_gage_get_business_info();
+    $atts = shortcode_atts( array(
+        'format' => 'full', // full, street, city, state, zip, inline
+    ), $atts );
+    
+    $output = '<span itemscope itemtype="https://schema.org/PostalAddress">';
+    
+    switch ( $atts['format'] ) {
+        case 'street':
+            $output .= '<span itemprop="streetAddress">' . esc_html( $business['street'] ) . '</span>';
+            break;
+        case 'city':
+            $output .= '<span itemprop="addressLocality">' . esc_html( $business['city'] ) . '</span>';
+            break;
+        case 'state':
+            $output .= '<span itemprop="addressRegion">' . esc_html( $business['state'] ) . '</span>';
+            break;
+        case 'zip':
+            $output .= '<span itemprop="postalCode">' . esc_html( $business['zip'] ) . '</span>';
+            break;
+        case 'inline':
+            $output .= '<span itemprop="streetAddress">' . esc_html( $business['street'] ) . '</span>, ';
+            $output .= '<span itemprop="addressLocality">' . esc_html( $business['city'] ) . '</span>, ';
+            $output .= '<span itemprop="addressRegion">' . esc_html( $business['state'] ) . '</span> ';
+            $output .= '<span itemprop="postalCode">' . esc_html( $business['zip'] ) . '</span>';
+            break;
+        default: // full
+            $output .= '<span itemprop="streetAddress">' . esc_html( $business['street'] ) . '</span><br>';
+            $output .= '<span itemprop="addressLocality">' . esc_html( $business['city'] ) . '</span>, ';
+            $output .= '<span itemprop="addressRegion">' . esc_html( $business['state'] ) . '</span> ';
+            $output .= '<span itemprop="postalCode">' . esc_html( $business['zip'] ) . '</span>';
+            break;
+    }
+    
+    $output .= '</span>';
+    return $output;
+}
+add_shortcode( 'business_address', 'abbott_gage_business_address_shortcode' );
+
+function abbott_gage_business_phone_shortcode( $atts ) {
+    $business = abbott_gage_get_business_info();
+    $atts = shortcode_atts( array(
+        'type' => 'primary', // primary, tollfree, fax
+        'link' => 'yes',
+    ), $atts );
+    
+    $phone = '';
+    $tel = '';
+    
+    switch ( $atts['type'] ) {
+        case 'tollfree':
+            $phone = $business['tollFreeNumber'];
+            $tel = preg_replace( '/[^0-9+]/', '', $phone );
+            break;
+        case 'fax':
+            $phone = $business['faxNumber'];
+            $tel = preg_replace( '/[^0-9+]/', '', $phone );
+            break;
+        default: // primary
+            $phone = $business['telephone'];
+            $tel = preg_replace( '/[^0-9+]/', '', $phone );
+            break;
+    }
+    
+    if ( $atts['link'] === 'yes' && $atts['type'] !== 'fax' ) {
+        return '<a href="tel:' . esc_attr( $tel ) . '" itemprop="telephone">' . esc_html( $phone ) . '</a>';
+    } else {
+        return '<span itemprop="' . ( $atts['type'] === 'fax' ? 'faxNumber' : 'telephone' ) . '">' . esc_html( $phone ) . '</span>';
+    }
+}
+add_shortcode( 'business_phone', 'abbott_gage_business_phone_shortcode' );
+
+function abbott_gage_business_email_shortcode( $atts ) {
+    $business = abbott_gage_get_business_info();
+    $atts = shortcode_atts( array(
+        'link' => 'yes',
+    ), $atts );
+    
+    if ( $atts['link'] === 'yes' ) {
+        return '<a href="mailto:' . esc_attr( $business['email'] ) . '" itemprop="email">' . esc_html( $business['email'] ) . '</a>';
+    } else {
+        return '<span itemprop="email">' . esc_html( $business['email'] ) . '</span>';
+    }
+}
+add_shortcode( 'business_email', 'abbott_gage_business_email_shortcode' );
+
+function abbott_gage_business_hours_shortcode() {
+    $hours = get_field('business_hours', 'option');
+    if ( $hours ) {
+        return '<div itemprop="openingHours" content="Mo-Fr 08:00-17:00">' . nl2br( esc_html( $hours ) ) . '</div>';
+    }
+    return '<div itemprop="openingHours" content="Mo-Fr 08:00-17:00">Monday - Friday<br>8:00 AM - 5:00 PM CST</div>';
+}
+add_shortcode( 'business_hours', 'abbott_gage_business_hours_shortcode' );
+
+/**
+ * Add Google Maps with proper schema markup
+ */
+function abbott_gage_google_maps_shortcode( $atts ) {
+    $business = abbott_gage_get_business_info();
+    $atts = shortcode_atts( array(
+        'width' => '100%',
+        'height' => '450',
+        'zoom' => '15',
+    ), $atts );
+    
+    $address_encoded = urlencode( $business['street'] . ', ' . $business['city'] . ', ' . $business['state'] . ' ' . $business['zip'] );
+    
+    $output = '<div class="google-map-wrapper" itemscope itemtype="https://schema.org/Place">';
+    $output .= '<meta itemprop="latitude" content="' . esc_attr( $business['latitude'] ) . '">';
+    $output .= '<meta itemprop="longitude" content="' . esc_attr( $business['longitude'] ) . '">';
+    $output .= '<iframe 
+        src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=' . $address_encoded . '&zoom=' . esc_attr( $atts['zoom'] ) . '"
+        width="' . esc_attr( $atts['width'] ) . '"
+        height="' . esc_attr( $atts['height'] ) . '"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>';
+    $output .= '</div>';
+    
+    return $output;
+}
+add_shortcode( 'google_map', 'abbott_gage_google_maps_shortcode' );
+
+/**
+ * Add Review/Rating Schema (ready for when reviews are added)
+ */
+function abbott_gage_add_review_schema() {
+    // Only add if reviews exist (can be connected to a reviews plugin or ACF fields)
+    $reviews = get_field('google_reviews', 'option'); // Assumes ACF field for reviews
+    
+    if ( ! $reviews || ! is_array( $reviews ) ) {
+        return;
+    }
+    
+    $total_rating = 0;
+    $review_count = count( $reviews );
+    
+    if ( $review_count === 0 ) {
+        return;
+    }
+    
+    foreach ( $reviews as $review ) {
+        $total_rating += floatval( $review['rating'] );
+    }
+    
+    $average_rating = $total_rating / $review_count;
+    
+    $schema = array(
+        '@context' => 'https://schema.org',
+        '@type' => 'Organization',
+        '@id' => home_url() . '#organization',
+        'aggregateRating' => array(
+            '@type' => 'AggregateRating',
+            'ratingValue' => number_format( $average_rating, 1 ),
+            'reviewCount' => $review_count,
+            'bestRating' => '5',
+            'worstRating' => '1'
+        ),
+        'review' => array()
+    );
+    
+    // Add individual reviews
+    foreach ( $reviews as $review ) {
+        $schema['review'][] = array(
+            '@type' => 'Review',
+            'author' => array(
+                '@type' => 'Person',
+                'name' => $review['author']
+            ),
+            'datePublished' => $review['date'],
+            'reviewBody' => $review['text'],
+            'reviewRating' => array(
+                '@type' => 'Rating',
+                'ratingValue' => $review['rating'],
+                'bestRating' => '5',
+                'worstRating' => '1'
+            )
+        );
+    }
+    
+    echo '<script type="application/ld+json">';
+    echo wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT );
+    echo '</script>' . "\n";
+}
+add_action( 'wp_head', 'abbott_gage_add_review_schema', 5 );
+
+/**
+ * Add local business keywords meta tag
+ */
+function abbott_gage_local_keywords() {
+    $keywords = array(
+        'calibration services Childersburg AL',
+        'NIST traceable calibration Alabama',
+        'ISO 9001:2015 certified calibration',
+        'precision measuring equipment calibration',
+        'on-site calibration services',
+        'laboratory calibration Alabama',
+        'Mitutoyo service center Alabama',
+        'woman-owned calibration business',
+        'dimensional calibration services',
+        'electronic calibration services',
+        'precision tool repair Alabama',
+        'measuring equipment sales Alabama'
+    );
+    
+    echo '<meta name="keywords" content="' . esc_attr( implode( ', ', $keywords ) ) . '">' . "\n";
+}
+add_action( 'wp_head', 'abbott_gage_local_keywords', 4 );
+
+/**
+ * Add geo meta tags for local SEO
+ */
+function abbott_gage_geo_meta_tags() {
+    $business = abbott_gage_get_business_info();
+    ?>
+    <meta name="geo.region" content="US-<?php echo esc_attr( $business['state'] ); ?>">
+    <meta name="geo.placename" content="<?php echo esc_attr( $business['city'] ); ?>">
+    <meta name="geo.position" content="<?php echo esc_attr( $business['latitude'] . ';' . $business['longitude'] ); ?>">
+    <meta name="ICBM" content="<?php echo esc_attr( $business['latitude'] . ', ' . $business['longitude'] ); ?>">
+    <?php
+}
+add_action( 'wp_head', 'abbott_gage_geo_meta_tags', 5 );
+
+/**
+ * Add business hours to footer with schema markup
+ */
+function abbott_gage_footer_business_info() {
+    $business = abbott_gage_get_business_info();
+    ?>
+    <div class="footer-business-schema" style="display:none;" itemscope itemtype="https://schema.org/LocalBusiness">
+        <span itemprop="name"><?php echo esc_html( $business['name'] ); ?></span>
+        <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            <span itemprop="streetAddress"><?php echo esc_html( $business['street'] ); ?></span>
+            <span itemprop="addressLocality"><?php echo esc_html( $business['city'] ); ?></span>
+            <span itemprop="addressRegion"><?php echo esc_html( $business['state'] ); ?></span>
+            <span itemprop="postalCode"><?php echo esc_html( $business['zip'] ); ?></span>
+        </div>
+        <span itemprop="telephone"><?php echo esc_html( $business['telephone'] ); ?></span>
+        <span itemprop="email"><?php echo esc_html( $business['email'] ); ?></span>
+        <meta itemprop="openingHours" content="Mo-Fr 08:00-17:00">
+        <meta itemprop="priceRange" content="$$">
+    </div>
+    <?php
+}
+add_action( 'wp_footer', 'abbott_gage_footer_business_info' );
+
+/**
+ * Add robots meta tag for better indexing
+ */
+function abbott_gage_robots_meta() {
+    if ( is_singular() || is_front_page() ) {
+        echo '<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">' . "\n";
+    }
+}
+add_action( 'wp_head', 'abbott_gage_robots_meta', 1 );
 
