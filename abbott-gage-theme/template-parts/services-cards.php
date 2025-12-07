@@ -90,7 +90,7 @@ $services_items = get_field('services_items');
                 
                 <div class="col-12 col-md-6 col-lg-3">
                 <div class="service-card h-100 featured">
-                    <div class="featured-badge"><?php esc_html_e( 'Popular', 'abbott-gage' ); ?></div>
+                    <div class="featured-badge"><i class="fas fa-check-circle"></i> <?php esc_html_e( 'Option', 'abbott-gage' ); ?></div>
                     <div class="service-icon">
                         <i class="fas fa-truck"></i>
                     </div>
@@ -124,12 +124,12 @@ $services_items = get_field('services_items');
                         </a>
                     </h3>
                     <p class="service-description">
-                        <?php esc_html_e( 'Factory authorized repair center for Mitutoyo, Fowler, and Brown & Sharpe precision measuring tools.', 'abbott-gage' ); ?>
+                        <?php esc_html_e( 'Expert repair services for Mitutoyo, Fowler, Brown & Sharpe, and other precision measuring tools.', 'abbott-gage' ); ?>
                     </p>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> <?php esc_html_e( 'Factory Authorized', 'abbott-gage' ); ?></li>
+                        <li><i class="fas fa-check"></i> <?php esc_html_e( 'OEM Parts', 'abbott-gage' ); ?></li>
                         <li><i class="fas fa-check"></i> <?php esc_html_e( 'Expert Technicians', 'abbott-gage' ); ?></li>
-                        <li><i class="fas fa-check"></i> <?php esc_html_e( 'Quality Parts', 'abbott-gage' ); ?></li>
+                        <li><i class="fas fa-check"></i> <?php esc_html_e( 'Quality Service', 'abbott-gage' ); ?></li>
                     </ul>
                     <a href="<?php echo esc_url( home_url( '/repair-services' ) ); ?>" class="service-link">
                         <?php esc_html_e( 'Learn More', 'abbott-gage' ); ?> <i class="fas fa-arrow-right"></i>

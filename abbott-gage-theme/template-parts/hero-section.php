@@ -8,7 +8,7 @@
 
 // Get ACF fields
 $hero_title = get_field('hero_title') ?: 'Precision Measuring Tools & Calibration Services';
-$hero_subtitle = get_field('hero_subtitle') ?: 'State-of-the-art measuring equipment to provide you with the greatest accuracy. On-site calibration service for your dimensional and electronic instruments.';
+$hero_subtitle = get_field('hero_subtitle') ?: 'Calibration service of dimensional, electronic, pressure, torque, and temperature gages and instruments';
 $hero_features = get_field('hero_features');
 $hero_buttons = get_field('hero_buttons');
 ?>
@@ -46,7 +46,7 @@ $hero_buttons = get_field('hero_buttons');
                     </div>
                     <div class="hero-feature">
                         <i class="fas fa-check-circle"></i>
-                        <span><?php esc_html_e( '30+ Years Experience', 'abbott-gage' ); ?></span>
+                        <span><?php esc_html_e( '40+ Years Experience', 'abbott-gage' ); ?></span>
                     </div>
                 </div>
             <?php endif; ?>

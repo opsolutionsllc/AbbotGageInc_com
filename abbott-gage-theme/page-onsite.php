@@ -43,7 +43,7 @@ get_header();
                     </p>
                     
                     <p>
-                        <?php esc_html_e( 'On-site calibrations by Abbott Gage, Inc. range from basic micrometers and indicators to surface plates and pressure stations. Our mobile calibration service minimizes equipment downtime and keeps your operations running smoothly.', 'abbott-gage' ); ?>
+                        <?php esc_html_e( 'On-site calibrations by Abbott Gage, Inc. range from basic micrometers and indicators to surface plates and pressure equipment. Our mobile calibration service minimizes equipment downtime and keeps your operations running smoothly.', 'abbott-gage' ); ?>
                     </p>
                     
                     <!-- Benefits Section -->
@@ -75,7 +75,7 @@ get_header();
                                     <i class="fas fa-user-tie"></i>
                                     <div>
                                         <h4><?php esc_html_e( 'Expert Technicians', 'abbott-gage' ); ?></h4>
-                                        <p><?php esc_html_e( 'Certified professionals with decades of experience in precision measurement.', 'abbott-gage' ); ?></p>
+                                        <p><?php esc_html_e( 'Experienced professionals with decades of expertise in precision measurement.', 'abbott-gage' ); ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -85,7 +85,7 @@ get_header();
                                     <i class="fas fa-file-alt"></i>
                                     <div>
                                         <h4><?php esc_html_e( 'Complete Documentation', 'abbott-gage' ); ?></h4>
-                                        <p><?php esc_html_e( 'Full certification with NIST traceable standards provided on-site.', 'abbott-gage' ); ?></p>
+                                        <p><?php esc_html_e( 'Full certification with NIST traceable standards.', 'abbott-gage' ); ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -107,10 +107,10 @@ get_header();
                             </div>
                             <div class="service-column">
                                 <ul class="checkmark-list">
-                                    <li><?php esc_html_e( 'Torque Wrenches', 'abbott-gage' ); ?></li>
+                                    <li><?php esc_html_e( 'Optical Comparators', 'abbott-gage' ); ?></li>
+                                    <li><?php esc_html_e( 'Hardness Testers', 'abbott-gage' ); ?></li>
                                     <li><?php esc_html_e( 'Pressure Gauges', 'abbott-gage' ); ?></li>
                                     <li><?php esc_html_e( 'Scales & Balances', 'abbott-gage' ); ?></li>
-                                    <li><?php esc_html_e( 'Thermometers', 'abbott-gage' ); ?></li>
                                     <li><?php esc_html_e( 'And Much More', 'abbott-gage' ); ?></li>
                                 </ul>
                             </div>

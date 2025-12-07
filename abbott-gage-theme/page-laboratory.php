@@ -43,7 +43,7 @@ get_header();
                     </p>
                     
                     <p>
-                        <?php esc_html_e( 'Take the guesswork out of the certification process and call Abbott Gage for your calibration needs. Laboratory calibrations by Abbott Gage, Inc. range from basic micrometers and indicators to surface plates and pressure stations.', 'abbott-gage' ); ?>
+                        <?php esc_html_e( 'Take the guesswork out of the certification process and call Abbott Gage for your calibration needs. Laboratory calibrations by Abbott Gage, Inc. range from basic micrometers and indicators to surface plates and pressure equipment.', 'abbott-gage' ); ?>
                     </p>
                     
                     <!-- What We Calibrate -->
@@ -117,7 +117,7 @@ get_header();
                                 <div class="benefit-item h-100">
                                     <i class="fas fa-tools"></i>
                                     <div>
-                                        <h4><?php esc_html_e( 'State-of-the-Art Facility', 'abbott-gage' ); ?></h4>
+                                        <h4><?php esc_html_e( 'High Quality Facility', 'abbott-gage' ); ?></h4>
                                         <p><?php esc_html_e( 'Modern equipment and proven procedures', 'abbott-gage' ); ?></p>
                                     </div>
                                 </div>
@@ -157,7 +157,7 @@ get_header();
                         <h4><?php esc_html_e( 'Why Lab Calibration?', 'abbott-gage' ); ?></h4>
                         <ul class="features-list">
                             <li><i class="fas fa-check"></i> Controlled environment</li>
-                            <li><i class="fas fa-check"></i> Highest accuracy</li>
+                            <li><i class="fas fa-check"></i> High accuracy</li>
                             <li><i class="fas fa-check"></i> NIST traceable</li>
                             <li><i class="fas fa-check"></i> ISO 9001:2015 certified</li>
                             <li><i class="fas fa-check"></i> Full documentation</li>
@@ -187,7 +187,7 @@ get_header();
         ),
         array(
             'question' => 'Do you provide calibration certificates?',
-            'answer' => 'Yes, every calibration includes a detailed certificate showing the as-found and as-left measurements, traceability information, and technician signature. Our certificates meet ISO/IEC 17025 requirements and are accepted by all major quality management systems.'
+            'answer' => 'Yes, every calibration includes a detailed certificate showing traceability information and technician signature. Our certificates are accepted by all major quality management systems.'
         ),
         array(
             'question' => 'How often should I calibrate my equipment?',
@@ -195,11 +195,11 @@ get_header();
         ),
         array(
             'question' => 'What equipment do you calibrate?',
-            'answer' => 'We calibrate a wide range of dimensional and electronic equipment including micrometers, calipers, height gages, indicators, surface plates, gage blocks, multimeters, oscilloscopes, thermometers, pressure gages, and more. If you have specific equipment needs, please contact us to confirm we can service it.'
+            'answer' => 'We calibrate a wide range of dimensional, electronic, pressure, torque, and temperature equipment including micrometers, calipers, height gages, indicators, surface plates, multimeters, oscilloscopes, thermometers, pressure gages, torque wrenches, and more. If you have specific equipment needs, please contact us to confirm we can service it.'
         ),
         array(
             'question' => 'Can you repair equipment that fails calibration?',
-            'answer' => 'Yes, we offer repair services for equipment that fails calibration or shows excessive wear. As a factory-authorized repair center for major brands like Mitutoyo, Fowler, and Brown & Sharpe, we can perform most repairs in-house and recalibrate the equipment before returning it to you.'
+            'answer' => 'Yes, we offer repair services for equipment that fails calibration or shows excessive wear. We service major brands like Mitutoyo, Fowler, Brown & Sharpe, and Starrett. We can perform most repairs in-house and recalibrate the equipment before returning it to you.'
         )
     );
     

@@ -43,41 +43,6 @@ get_header();
                         </div>
                     <?php endwhile; ?>
                     
-                    <!-- Factory Authorized Section -->
-                        <h2><?php esc_html_e( 'Factory Authorized Repair Center', 'abbott-gage' ); ?></h2>
-                        <p class="lead">
-                            <?php esc_html_e( 'Abbott Gage, Inc. is proud to be a Factory Authorized Repair Center for major precision measuring tool manufacturers.', 'abbott-gage' ); ?>
-                        </p>
-                        <div class="row g-4 mb-4">
-                            <div class="col-12 col-md-4">
-                            <div class="brand-card h-100">
-                                <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/mit.gif' ); ?>" 
-                                     alt="Mitutoyo" loading="lazy">
-                                <h4><?php esc_html_e( 'Mitutoyo', 'abbott-gage' ); ?></h4>
-                                <p><?php esc_html_e( 'Complete line of precision measuring tools', 'abbott-gage' ); ?></p>
-                            </div>
-                            </div>
-                            <div class="col-12 col-md-4">
-                            <div class="brand-card h-100">
-                                <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/fowler.gif' ); ?>" 
-                                     alt="Fowler" loading="lazy">
-                                <h4><?php esc_html_e( 'Fowler', 'abbott-gage' ); ?></h4>
-                                <p><?php esc_html_e( 'High precision measuring instruments', 'abbott-gage' ); ?></p>
-                            </div>
-                            </div>
-                            <div class="col-12 col-md-4">
-                            <div class="brand-card h-100">
-                                <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/brownsharpe.gif' ); ?>" 
-                                     alt="Brown & Sharpe" loading="lazy">
-                                <h4><?php esc_html_e( 'Brown & Sharpe', 'abbott-gage' ); ?></h4>
-                                <p><?php esc_html_e( 'Micro-Hites and Tesa-Hites', 'abbott-gage' ); ?></p>
-                            </div>
-                            </div>
-                        </div>
-                        <p>
-                            <?php esc_html_e( 'As an authorized repair center, we have access to genuine OEM parts, factory training, and technical support to ensure your equipment is repaired to original specifications.', 'abbott-gage' ); ?>
-                        </p>
-                    
                     <!-- Repair Services Include -->
                     <div class="services-include-section">
                         <h3><?php esc_html_e( 'Repair Services Include', 'abbott-gage' ); ?></h3>
@@ -87,19 +52,20 @@ get_header();
                                     <li><?php esc_html_e( 'Complete overhaul and refurbishment', 'abbott-gage' ); ?></li>
                                     <li><?php esc_html_e( 'Parts replacement with genuine OEM components', 'abbott-gage' ); ?></li>
                                     <li><?php esc_html_e( 'Accuracy testing and calibration', 'abbott-gage' ); ?></li>
+                                    <li><?php esc_html_e( 'Technical support to ensure your equipment is repaired to original specifications', 'abbott-gage' ); ?></li>
                                 </ul>
                             </div>
                             <div class="service-column">
                                 <ul class="checkmark-list">
                                     <li><?php esc_html_e( 'Cosmetic restoration when needed', 'abbott-gage' ); ?></li>
                                     <li><?php esc_html_e( 'Warranty support for authorized brands', 'abbott-gage' ); ?></li>
-                                    <li><?php esc_html_e( 'Post-repair calibration certification', 'abbott-gage' ); ?></li>
+                                    <li><?php esc_html_e( 'Post-Repair Certification when Requested', 'abbott-gage' ); ?></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="info-callout">
                             <i class="fas fa-info-circle"></i>
-                            <p><?php esc_html_e( 'All repaired equipment is calibrated and certified before return.', 'abbott-gage' ); ?></p>
+                            <p><?php esc_html_e( 'All repaired equipment is calibrated before return.', 'abbott-gage' ); ?></p>
                         </div>
                     </div>
                     
@@ -110,7 +76,7 @@ get_header();
                             <div class="process-step">
                                 <div class="step-number">1</div>
                                 <h4><?php esc_html_e( 'Contact Us', 'abbott-gage' ); ?></h4>
-                                <p><?php esc_html_e( 'Discuss the issue with our technicians', 'abbott-gage' ); ?></p>
+                                <p><?php esc_html_e( 'Discuss the issue with our staff', 'abbott-gage' ); ?></p>
                             </div>
                             <div class="process-step">
                                 <div class="step-number">2</div>
@@ -120,7 +86,7 @@ get_header();
                             <div class="process-step">
                                 <div class="step-number">3</div>
                                 <h4><?php esc_html_e( 'Diagnosis & Quote', 'abbott-gage' ); ?></h4>
-                                <p><?php esc_html_e( 'We diagnose and provide a repair quote', 'abbott-gage' ); ?></p>
+                                <p><?php esc_html_e( 'We diagnose and provide a repair quote when requested', 'abbott-gage' ); ?></p>
                             </div>
                             <div class="process-step">
                                 <div class="step-number">4</div>
@@ -130,7 +96,7 @@ get_header();
                             <div class="process-step">
                                 <div class="step-number">5</div>
                                 <h4><?php esc_html_e( 'Calibrate & Return', 'abbott-gage' ); ?></h4>
-                                <p><?php esc_html_e( 'Calibrated and returned with documentation', 'abbott-gage' ); ?></p>
+                                <p><?php esc_html_e( 'Calibrated and returned', 'abbott-gage' ); ?></p>
                             </div>
                         </div>
                         <p class="turnaround-time">
@@ -146,9 +112,9 @@ get_header();
                             <span class="brand-tag">Mitutoyo</span>
                             <span class="brand-tag">Fowler</span>
                             <span class="brand-tag">Brown & Sharpe</span>
+                            <span class="brand-tag">TESA</span>
                             <span class="brand-tag">Starrett</span>
                             <span class="brand-tag">CDI Torque</span>
-                            <span class="brand-tag">Meyer Gage</span>
                             <span class="brand-tag">Snap-On</span>
                             <span class="brand-tag">Williams</span>
                         </div>
@@ -190,11 +156,11 @@ get_header();
                     <div class="info-box highlight">
                         <h4><?php esc_html_e( 'Why Choose Us?', 'abbott-gage' ); ?></h4>
                         <ul class="features-list">
-                            <li><i class="fas fa-check"></i> Factory authorized</li>
+                            <li><i class="fas fa-check"></i> Technical expertise</li>
                             <li><i class="fas fa-check"></i> Genuine OEM parts</li>
                             <li><i class="fas fa-check"></i> Expert technicians</li>
                             <li><i class="fas fa-check"></i> Fast turnaround</li>
-                            <li><i class="fas fa-check"></i> Full certification</li>
+                            <li><i class="fas fa-check"></i> Quality service</li>
                         </ul>
                     </div>
                     

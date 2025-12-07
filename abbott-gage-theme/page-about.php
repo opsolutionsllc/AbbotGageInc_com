@@ -89,8 +89,8 @@ get_header();
                             <?php if ( $about_history_content ) : ?>
                                 <?php echo wp_kses_post( $about_history_content ); ?>
                             <?php else : ?>
-                                <p><?php esc_html_e( 'Founded over 30 years ago, Abbott Gage, Inc. was established with a commitment to providing the highest quality precision measuring equipment and services to industries requiring exact measurements and certifications.', 'abbott-gage' ); ?></p>
-                                <p><?php esc_html_e( 'Through the years, we have built lasting relationships with our clients by delivering exceptional service, maintaining the highest standards, and continuously investing in state-of-the-art equipment and training for our team.', 'abbott-gage' ); ?></p>
+                                <p><?php esc_html_e( 'Founded over 40 years ago, Abbott Gage, Inc. was established with a commitment to providing the high quality precision measuring equipment and services to industries requiring exact measurements and certifications.', 'abbott-gage' ); ?></p>
+                                <p><?php esc_html_e( 'Through the years, we have built lasting relationships with our clients by delivering exceptional service, maintaining high standards, and continuously investing in state-of-the-art equipment and training for our team.', 'abbott-gage' ); ?></p>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -100,7 +100,7 @@ get_header();
                             <?php if ( $about_commitment_content ) : ?>
                                 <?php echo wp_kses_post( $about_commitment_content ); ?>
                             <?php else : ?>
-                                <p><?php esc_html_e( 'At Abbott Gage, Inc., we understand that precision matters. Whether you need laboratory calibration, on-site service, equipment repairs, or new tools, we approach every job with the same dedication to accuracy and excellence.', 'abbott-gage' ); ?></p>
+                                <p><?php esc_html_e( 'At Abbott Gage, Inc., we understand that precision matters. Whether you need laboratory calibration, on-site service, equipment repairs, sales, or new tools, we approach every job with the same dedication to accuracy and excellence.', 'abbott-gage' ); ?></p>
                                 <p><?php esc_html_e( 'Our ISO 9001:2015 certification and NIST-traceable standards ensure that every calibration meets or exceeds industry requirements. As a woman-owned small business (WBENC and WOSB certified), we take pride in our role as a diverse supplier for businesses and government contracts.', 'abbott-gage' ); ?></p>
                             <?php endif; ?>
                         </div>
@@ -158,18 +158,18 @@ get_header();
                     
                     <div class="highlight-card">
                         <div class="highlight-icon">
-                            <i class="fas fa-tools"></i>
+                            <i class="fas fa-handshake"></i>
                         </div>
-                        <h3><?php esc_html_e( 'Factory Authorized', 'abbott-gage' ); ?></h3>
-                        <p><?php esc_html_e( 'Authorized repair center for Mitutoyo, Fowler, and Brown & Sharpe precision measuring tools.', 'abbott-gage' ); ?></p>
+                        <h3><?php esc_html_e( 'Our Partners', 'abbott-gage' ); ?></h3>
+                        <p><?php esc_html_e( 'Decades long distributorship with the most trusted precision tool manufacturers such as Mitutoyo, Starrett, Brown & Sharpe and others.', 'abbott-gage' ); ?></p>
                     </div>
                     
                     <div class="highlight-card">
                         <div class="highlight-icon">
                             <i class="fas fa-history"></i>
                         </div>
-                        <h3><?php esc_html_e( '30+ Years Experience', 'abbott-gage' ); ?></h3>
-                        <p><?php esc_html_e( 'Over three decades of trusted service in precision measuring tools and calibration services.', 'abbott-gage' ); ?></p>
+                        <h3><?php esc_html_e( '40+ Years Experience', 'abbott-gage' ); ?></h3>
+                        <p><?php esc_html_e( 'Over four decades of trusted service in precision measuring tools and calibration services.', 'abbott-gage' ); ?></p>
                     </div>
                     
                     <div class="highlight-card">
@@ -201,7 +201,7 @@ get_header();
                     <?php echo wp_kses_post( $about_team_content ); ?>
                 <?php else : ?>
                     <p class="lead text-center">
-                        <?php esc_html_e( 'Our team of experienced technicians and calibration specialists brings decades of combined expertise to every project. We invest in ongoing training to stay current with the latest technologies and industry standards, ensuring that your equipment receives the highest level of professional service.', 'abbott-gage' ); ?>
+                        <?php esc_html_e( 'Our team of experienced technicians, calibration specialists, and sales professionals brings decades of combined expertise to every project. We invest in ongoing training to stay current with the latest technologies and industry standards, ensuring that your equipment receives high level of professional service.', 'abbott-gage' ); ?>
                     </p>
                 <?php endif; ?>
                 
@@ -218,11 +218,12 @@ get_header();
                     <div class="team-features">
                         <div class="team-feature">
                             <i class="fas fa-graduation-cap"></i>
-                            <h4><?php esc_html_e( 'Certified Professionals', 'abbott-gage' ); ?></h4>
+                            <h4><?php esc_html_e( 'Professionals with Advanced Training', 'abbott-gage' ); ?></h4>
                         </div>
                         <div class="team-feature">
-                            <i class="fas fa-user-check"></i>
-                            <h4><?php esc_html_e( 'Factory Trained', 'abbott-gage' ); ?></h4>
+                            <i class="fas fa-handshake"></i>
+                            <h4><?php esc_html_e( 'Our Partners', 'abbott-gage' ); ?></h4>
+                            <p><?php esc_html_e( 'Decades long distributorship with the most trusted precision tool manufacturers such as Mitutoyo, Starrett, Brown & Sharpe and others', 'abbott-gage' ); ?></p>
                         </div>
                         <div class="team-feature">
                             <i class="fas fa-users"></i>

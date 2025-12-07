@@ -7,8 +7,8 @@
  */
 
 // Get ACF fields
-$manufacturers_title = get_field('manufacturers_title') ?: 'Authorized Distributor & Service Center';
-$manufacturers_description = get_field('manufacturers_description') ?: 'Partnered with industry-leading manufacturers';
+$manufacturers_title = get_field('manufacturers_title') ?: 'Authorized Distributor & Manufacturing Partners';
+$manufacturers_description = get_field('manufacturers_description') ?: 'We proudly service these manufacturers and many more';
 $manufacturers_items = get_field('manufacturers_items');
 $manufacturers_button = get_field('manufacturers_button');
 ?>
@@ -43,33 +43,6 @@ $manufacturers_button = get_field('manufacturers_button');
                     <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/mit.gif' ); ?>" 
                          alt="<?php esc_attr_e( 'Mitutoyo', 'abbott-gage' ); ?>" 
                          loading="lazy">
-                    <div class="manufacturer-badge"><?php esc_html_e( 'Factory Authorized', 'abbott-gage' ); ?></div>
-                </div>
-                </div>
-                
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="manufacturer-item">
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/brownsharpe.gif' ); ?>" 
-                         alt="<?php esc_attr_e( 'Brown & Sharpe', 'abbott-gage' ); ?>" 
-                         loading="lazy">
-                    <div class="manufacturer-badge"><?php esc_html_e( 'Factory Authorized', 'abbott-gage' ); ?></div>
-                </div>
-                </div>
-                
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="manufacturer-item">
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/fowler.gif' ); ?>" 
-                         alt="<?php esc_attr_e( 'Fowler', 'abbott-gage' ); ?>" 
-                         loading="lazy">
-                    <div class="manufacturer-badge"><?php esc_html_e( 'Factory Authorized', 'abbott-gage' ); ?></div>
-                </div>
-                </div>
-                
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="manufacturer-item">
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/snapon.gif' ); ?>" 
-                         alt="<?php esc_attr_e( 'Snap-On', 'abbott-gage' ); ?>" 
-                         loading="lazy">
                 </div>
                 </div>
                 
@@ -83,16 +56,16 @@ $manufacturers_button = get_field('manufacturers_button');
                 
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                 <div class="manufacturer-item">
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/hioki.gif' ); ?>" 
-                         alt="<?php esc_attr_e( 'Hioki', 'abbott-gage' ); ?>" 
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/brownsharpe.gif' ); ?>" 
+                         alt="<?php esc_attr_e( 'Brown & Sharpe', 'abbott-gage' ); ?>" 
                          loading="lazy">
                 </div>
                 </div>
                 
                 <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                 <div class="manufacturer-item">
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/ashcroft.gif' ); ?>" 
-                         alt="<?php esc_attr_e( 'Ashcroft', 'abbott-gage' ); ?>" 
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/fowler.gif' ); ?>" 
+                         alt="<?php esc_attr_e( 'Fowler', 'abbott-gage' ); ?>" 
                          loading="lazy">
                 </div>
                 </div>
@@ -125,22 +98,6 @@ $manufacturers_button = get_field('manufacturers_button');
                 <div class="manufacturer-item">
                     <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/hedland.gif' ); ?>" 
                          alt="<?php esc_attr_e( 'Hedland', 'abbott-gage' ); ?>" 
-                         loading="lazy">
-                </div>
-                </div>
-                
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="manufacturer-item">
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/meyergage.gif' ); ?>" 
-                         alt="<?php esc_attr_e( 'Meyer Gage', 'abbott-gage' ); ?>" 
-                         loading="lazy">
-                </div>
-                </div>
-                
-                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div class="manufacturer-item">
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/gagemaker.gif' ); ?>" 
-                         alt="<?php esc_attr_e( 'GageMaker', 'abbott-gage' ); ?>" 
                          loading="lazy">
                 </div>
                 </div>

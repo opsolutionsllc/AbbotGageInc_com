@@ -152,8 +152,8 @@ get_header();
                     <ul>
                         <li><?php esc_html_e( 'Mechanical Pressure Gages', 'abbott-gage' ); ?></li>
                         <li><?php esc_html_e( 'Digital Pressure Gages', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Pressure Transmitters', 'abbott-gage' ); ?></li>
                         <li><?php esc_html_e( 'Dead Weight Testers', 'abbott-gage' ); ?></li>
+                        <li><?php esc_html_e( 'Vacuum Gages', 'abbott-gage' ); ?></li>
                     </ul>
                 </div>
                 </div>
@@ -279,7 +279,7 @@ get_header();
                         <i class="fas fa-phone-alt"></i>
                     </div>
                     <h3><?php esc_html_e( 'Step 1: Contact Us', 'abbott-gage' ); ?></h3>
-                    <p><?php esc_html_e( 'Call (256) 378-3286, email info@abbottgageinc.com, or use our contact form with product details.', 'abbott-gage' ); ?></p>
+                    <p><?php esc_html_e( 'Call (256) 378-3286, toll-free 1-800-481-4243, email info@abbottgageinc.com, or use our contact form with product details.', 'abbott-gage' ); ?></p>
                 </div>
                 
                 <div class="ordering-step">
@@ -315,6 +315,37 @@ get_header();
                          loading="lazy">
                 </div>
                 <p><?php esc_html_e( 'NET 30 terms available for approved accounts', 'abbott-gage' ); ?></p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Special Offer Section -->
+    <section class="special-offer-section section bg-light">
+        <div class="container">
+            <div class="special-offer-box">
+                <div class="offer-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h2><?php esc_html_e( 'Free First-Time Certification!', 'abbott-gage' ); ?></h2>
+                <p class="offer-text">
+                    <?php esc_html_e( 'Most New Precision Measuring Tools purchased from Abbott Gage Inc will receive the First time certification traceable to the NIST at no charge', 'abbott-gage' ); ?>
+                </p>
+                <a href="<?php echo esc_url( home_url( '/contact#quote' ) ); ?>" class="btn btn-primary btn-lg">
+                    <i class="fas fa-shopping-cart"></i> <?php esc_html_e( 'Shop Now', 'abbott-gage' ); ?>
+                </a>
+            </div>
+            
+            <div class="call-for-pricing-box mt-4">
+                <i class="fas fa-phone-square-alt"></i>
+                <p><?php esc_html_e( 'Looking for a tool not listed? Call us for pricing or information on any precision measuring equipment you need.', 'abbott-gage' ); ?></p>
+                <div class="contact-options">
+                    <a href="tel:+12563783286" class="btn btn-outline-primary">
+                        <i class="fas fa-phone"></i> (256) 378-3286
+                    </a>
+                    <a href="tel:+18004814243" class="btn btn-outline-primary">
+                        <i class="fas fa-phone"></i> 1-800-481-4243
+                    </a>
+                </div>
             </div>
         </div>
     </section>

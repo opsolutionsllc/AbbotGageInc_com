@@ -56,7 +56,7 @@
                     <div class="footer-company">
                         <h3 class="footer-title"><?php bloginfo( 'name' ); ?></h3>
                         <p class="footer-description">
-                            <?php esc_html_e( 'Precision measuring tools, calibration, certification, and repair services. Over 30 years of excellence.', 'abbott-gage' ); ?>
+                            <?php esc_html_e( 'Precision measuring tools, calibration, certification, and repair services. Over 40 years of excellence.', 'abbott-gage' ); ?>
                         </p>
                         <div class="footer-certifications">
                             <span class="footer-cert-badge">ISO 9001:2015</span>
@@ -113,7 +113,7 @@
                         <ul class="footer-contact-list">
                             <li>
                                 <i class="fas fa-map-marker-alt"></i>
-                                <span>40 Industrial Park<br>Childersburg, AL 35044</span>
+                                <span>40 Industrial Park Drive<br>Childersburg, AL 35044</span>
                             </li>
                             <li>
                                 <i class="fas fa-phone"></i>
@@ -122,10 +122,6 @@
                             <li>
                                 <i class="fas fa-phone-alt"></i>
                                 <a href="tel:+18004814243">1-800-481-4243 (Gage)</a>
-                            </li>
-                            <li>
-                                <i class="fas fa-fax"></i>
-                                <span>(256) 378-3287</span>
                             </li>
                             <li>
                                 <i class="far fa-envelope"></i>

@@ -143,16 +143,6 @@ $business_hours = get_field('business_hours', 'option');
                         
                         <div class="contact-info-item">
                             <div class="contact-icon">
-                                <i class="fas fa-fax"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4><?php esc_html_e( 'Fax', 'abbott-gage' ); ?></h4>
-                                <p><?php echo esc_html( $fax ); ?></p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-info-item">
-                            <div class="contact-icon">
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div class="contact-details">
@@ -174,7 +164,7 @@ $business_hours = get_field('business_hours', 'option');
                                     } else {
                                         esc_html_e( 'Monday - Friday', 'abbott-gage' );
                                         echo '<br>';
-                                        esc_html_e( '8:00 AM - 5:00 PM CST', 'abbott-gage' );
+                                        esc_html_e( '8:30 AM - 4:30 PM CST', 'abbott-gage' );
                                     }
                                     ?>
                                 </p>

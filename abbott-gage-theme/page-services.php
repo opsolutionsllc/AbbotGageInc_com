@@ -55,7 +55,7 @@ get_header();
                         <li><?php esc_html_e( 'Calipers', 'abbott-gage' ); ?></li>
                         <li><?php esc_html_e( 'Height Gages', 'abbott-gage' ); ?></li>
                         <li><?php esc_html_e( 'Surface Plates', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Gage Blocks', 'abbott-gage' ); ?></li>
+                        <li><?php esc_html_e( 'And More', 'abbott-gage' ); ?></li>
                     </ul>
                 </div>
                 
@@ -69,7 +69,7 @@ get_header();
                         <li><?php esc_html_e( 'Oscilloscopes', 'abbott-gage' ); ?></li>
                         <li><?php esc_html_e( 'Tachometers', 'abbott-gage' ); ?></li>
                         <li><?php esc_html_e( 'Thermometers', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Balances & Scales', 'abbott-gage' ); ?></li>
+                        <li><?php esc_html_e( 'And More', 'abbott-gage' ); ?></li>
                     </ul>
                 </div>
                 
@@ -82,7 +82,7 @@ get_header();
                         <li><?php esc_html_e( 'Pressure Gages', 'abbott-gage' ); ?></li>
                         <li><?php esc_html_e( 'Dead Weight Testers', 'abbott-gage' ); ?></li>
                         <li><?php esc_html_e( 'Pressure Transmitters', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Vacuum Gages', 'abbott-gage' ); ?></li>
+                        <li><?php esc_html_e( 'And More', 'abbott-gage' ); ?></li>
                     </ul>
                 </div>
                 
@@ -95,7 +95,7 @@ get_header();
                         <li><?php esc_html_e( 'Torque Wrenches', 'abbott-gage' ); ?></li>
                         <li><?php esc_html_e( 'Torque Analyzers', 'abbott-gage' ); ?></li>
                         <li><?php esc_html_e( 'Torque Screwdrivers', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Dynamometers', 'abbott-gage' ); ?></li>
+                        <li><?php esc_html_e( 'And More', 'abbott-gage' ); ?></li>
                     </ul>
                 </div>
             </div>
@@ -145,7 +145,7 @@ get_header();
     $services_faqs = array(
         array(
             'question' => 'What types of calibration services do you offer?',
-            'answer' => 'We offer comprehensive calibration services including laboratory calibration, on-site calibration, and mobile calibration services. Our services cover dimensional equipment (micrometers, calipers, gages), electronic equipment (multimeters, oscilloscopes, thermometers), pressure equipment, and more. All calibrations are NIST traceable and ISO 9001:2015 certified.'
+            'answer' => 'We offer comprehensive calibration services including laboratory calibration and on-site calibration. Our services cover dimensional equipment (micrometers, calipers, gages), electronic equipment (multimeters, oscilloscopes, thermometers), pressure, torque, and temperature equipment. All calibrations are NIST traceable and ISO 9001:2015 certified.'
         ),
         array(
             'question' => 'Are you ISO certified?',
@@ -157,11 +157,11 @@ get_header();
         ),
         array(
             'question' => 'What is the difference between laboratory and on-site calibration?',
-            'answer' => 'Laboratory calibration involves sending equipment to our temperature-controlled facility for the highest level of accuracy. On-site calibration brings our mobile lab to your location, minimizing equipment downtime and transportation risks. Both methods are NIST traceable, but on-site is ideal for large, stationary equipment or when you need to minimize production interruption.'
+            'answer' => 'Both methods are NIST traceable, but on-site is ideal for large quantities of precision measuring tools, or stationary equipment when you need to minimize production interruption.'
         ),
         array(
             'question' => 'Do you repair equipment?',
-            'answer' => 'Yes, we are a factory-authorized repair center for major brands including Mitutoyo, Fowler, and Brown & Sharpe. We can repair most precision measuring equipment and recalibrate it before returning it to you. We also offer preventive maintenance services to extend equipment life.'
+            'answer' => 'Yes, we can repair precision measuring equipment from major brands including Mitutoyo, Fowler, Brown & Sharpe, and Starrett. We can repair most precision measuring equipment and recalibrate it before returning it to you. We also offer preventive maintenance services to extend equipment life.'
         ),
         array(
             'question' => 'How do I request a quote for calibration services?',

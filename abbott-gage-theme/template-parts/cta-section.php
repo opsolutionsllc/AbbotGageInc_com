@@ -56,7 +56,7 @@ $business_hours = get_field('business_hours', 'option');
                         if ( $business_hours ) {
                             echo nl2br( esc_html( $business_hours ) );
                         } else {
-                            esc_html_e( 'Monday - Friday: 8:00 AM - 5:00 PM CST', 'abbott-gage' );
+                            esc_html_e( 'Monday - Friday: 8:30 AM - 4:30 PM CST', 'abbott-gage' );
                         }
                         ?>
                     </p>

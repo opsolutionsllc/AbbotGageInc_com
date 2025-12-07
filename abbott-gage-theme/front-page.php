@@ -33,7 +33,7 @@ get_header();
     
     // About Section
     $home_about_title = get_field('home_about_title') ?: 'About Abbott Gage, Inc.';
-    $home_about_lead = get_field('home_about_lead') ?: 'Over three decades of excellence in precision measuring tools and calibration services.';
+    $home_about_lead = get_field('home_about_lead') ?: 'Over four decades of excellence in precision measuring tools and calibration services.';
     $home_about_content = get_field('home_about_content');
     $home_about_features = get_field('home_about_features');
     $home_about_button = get_field('home_about_button');
@@ -55,7 +55,7 @@ get_header();
                             <?php esc_html_e( 'Abbott Gage, Inc. has been a trusted name in the precision measuring tool industry since our founding. We are ISO 9001:2015 certified, and our standards are traceable to the NIST (National Institute of Standards and Technology).', 'abbott-gage' ); ?>
                         </p>
                         <p>
-                            <?php esc_html_e( 'Our metrology and electronic laboratories are equipped with state-of-the-art measuring equipment to provide you with the greatest accuracy. We also offer on-site calibration services for your dimensional and electronic instruments.', 'abbott-gage' ); ?>
+                            <?php esc_html_e( 'Our metrology and electronic laboratories are equipped with state-of-the-art measuring equipment to provide you with the greatest accuracy. We also offer on-site calibration services for your dimensional, electronic, pressure, and temperature instruments.', 'abbott-gage' ); ?>
                         </p>
                     <?php endif; ?>
                     
@@ -90,10 +90,10 @@ get_header();
                                 </div>
                             </div>
                             <div class="feature-item">
-                                <i class="fas fa-tools"></i>
+                                <i class="fas fa-handshake"></i>
                                 <div>
-                                    <h4><?php esc_html_e( 'Factory Authorized', 'abbott-gage' ); ?></h4>
-                                    <p><?php esc_html_e( 'Certified repair center for major brands', 'abbott-gage' ); ?></p>
+                                    <h4><?php esc_html_e( 'Authorized Distributor', 'abbott-gage' ); ?></h4>
+                                    <p><?php esc_html_e( 'Partnered with leading manufacturers', 'abbott-gage' ); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -172,7 +172,7 @@ $why_reasons = get_field('why_reasons');
                         <div class="reason-icon">
                             <i class="fas fa-history"></i>
                         </div>
-                        <h3><?php esc_html_e( '30+ Years Experience', 'abbott-gage' ); ?></h3>
+                        <h3><?php esc_html_e( '40+ Years Experience', 'abbott-gage' ); ?></h3>
                         <p><?php esc_html_e( 'Decades of expertise in precision measuring tools and calibration services.', 'abbott-gage' ); ?></p>
                     </div>
                     </div>

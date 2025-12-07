@@ -42,86 +42,6 @@ get_header();
         </div>
     </section>
     
-    <!-- Featured Partners Section -->
-    <section class="featured-partners section bg-light">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2><?php esc_html_e( 'Featured Manufacturing Partners', 'abbott-gage' ); ?></h2>
-                <p class="section-description">
-                    <?php esc_html_e( 'Factory authorized repair centers for leading brands', 'abbott-gage' ); ?>
-                </p>
-            </div>
-            
-            <div class="row g-4">
-                <div class="col-12 col-lg-4">
-                <div class="partner-featured-card h-100">
-                    <div class="partner-logo">
-                        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/mit.gif' ); ?>" 
-                             alt="Mitutoyo" loading="lazy">
-                    </div>
-                    <div class="partner-info">
-                        <h3><?php esc_html_e( 'Mitutoyo', 'abbott-gage' ); ?></h3>
-                        <span class="partner-badge"><?php esc_html_e( 'Factory Authorized Repair Center', 'abbott-gage' ); ?></span>
-                        <p>
-                            <?php esc_html_e( 'Mitutoyo is the world\'s leading manufacturer of precision measuring equipment. We are proud to be a factory-authorized service center for the complete Mitutoyo line, including micrometers, calipers, height gages, indicators, and more.', 'abbott-gage' ); ?>
-                        </p>
-                        <ul class="partner-services">
-                            <li><i class="fas fa-check"></i> <?php esc_html_e( 'Sales & Distribution', 'abbott-gage' ); ?></li>
-                            <li><i class="fas fa-check"></i> <?php esc_html_e( 'Factory Authorized Repairs', 'abbott-gage' ); ?></li>
-                            <li><i class="fas fa-check"></i> <?php esc_html_e( 'Calibration Services', 'abbott-gage' ); ?></li>
-                            <li><i class="fas fa-check"></i> <?php esc_html_e( 'Technical Support', 'abbott-gage' ); ?></li>
-                        </ul>
-                    </div>
-                </div>
-                </div>
-                
-                <div class="col-12 col-lg-4">
-                <div class="partner-featured-card h-100">
-                    <div class="partner-logo">
-                        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/fowler.gif' ); ?>" 
-                             alt="Fowler High Precision" loading="lazy">
-                    </div>
-                    <div class="partner-info">
-                        <h3><?php esc_html_e( 'Fowler High Precision', 'abbott-gage' ); ?></h3>
-                        <span class="partner-badge"><?php esc_html_e( 'Factory Authorized Repair Center', 'abbott-gage' ); ?></span>
-                        <p>
-                            <?php esc_html_e( 'Fowler offers a comprehensive range of precision measuring tools. As an authorized repair center, we provide complete service for all Fowler products including sales, calibration, and expert repairs.', 'abbott-gage' ); ?>
-                        </p>
-                        <ul class="partner-services">
-                            <li><i class="fas fa-check"></i> <?php esc_html_e( 'Authorized Distributor', 'abbott-gage' ); ?></li>
-                            <li><i class="fas fa-check"></i> <?php esc_html_e( 'Factory Repairs', 'abbott-gage' ); ?></li>
-                            <li><i class="fas fa-check"></i> <?php esc_html_e( 'Calibration & Certification', 'abbott-gage' ); ?></li>
-                            <li><i class="fas fa-check"></i> <?php esc_html_e( 'Parts & Accessories', 'abbott-gage' ); ?></li>
-                        </ul>
-                    </div>
-                </div>
-                </div>
-                
-                <div class="col-12 col-lg-4">
-                <div class="partner-featured-card h-100">
-                    <div class="partner-logo">
-                        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/brownsharpe.gif' ); ?>" 
-                             alt="Brown & Sharpe" loading="lazy">
-                    </div>
-                    <div class="partner-info">
-                        <h3><?php esc_html_e( 'Brown & Sharpe', 'abbott-gage' ); ?></h3>
-                        <span class="partner-badge"><?php esc_html_e( 'Factory Authorized Repair Center', 'abbott-gage' ); ?></span>
-                        <p>
-                            <?php esc_html_e( 'Brown & Sharpe Tesa measuring instruments represent precision engineering at its finest. We are authorized for repair and calibration of all Brown & Sharpe Micro-Hites and Tesa-Hites.', 'abbott-gage' ); ?>
-                        </p>
-                        <ul class="partner-services">
-                            <li><i class="fas fa-check"></i> <?php esc_html_e( 'Micro-Hites Service', 'abbott-gage' ); ?></li>
-                            <li><i class="fas fa-check"></i> <?php esc_html_e( 'Tesa-Hites Repair', 'abbott-gage' ); ?></li>
-                            <li><i class="fas fa-check"></i> <?php esc_html_e( 'Calibration Services', 'abbott-gage' ); ?></li>
-                            <li><i class="fas fa-check"></i> <?php esc_html_e( 'OEM Parts', 'abbott-gage' ); ?></li>
-                        </ul>
-                    </div>
-                </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
     <!-- All Manufacturers Grid -->
     <?php get_template_part( 'template-parts/manufacturers', 'section' ); ?>
     
@@ -150,44 +70,11 @@ get_header();
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="partner-list-card h-100">
                     <div class="partner-list-logo">
-                        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/snapon.gif' ); ?>" 
-                             alt="Snap-On Tools" loading="lazy">
-                    </div>
-                    <h4><?php esc_html_e( 'Snap-On Tools', 'abbott-gage' ); ?></h4>
-                    <p><?php esc_html_e( 'Industrial and automotive measuring tools', 'abbott-gage' ); ?></p>
-                </div>
-                </div>
-                
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="partner-list-card h-100">
-                    <div class="partner-list-logo">
                         <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/cditorque.gif' ); ?>" 
                              alt="CDI Torque" loading="lazy">
                     </div>
                     <h4><?php esc_html_e( 'CDI Torque', 'abbott-gage' ); ?></h4>
                     <p><?php esc_html_e( 'Torque measurement solutions', 'abbott-gage' ); ?></p>
-                </div>
-                </div>
-                
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="partner-list-card h-100">
-                    <div class="partner-list-logo">
-                        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/hioki.gif' ); ?>" 
-                             alt="Hioki" loading="lazy">
-                    </div>
-                    <h4><?php esc_html_e( 'Hioki', 'abbott-gage' ); ?></h4>
-                    <p><?php esc_html_e( 'Electronic test and measuring instruments', 'abbott-gage' ); ?></p>
-                </div>
-                </div>
-                
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="partner-list-card h-100">
-                    <div class="partner-list-logo">
-                        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/ashcroft.gif' ); ?>" 
-                             alt="Ashcroft" loading="lazy">
-                    </div>
-                    <h4><?php esc_html_e( 'Ashcroft', 'abbott-gage' ); ?></h4>
-                    <p><?php esc_html_e( 'Pressure and temperature instrumentation', 'abbott-gage' ); ?></p>
                 </div>
                 </div>
                 
@@ -216,33 +103,11 @@ get_header();
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="partner-list-card h-100">
                     <div class="partner-list-logo">
-                        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/meyergage.gif' ); ?>" 
-                             alt="Meyer Gage" loading="lazy">
-                    </div>
-                    <h4><?php esc_html_e( 'Meyer Gage', 'abbott-gage' ); ?></h4>
-                    <p><?php esc_html_e( 'Pin gages and thread gages', 'abbott-gage' ); ?></p>
-                </div>
-                </div>
-                
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="partner-list-card h-100">
-                    <div class="partner-list-logo">
                         <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/hedland.gif' ); ?>" 
                              alt="Hedland" loading="lazy">
                     </div>
                     <h4><?php esc_html_e( 'Hedland', 'abbott-gage' ); ?></h4>
                     <p><?php esc_html_e( 'Flow meters and indicators', 'abbott-gage' ); ?></p>
-                </div>
-                </div>
-                
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="partner-list-card h-100">
-                    <div class="partner-list-logo">
-                        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/manufacturers/gagemaker.gif' ); ?>" 
-                             alt="GageMaker" loading="lazy">
-                    </div>
-                    <h4><?php esc_html_e( 'GageMaker', 'abbott-gage' ); ?></h4>
-                    <p><?php esc_html_e( 'Custom gaging solutions', 'abbott-gage' ); ?></p>
                 </div>
                 </div>
             </div>
@@ -269,10 +134,10 @@ get_header();
                 <div class="col-12 col-md-6 col-lg-4">
                 <div class="benefit-card h-100">
                     <div class="benefit-icon">
-                        <i class="fas fa-tools"></i>
+                        <i class="fas fa-boxes"></i>
                     </div>
-                    <h3><?php esc_html_e( 'Factory Support', 'abbott-gage' ); ?></h3>
-                    <p><?php esc_html_e( 'Access to factory training, support, and OEM parts', 'abbott-gage' ); ?></p>
+                    <h3><?php esc_html_e( 'Large Inventory Selection', 'abbott-gage' ); ?></h3>
+                    <p><?php esc_html_e( 'Extensive product selection from manufacturers of your choice', 'abbott-gage' ); ?></p>
                 </div>
                 </div>
                 
