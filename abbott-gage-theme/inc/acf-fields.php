@@ -255,15 +255,25 @@ add_action('acf/include_fields', function() {
                 ),
             ),
         ),
+        'style' => 'default',
     ));
 
     // ==========================================
-    // HERO SECTION
+    // HOMEPAGE - ALL SECTIONS (CONSOLIDATED WITH TABS)
     // ==========================================
     acf_add_local_field_group(array(
-        'key' => 'group_hero_section',
-        'title' => 'Hero Section',
+        'key' => 'group_homepage_sections',
+        'title' => 'Homepage Content',
         'fields' => array(
+            
+            // Hero Section Tab
+            array(
+                'key' => 'field_tab_hero',
+                'label' => 'Hero Section',
+                'name' => '',
+                'type' => 'tab',
+                'placement' => 'left',
+            ),
             array(
                 'key' => 'field_hero_title',
                 'label' => 'Hero Title',
@@ -361,25 +371,15 @@ add_action('acf/include_fields', function() {
                     ),
                 ),
             ),
-        ),
-        'location' => array(
+            
+            // Services Section Tab
             array(
-                array(
-                    'param' => 'page_template',
-                    'operator' => '==',
-                    'value' => 'front-page.php',
-                ),
+                'key' => 'field_tab_services',
+                'label' => 'Services Section',
+                'name' => '',
+                'type' => 'tab',
+                'placement' => 'left',
             ),
-        ),
-    ));
-
-    // ==========================================
-    // SERVICES SECTION
-    // ==========================================
-    acf_add_local_field_group(array(
-        'key' => 'group_services_section',
-        'title' => 'Services Section',
-        'fields' => array(
             array(
                 'key' => 'field_services_title',
                 'label' => 'Section Title',
@@ -479,25 +479,15 @@ add_action('acf/include_fields', function() {
                     ),
                 ),
             ),
-        ),
-        'location' => array(
+            
+            // Certifications Section Tab
             array(
-                array(
-                    'param' => 'page_template',
-                    'operator' => '==',
-                    'value' => 'front-page.php',
-                ),
+                'key' => 'field_tab_certifications',
+                'label' => 'Certifications Section',
+                'name' => '',
+                'type' => 'tab',
+                'placement' => 'left',
             ),
-        ),
-    ));
-
-    // ==========================================
-    // CERTIFICATIONS SECTION
-    // ==========================================
-    acf_add_local_field_group(array(
-        'key' => 'group_certifications_section',
-        'title' => 'Certifications Section',
-        'fields' => array(
             array(
                 'key' => 'field_certifications_title',
                 'label' => 'Section Title',
@@ -573,25 +563,97 @@ add_action('acf/include_fields', function() {
                     ),
                 ),
             ),
-        ),
-        'location' => array(
+            
+            // About Section Tab
             array(
-                array(
-                    'param' => 'page_template',
-                    'operator' => '==',
-                    'value' => 'front-page.php',
+                'key' => 'field_tab_about',
+                'label' => 'About Section',
+                'name' => '',
+                'type' => 'tab',
+                'placement' => 'left',
+            ),
+            array(
+                'key' => 'field_home_about_title',
+                'label' => 'Section Title',
+                'name' => 'home_about_title',
+                'type' => 'text',
+                'default_value' => 'About Abbott Gage, Inc.',
+            ),
+            array(
+                'key' => 'field_home_about_lead',
+                'label' => 'Lead Text',
+                'name' => 'home_about_lead',
+                'type' => 'text',
+                'default_value' => 'Over three decades of excellence in precision measuring tools and calibration services.',
+            ),
+            array(
+                'key' => 'field_home_about_content',
+                'label' => 'Content',
+                'name' => 'home_about_content',
+                'type' => 'wysiwyg',
+                'tabs' => 'all',
+                'toolbar' => 'full',
+            ),
+            array(
+                'key' => 'field_home_about_features',
+                'label' => 'Features',
+                'name' => 'home_about_features',
+                'type' => 'repeater',
+                'min' => 0,
+                'max' => 3,
+                'layout' => 'table',
+                'button_label' => 'Add Feature',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_home_about_feature_icon',
+                        'label' => 'Icon',
+                        'name' => 'icon',
+                        'type' => 'select',
+                        'choices' => $icon_choices,
+                        'default_value' => 'fas fa-check-circle',
+                        'ui' => 1,
+                        'wrapper' => array('width' => '30'),
+                    ),
+                    array(
+                        'key' => 'field_home_about_feature_title',
+                        'label' => 'Title',
+                        'name' => 'title',
+                        'type' => 'text',
+                        'wrapper' => array('width' => '35'),
+                    ),
+                    array(
+                        'key' => 'field_home_about_feature_desc',
+                        'label' => 'Description',
+                        'name' => 'description',
+                        'type' => 'text',
+                        'wrapper' => array('width' => '35'),
+                    ),
                 ),
             ),
-        ),
-    ));
-
-    // ==========================================
-    // MANUFACTURERS SECTION
-    // ==========================================
-    acf_add_local_field_group(array(
-        'key' => 'group_manufacturers_section',
-        'title' => 'Manufacturers Section',
-        'fields' => array(
+            array(
+                'key' => 'field_home_about_button',
+                'label' => 'Button',
+                'name' => 'home_about_button',
+                'type' => 'link',
+                'return_format' => 'array',
+            ),
+            array(
+                'key' => 'field_home_about_image',
+                'label' => 'Image',
+                'name' => 'home_about_image',
+                'type' => 'image',
+                'return_format' => 'array',
+                'preview_size' => 'medium',
+            ),
+            
+            // Manufacturers Section Tab
+            array(
+                'key' => 'field_tab_manufacturers',
+                'label' => 'Manufacturers Section',
+                'name' => '',
+                'type' => 'tab',
+                'placement' => 'left',
+            ),
             array(
                 'key' => 'field_manufacturers_title',
                 'label' => 'Section Title',
@@ -650,25 +712,73 @@ add_action('acf/include_fields', function() {
                 'type' => 'link',
                 'return_format' => 'array',
             ),
-        ),
-        'location' => array(
+            
+            // Why Choose Us Section Tab
             array(
-                array(
-                    'param' => 'page_template',
-                    'operator' => '==',
-                    'value' => 'front-page.php',
+                'key' => 'field_tab_why',
+                'label' => 'Why Choose Us',
+                'name' => '',
+                'type' => 'tab',
+                'placement' => 'left',
+            ),
+            array(
+                'key' => 'field_why_title',
+                'label' => 'Section Title',
+                'name' => 'why_title',
+                'type' => 'text',
+                'default_value' => 'Why Choose Abbott Gage, Inc.?',
+            ),
+            array(
+                'key' => 'field_why_description',
+                'label' => 'Section Description',
+                'name' => 'why_description',
+                'type' => 'text',
+                'default_value' => 'Your trusted partner for precision measurement solutions',
+            ),
+            array(
+                'key' => 'field_why_reasons',
+                'label' => 'Reasons',
+                'name' => 'why_reasons',
+                'type' => 'repeater',
+                'min' => 1,
+                'layout' => 'block',
+                'button_label' => 'Add Reason',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_why_reason_icon',
+                        'label' => 'Icon',
+                        'name' => 'icon',
+                        'type' => 'select',
+                        'choices' => $icon_choices,
+                        'default_value' => 'fas fa-check-circle',
+                        'required' => 1,
+                        'ui' => 1,
+                    ),
+                    array(
+                        'key' => 'field_why_reason_title',
+                        'label' => 'Title',
+                        'name' => 'title',
+                        'type' => 'text',
+                        'required' => 1,
+                    ),
+                    array(
+                        'key' => 'field_why_reason_description',
+                        'label' => 'Description',
+                        'name' => 'description',
+                        'type' => 'textarea',
+                        'rows' => 2,
+                    ),
                 ),
             ),
-        ),
-    ));
-
-    // ==========================================
-    // CTA SECTION
-    // ==========================================
-    acf_add_local_field_group(array(
-        'key' => 'group_cta_section',
-        'title' => 'Call to Action Section',
-        'fields' => array(
+            
+            // CTA Section Tab
+            array(
+                'key' => 'field_tab_cta',
+                'label' => 'Call to Action',
+                'name' => '',
+                'type' => 'tab',
+                'placement' => 'left',
+            ),
             array(
                 'key' => 'field_cta_title',
                 'label' => 'CTA Title',
@@ -749,166 +859,8 @@ add_action('acf/include_fields', function() {
                 ),
             ),
         ),
-    ));
-
-    // ==========================================
-    // HOMEPAGE - ABOUT SECTION
-    // ==========================================
-    acf_add_local_field_group(array(
-        'key' => 'group_homepage_about',
-        'title' => 'Homepage - About Section',
-        'fields' => array(
-            array(
-                'key' => 'field_home_about_title',
-                'label' => 'Section Title',
-                'name' => 'home_about_title',
-                'type' => 'text',
-                'default_value' => 'About Abbott Gage, Inc.',
-            ),
-            array(
-                'key' => 'field_home_about_lead',
-                'label' => 'Lead Text',
-                'name' => 'home_about_lead',
-                'type' => 'text',
-                'default_value' => 'Over three decades of excellence in precision measuring tools and calibration services.',
-            ),
-            array(
-                'key' => 'field_home_about_content',
-                'label' => 'Content',
-                'name' => 'home_about_content',
-                'type' => 'wysiwyg',
-                'tabs' => 'all',
-                'toolbar' => 'full',
-            ),
-            array(
-                'key' => 'field_home_about_features',
-                'label' => 'Features',
-                'name' => 'home_about_features',
-                'type' => 'repeater',
-                'min' => 0,
-                'max' => 3,
-                'layout' => 'table',
-                'button_label' => 'Add Feature',
-                'sub_fields' => array(
-                    array(
-                        'key' => 'field_home_about_feature_icon',
-                        'label' => 'Icon',
-                        'name' => 'icon',
-                        'type' => 'select',
-                        'choices' => $icon_choices,
-                        'default_value' => 'fas fa-check-circle',
-                        'ui' => 1,
-                        'wrapper' => array('width' => '30'),
-                    ),
-                    array(
-                        'key' => 'field_home_about_feature_title',
-                        'label' => 'Title',
-                        'name' => 'title',
-                        'type' => 'text',
-                        'wrapper' => array('width' => '35'),
-                    ),
-                    array(
-                        'key' => 'field_home_about_feature_desc',
-                        'label' => 'Description',
-                        'name' => 'description',
-                        'type' => 'text',
-                        'wrapper' => array('width' => '35'),
-                    ),
-                ),
-            ),
-            array(
-                'key' => 'field_home_about_button',
-                'label' => 'Button',
-                'name' => 'home_about_button',
-                'type' => 'link',
-                'return_format' => 'array',
-            ),
-            array(
-                'key' => 'field_home_about_image',
-                'label' => 'Image',
-                'name' => 'home_about_image',
-                'type' => 'image',
-                'return_format' => 'array',
-                'preview_size' => 'medium',
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'page_template',
-                    'operator' => '==',
-                    'value' => 'front-page.php',
-                ),
-            ),
-        ),
-    ));
-
-    // ==========================================
-    // HOMEPAGE - WHY CHOOSE US SECTION
-    // ==========================================
-    acf_add_local_field_group(array(
-        'key' => 'group_why_choose_us',
-        'title' => 'Homepage - Why Choose Us',
-        'fields' => array(
-            array(
-                'key' => 'field_why_title',
-                'label' => 'Section Title',
-                'name' => 'why_title',
-                'type' => 'text',
-                'default_value' => 'Why Choose Abbott Gage, Inc.?',
-            ),
-            array(
-                'key' => 'field_why_description',
-                'label' => 'Section Description',
-                'name' => 'why_description',
-                'type' => 'text',
-                'default_value' => 'Your trusted partner for precision measurement solutions',
-            ),
-            array(
-                'key' => 'field_why_reasons',
-                'label' => 'Reasons',
-                'name' => 'why_reasons',
-                'type' => 'repeater',
-                'min' => 1,
-                'layout' => 'block',
-                'button_label' => 'Add Reason',
-                'sub_fields' => array(
-                    array(
-                        'key' => 'field_why_reason_icon',
-                        'label' => 'Icon',
-                        'name' => 'icon',
-                        'type' => 'select',
-                        'choices' => $icon_choices,
-                        'default_value' => 'fas fa-check-circle',
-                        'required' => 1,
-                        'ui' => 1,
-                    ),
-                    array(
-                        'key' => 'field_why_reason_title',
-                        'label' => 'Title',
-                        'name' => 'title',
-                        'type' => 'text',
-                        'required' => 1,
-                    ),
-                    array(
-                        'key' => 'field_why_reason_description',
-                        'label' => 'Description',
-                        'name' => 'description',
-                        'type' => 'textarea',
-                        'rows' => 2,
-                    ),
-                ),
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'page_template',
-                    'operator' => '==',
-                    'value' => 'front-page.php',
-                ),
-            ),
-        ),
+        'style' => 'default',
+        'position' => 'normal',
     ));
 
     // ==========================================
@@ -918,6 +870,15 @@ add_action('acf/include_fields', function() {
         'key' => 'group_about_page',
         'title' => 'About Page Content',
         'fields' => array(
+            
+            // Introduction Tab
+            array(
+                'key' => 'field_about_intro_tab',
+                'label' => 'Introduction',
+                'name' => '',
+                'type' => 'tab',
+                'placement' => 'left',
+            ),
             array(
                 'key' => 'field_about_intro_image',
                 'label' => 'Introduction Image',
@@ -933,6 +894,7 @@ add_action('acf/include_fields', function() {
                 'label' => 'Company Story',
                 'name' => '',
                 'type' => 'tab',
+                'placement' => 'left',
             ),
             array(
                 'key' => 'field_about_history_title',
@@ -971,6 +933,7 @@ add_action('acf/include_fields', function() {
                 'label' => 'Certifications',
                 'name' => '',
                 'type' => 'tab',
+                'placement' => 'left',
             ),
             array(
                 'key' => 'field_about_highlights_title',
@@ -1021,6 +984,7 @@ add_action('acf/include_fields', function() {
                 'label' => 'Team Section',
                 'name' => '',
                 'type' => 'tab',
+                'placement' => 'left',
             ),
             array(
                 'key' => 'field_about_team_title',
@@ -1083,6 +1047,8 @@ add_action('acf/include_fields', function() {
                 ),
             ),
         ),
+        'style' => 'default',
+        'position' => 'normal',
     ));
 
     // ==========================================
@@ -1220,6 +1186,8 @@ add_action('acf/include_fields', function() {
                 ),
             ),
         ),
+        'style' => 'default',
+        'position' => 'normal',
     ));
 
 });
