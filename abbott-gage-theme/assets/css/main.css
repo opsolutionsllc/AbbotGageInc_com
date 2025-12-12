@@ -2701,16 +2701,20 @@ body.menu-open .mobile-menu-overlay {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   color: var(--color-white);
   border: none;
+  box-shadow: 0 4px 12px rgba(30, 58, 95, 0.25);
 }
 
 .info-box.highlight h4 {
-  color: var(--color-white);
+  color: #ffffff !important;
   font-weight: 700;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .info-box.highlight p {
-  color: var(--color-white);
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .features-list {
@@ -2723,14 +2727,18 @@ body.menu-open .mobile-menu-overlay {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.5rem 0;
-  color: var(--color-white);
-  font-weight: 500;
+  padding: 0.625rem 0;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .features-list i {
-  color: var(--color-accent);
+  color: #10b981;
   font-size: 1.125rem;
+  text-shadow: none;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
 }
 
 .contact-list {
@@ -3128,15 +3136,15 @@ body.menu-open .mobile-menu-overlay {
   max-width: 140px;
   height: auto;
   object-fit: contain;
-  filter: grayscale(100%) brightness(0.95);
-  opacity: 0.75;
+  filter: none;
+  opacity: 1;
   transition: var(--transition-base);
   position: relative;
   z-index: 1;
 }
 
 .partner-list-card:hover .partner-list-logo img {
-  filter: grayscale(0%) brightness(1);
+  filter: none;
   opacity: 1;
   transform: scale(1.05);
 }
@@ -3735,119 +3743,147 @@ textarea:focus {
    Special Offer Section (Sales Page)
    =================================== */
 .special-offer-section {
-  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  background-color: var(--color-light-gray);
+  padding: var(--spacing-2xl) 0;
 }
 
-.special-offer-box {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-  color: var(--color-white);
-  border-radius: var(--radius-lg);
-  padding: 3rem;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(26, 86, 219, 0.3);
-  position: relative;
-  overflow: hidden;
+.promo-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
 }
 
-.special-offer-box::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-  animation: pulse 8s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 0.3; }
-  50% { transform: scale(1.1); opacity: 0.5; }
-}
-
-.offer-icon {
-  font-size: 4rem;
-  margin-bottom: 1.5rem;
-  color: var(--color-accent);
-  animation: bounce 2s ease-in-out infinite;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-.special-offer-box h2 {
-  color: var(--color-white);
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  position: relative;
-  z-index: 1;
-}
-
-.special-offer-box .offer-text {
-  font-size: 1.25rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-  color: var(--color-white);
-  font-weight: 500;
-  position: relative;
-  z-index: 1;
-}
-
-.special-offer-box .btn {
-  position: relative;
-  z-index: 1;
-}
-
-.call-for-pricing-box {
+.promo-card {
   background: var(--color-white);
-  border: 2px solid var(--color-primary);
   border-radius: var(--radius-lg);
   padding: 2rem;
-  text-align: center;
-}
-
-.call-for-pricing-box i {
-  font-size: 3rem;
-  color: var(--color-primary);
-  margin-bottom: 1rem;
-}
-
-.call-for-pricing-box p {
-  font-size: 1.125rem;
-  color: var(--color-dark);
-  margin-bottom: 1.5rem;
-}
-
-.contact-options {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
+  align-items: flex-start;
+  border: 2px solid var(--color-border);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.promo-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 16px rgba(30, 58, 95, 0.1);
+}
+
+.promo-card--certification {
+  border-left: 4px solid var(--color-accent);
+}
+
+.promo-card--contact {
+  border-left: 4px solid var(--color-primary);
+}
+
+.promo-card__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
   justify-content: center;
+  font-size: 1.75rem;
+  flex-shrink: 0;
+}
+
+.promo-card--certification .promo-card__icon {
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  color: #059669;
+}
+
+.promo-card--contact .promo-card__icon {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  color: var(--color-primary);
+}
+
+.promo-card__content {
+  flex: 1;
+}
+
+.promo-card__title {
+  color: var(--color-dark);
+  font-size: 1.375rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.promo-card__text {
+  color: var(--color-gray);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.promo-card__phones {
+  display: flex;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 
-@media (max-width: 767px) {
-  .special-offer-box {
-    padding: 2rem 1.5rem;
+.phone-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 1.0625rem;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: all 0.2s ease;
+}
+
+.phone-link:hover {
+  color: var(--color-primary-dark);
+}
+
+.phone-link i {
+  font-size: 1rem;
+}
+
+.phone-link--toll-free {
+  color: var(--color-secondary);
+}
+
+.phone-link--toll-free:hover {
+  color: #a55e2a;
+}
+
+@media (max-width: 991px) {
+  .promo-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  
-  .special-offer-box h2 {
-    font-size: 1.75rem;
-  }
-  
-  .special-offer-box .offer-text {
-    font-size: 1rem;
-  }
-  
-  .contact-options {
+}
+
+@media (max-width: 575px) {
+  .promo-card {
     flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
   }
   
-  .contact-options .btn {
-    width: 100%;
+  .promo-card__icon {
+    margin: 0 auto;
+  }
+  
+  .promo-card__phones {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .promo-card--certification,
+  .promo-card--contact {
+    border-left: 2px solid var(--color-border);
+    border-top: 4px solid var(--color-accent);
+  }
+  
+  .promo-card--contact {
+    border-top-color: var(--color-primary);
   }
 }
 

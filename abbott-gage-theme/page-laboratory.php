@@ -57,7 +57,7 @@ get_header();
                                         <li><?php esc_html_e( 'Micrometers & Calipers', 'abbott-gage' ); ?></li>
                                         <li><?php esc_html_e( 'Height Gages & Depth Gages', 'abbott-gage' ); ?></li>
                                         <li><?php esc_html_e( 'Indicators & Comparators', 'abbott-gage' ); ?></li>
-                                        <li><?php esc_html_e( 'Surface Plates & Gage Blocks', 'abbott-gage' ); ?></li>
+                                        <li><?php esc_html_e( 'Surface Plates', 'abbott-gage' ); ?></li>
                                         <li><?php esc_html_e( 'Pin Gages & Ring Gages', 'abbott-gage' ); ?></li>
                                         <li><?php esc_html_e( 'Angle Plates & V-Blocks', 'abbott-gage' ); ?></li>
                                     </ul>

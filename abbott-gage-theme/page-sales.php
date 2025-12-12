@@ -320,31 +320,46 @@ get_header();
     </section>
     
     <!-- Special Offer Section -->
-    <section class="special-offer-section section bg-light">
+    <section class="special-offer-section section">
         <div class="container">
-            <div class="special-offer-box">
-                <div class="offer-icon">
-                    <i class="fas fa-certificate"></i>
+            <div class="promo-cards-grid">
+                <!-- Free Certification Card -->
+                <div class="promo-card promo-card--certification">
+                    <div class="promo-card__icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="promo-card__content">
+                        <h3 class="promo-card__title"><?php esc_html_e( 'Free First-Time Certification', 'abbott-gage' ); ?></h3>
+                        <p class="promo-card__text">
+                            <?php esc_html_e( 'Most new precision measuring tools purchased from Abbott Gage Inc will receive the first-time certification traceable to NIST at no charge.', 'abbott-gage' ); ?>
+                        </p>
+                        <a href="<?php echo esc_url( home_url( '/contact#quote' ) ); ?>" class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i> <?php esc_html_e( 'Shop Now', 'abbott-gage' ); ?>
+                        </a>
+                    </div>
                 </div>
-                <h2><?php esc_html_e( 'Free First-Time Certification!', 'abbott-gage' ); ?></h2>
-                <p class="offer-text">
-                    <?php esc_html_e( 'Most New Precision Measuring Tools purchased from Abbott Gage Inc will receive the First time certification traceable to the NIST at no charge', 'abbott-gage' ); ?>
-                </p>
-                <a href="<?php echo esc_url( home_url( '/contact#quote' ) ); ?>" class="btn btn-primary btn-lg">
-                    <i class="fas fa-shopping-cart"></i> <?php esc_html_e( 'Shop Now', 'abbott-gage' ); ?>
-                </a>
-            </div>
-            
-            <div class="call-for-pricing-box mt-4">
-                <i class="fas fa-phone-square-alt"></i>
-                <p><?php esc_html_e( 'Looking for a tool not listed? Call us for pricing or information on any precision measuring equipment you need.', 'abbott-gage' ); ?></p>
-                <div class="contact-options">
-                    <a href="tel:+12563783286" class="btn btn-outline-primary">
-                        <i class="fas fa-phone"></i> (256) 378-3286
-                    </a>
-                    <a href="tel:+18004814243" class="btn btn-outline-primary">
-                        <i class="fas fa-phone"></i> 1-800-481-4243
-                    </a>
+                
+                <!-- Call for Pricing Card -->
+                <div class="promo-card promo-card--contact">
+                    <div class="promo-card__icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="promo-card__content">
+                        <h3 class="promo-card__title"><?php esc_html_e( 'Need a Tool Not Listed?', 'abbott-gage' ); ?></h3>
+                        <p class="promo-card__text">
+                            <?php esc_html_e( 'Call us for pricing or information on any precision measuring equipment you need.', 'abbott-gage' ); ?>
+                        </p>
+                        <div class="promo-card__phones">
+                            <a href="tel:+12563783286" class="phone-link">
+                                <i class="fas fa-phone-alt"></i>
+                                <span>(256) 378-3286</span>
+                            </a>
+                            <a href="tel:+18004814243" class="phone-link phone-link--toll-free">
+                                <i class="fas fa-phone-alt"></i>
+                                <span>1-800-481-4243</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

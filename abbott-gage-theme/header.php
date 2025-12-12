@@ -51,7 +51,7 @@
                             <i class="fas fa-certificate"></i> ISO 9001:2015
                         </span>
                         <span class="cert-badge" title="Woman-Owned Business">
-                            <i class="fas fa-award"></i> WBENC Certified
+                            <i class="fas fa-award"></i> WBENC & WOSB Certified
                         </span>
                     </div>
                 </div>

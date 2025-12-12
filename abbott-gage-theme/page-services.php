@@ -81,7 +81,7 @@ get_header();
                     <ul>
                         <li><?php esc_html_e( 'Pressure Gages', 'abbott-gage' ); ?></li>
                         <li><?php esc_html_e( 'Dead Weight Testers', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Pressure Transmitters', 'abbott-gage' ); ?></li>
+                        <li><?php esc_html_e( 'Pressure Accessories', 'abbott-gage' ); ?></li>
                         <li><?php esc_html_e( 'And More', 'abbott-gage' ); ?></li>
                     </ul>
                 </div>
@@ -149,7 +149,7 @@ get_header();
         ),
         array(
             'question' => 'Are you ISO certified?',
-            'answer' => 'Yes, Abbott Gage Inc. is ISO 9001:2015 certified. Our quality management system meets international standards for excellence and continuous improvement. All our calibrations are performed to ISO/IEC 17025 requirements and include NIST traceable standards.'
+            'answer' => 'Yes, Abbott Gage Inc. is ISO 9001:2015 certified. Our quality management system meets international standards for excellence and continuous improvement. All our calibrations include NIST traceable standards.'
         ),
         array(
             'question' => 'Do you offer same-day or expedited service?',

@@ -26,7 +26,7 @@ get_header();
         <div class="container">
             <h1 class="page-title"><?php esc_html_e( 'Repair Services', 'abbott-gage' ); ?></h1>
             <p class="page-description">
-                <?php esc_html_e( 'Factory authorized repair center for precision measuring tools and equipment', 'abbott-gage' ); ?>
+                <?php esc_html_e( 'Expert repair services for precision measuring tools and equipment', 'abbott-gage' ); ?>
             </p>
         </div>
     </header>
