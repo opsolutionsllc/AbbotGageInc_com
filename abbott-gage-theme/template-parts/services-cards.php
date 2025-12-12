@@ -1,15 +1,25 @@
 <?php
 /**
  * Template part for displaying services cards
+ * 
+ * This template is REUSABLE across any page.
+ * Priority: Page-specific fields → Global Settings → Defaults
  *
  * @package Abbott_Gage
  * @since 1.0.0
  */
 
-// Get ACF fields
-$services_title = get_field('services_title') ?: 'Our Services';
-$services_description = get_field('services_description') ?: 'Comprehensive solutions for all your precision measuring needs';
-$services_items = get_field('services_items');
+// Get fields: Check page-specific first, then global settings, then defaults
+$services_title = get_field('services_title') 
+    ?: get_field('global_services_title', 'option') 
+    ?: 'Our Services';
+
+$services_description = get_field('services_description') 
+    ?: get_field('global_services_description', 'option') 
+    ?: 'Comprehensive solutions for all your precision measuring needs';
+
+$services_items = get_field('services_items') 
+    ?: get_field('global_services_items', 'option');
 ?>
 
 <section class="services-section section">

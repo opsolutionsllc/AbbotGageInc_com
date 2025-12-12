@@ -1,15 +1,25 @@
 <?php
 /**
  * Template part for displaying certifications
+ * 
+ * This template is REUSABLE across any page.
+ * Priority: Page-specific fields → Global Settings → Defaults
  *
  * @package Abbott_Gage
  * @since 1.0.0
  */
 
-// Get ACF fields
-$certifications_title = get_field('certifications_title') ?: 'Our Certifications';
-$certifications_description = get_field('certifications_description') ?: 'Certified excellence you can trust';
-$certifications_items = get_field('certifications_items');
+// Get fields: Check page-specific first, then global settings, then defaults
+$certifications_title = get_field('certifications_title') 
+    ?: get_field('global_certifications_title', 'option') 
+    ?: 'Our Certifications';
+
+$certifications_description = get_field('certifications_description') 
+    ?: get_field('global_certifications_description', 'option') 
+    ?: 'Certified excellence you can trust';
+
+$certifications_items = get_field('certifications_items') 
+    ?: get_field('global_certifications_items', 'option');
 ?>
 
 <section class="certifications-section section bg-light">

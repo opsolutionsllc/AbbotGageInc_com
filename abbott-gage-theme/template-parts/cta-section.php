@@ -1,16 +1,31 @@
 <?php
 /**
  * Template part for call-to-action section
+ * 
+ * This template is REUSABLE across any page.
+ * Priority: Page-specific fields → Global Settings → Defaults
  *
  * @package Abbott_Gage
  * @since 1.0.0
  */
 
-// Get ACF fields
-$cta_title = get_field('cta_title') ?: 'Ready to Get Started?';
-$cta_description = get_field('cta_description') ?: 'Contact us today for a free quote on our calibration, repair, or sales services.';
-$cta_buttons = get_field('cta_buttons');
-$cta_hours_show = get_field('cta_hours_show');
+// Get fields: Check page-specific first, then global settings, then defaults
+$cta_title = get_field('cta_title') 
+    ?: get_field('global_cta_title', 'option') 
+    ?: 'Ready to Get Started?';
+
+$cta_description = get_field('cta_description') 
+    ?: get_field('global_cta_description', 'option') 
+    ?: 'Contact us today for a free quote on our calibration, repair, or sales services.';
+
+$cta_buttons = get_field('cta_buttons') 
+    ?: get_field('global_cta_buttons', 'option');
+
+// For boolean fields, check if page-specific is set, otherwise use global
+$page_cta_hours = get_field('cta_hours_show');
+$global_cta_hours = get_field('global_cta_hours_show', 'option');
+$cta_hours_show = ($page_cta_hours !== null) ? $page_cta_hours : $global_cta_hours;
+
 $business_hours = get_field('business_hours', 'option');
 ?>
 
