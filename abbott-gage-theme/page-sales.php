@@ -43,327 +43,265 @@ get_header();
     </section>
     
     <!-- Product Categories Section -->
+    <?php 
+    $sales_categories_title = get_field( 'sales_categories_title' );
+    $sales_categories_description = get_field( 'sales_categories_description' );
+    $sales_categories_items = get_field( 'sales_categories_items' );
+    
+    if ( $sales_categories_items && ! empty( $sales_categories_items ) ) : ?>
     <section class="products-section section bg-light">
         <div class="container">
             <div class="section-header text-center">
-                <h2><?php esc_html_e( 'Product Categories', 'abbott-gage' ); ?></h2>
-                <p class="section-description">
-                    <?php esc_html_e( 'Complete range of precision measuring tools and equipment', 'abbott-gage' ); ?>
-                </p>
+                <?php if ( $sales_categories_title ) : ?>
+                    <h2><?php echo esc_html( $sales_categories_title ); ?></h2>
+                <?php endif; ?>
+                <?php if ( $sales_categories_description ) : ?>
+                    <p class="section-description">
+                        <?php echo esc_html( $sales_categories_description ); ?>
+                    </p>
+                <?php endif; ?>
             </div>
             
             <div class="row g-4">
-                <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-category-card h-100">
-                    <div class="category-icon">
-                        <i class="fas fa-ruler-combined"></i>
+                <?php foreach ( $sales_categories_items as $category ) : 
+                    $category_icon = isset( $category['icon'] ) ? $category['icon'] : '';
+                    $category_title = isset( $category['title'] ) ? $category['title'] : '';
+                    $category_items = isset( $category['items'] ) ? $category['items'] : array();
+                    ?>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="product-category-card h-100">
+                            <?php if ( $category_icon ) : ?>
+                                <div class="category-icon">
+                                    <i class="<?php echo esc_attr( $category_icon ); ?>"></i>
+                                </div>
+                            <?php endif; ?>
+                            <?php if ( $category_title ) : ?>
+                                <h3><?php echo esc_html( $category_title ); ?></h3>
+                            <?php endif; ?>
+                            <?php if ( ! empty( $category_items ) ) : ?>
+                                <ul>
+                                    <?php foreach ( $category_items as $item ) : 
+                                        $item_text = isset( $item['text'] ) ? $item['text'] : '';
+                                        if ( $item_text ) : ?>
+                                            <li><?php echo esc_html( $item_text ); ?></li>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+                        </div>
                     </div>
-                    <h3><?php esc_html_e( 'Micrometers', 'abbott-gage' ); ?></h3>
-                    <ul>
-                        <li><?php esc_html_e( 'Outside Micrometers', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Inside Micrometers', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Depth Micrometers', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Digital & Mechanical', 'abbott-gage' ); ?></li>
-                    </ul>
-                </div>
-                </div>
-                
-                <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-category-card h-100">
-                    <div class="category-icon">
-                        <i class="fas fa-ruler"></i>
-                    </div>
-                    <h3><?php esc_html_e( 'Calipers', 'abbott-gage' ); ?></h3>
-                    <ul>
-                        <li><?php esc_html_e( 'Digital Calipers', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Dial Calipers', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Vernier Calipers', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Specialty Calipers', 'abbott-gage' ); ?></li>
-                    </ul>
-                </div>
-                </div>
-                
-                <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-category-card h-100">
-                    <div class="category-icon">
-                        <i class="fas fa-arrows-alt-v"></i>
-                    </div>
-                    <h3><?php esc_html_e( 'Height Gages', 'abbott-gage' ); ?></h3>
-                    <ul>
-                        <li><?php esc_html_e( 'Digital Height Gages', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Dial Height Gages', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Vernier Height Gages', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Accessories', 'abbott-gage' ); ?></li>
-                    </ul>
-                </div>
-                </div>
-                
-                <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-category-card h-100">
-                    <div class="category-icon">
-                        <i class="fas fa-circle-notch"></i>
-                    </div>
-                    <h3><?php esc_html_e( 'Indicators', 'abbott-gage' ); ?></h3>
-                    <ul>
-                        <li><?php esc_html_e( 'Dial Indicators', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Digital Indicators', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Test Indicators', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Indicator Stands', 'abbott-gage' ); ?></li>
-                    </ul>
-                </div>
-                </div>
-                
-                <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-category-card h-100">
-                    <div class="category-icon">
-                        <i class="fas fa-cubes"></i>
-                    </div>
-                    <h3><?php esc_html_e( 'Gage Blocks & Plates', 'abbott-gage' ); ?></h3>
-                    <ul>
-                        <li><?php esc_html_e( 'Gage Block Sets', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Surface Plates', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Angle Plates', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'V-Blocks', 'abbott-gage' ); ?></li>
-                    </ul>
-                </div>
-                </div>
-                
-                <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-category-card h-100">
-                    <div class="category-icon">
-                        <i class="fas fa-cog"></i>
-                    </div>
-                    <h3><?php esc_html_e( 'Torque Tools', 'abbott-gage' ); ?></h3>
-                    <ul>
-                        <li><?php esc_html_e( 'Torque Wrenches', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Torque Screwdrivers', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Torque Analyzers', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Calibration Equipment', 'abbott-gage' ); ?></li>
-                    </ul>
-                </div>
-                </div>
-                
-                <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-category-card h-100">
-                    <div class="category-icon">
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
-                    <h3><?php esc_html_e( 'Pressure Gages', 'abbott-gage' ); ?></h3>
-                    <ul>
-                        <li><?php esc_html_e( 'Mechanical Pressure Gages', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Digital Pressure Gages', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Dead Weight Testers', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Vacuum Gages', 'abbott-gage' ); ?></li>
-                    </ul>
-                </div>
-                </div>
-                
-                <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-category-card h-100">
-                    <div class="category-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3><?php esc_html_e( 'Electronic Equipment', 'abbott-gage' ); ?></h3>
-                    <ul>
-                        <li><?php esc_html_e( 'Multimeters', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Thermometers', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Balances & Scales', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Test Equipment', 'abbott-gage' ); ?></li>
-                    </ul>
-                </div>
-                </div>
-                
-                <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-category-card h-100">
-                    <div class="category-icon">
-                        <i class="fas fa-grip-vertical"></i>
-                    </div>
-                    <h3><?php esc_html_e( 'Thread & Pin Gages', 'abbott-gage' ); ?></h3>
-                    <ul>
-                        <li><?php esc_html_e( 'Thread Gages', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Pin Gage Sets', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Ring Gages', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Plug Gages', 'abbott-gage' ); ?></li>
-                    </ul>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
+    <?php endif; ?>
     
     <!-- Why Buy From Us Section -->
+    <?php 
+    $sales_why_buy_title = get_field( 'sales_why_buy_title' );
+    $sales_why_buy_items = get_field( 'sales_why_buy_items' );
+    
+    if ( $sales_why_buy_items && ! empty( $sales_why_buy_items ) ) : ?>
     <section class="why-buy-section section bg-white">
         <div class="container">
             <div class="section-header text-center">
-                <h2><?php esc_html_e( 'Why Buy From Abbott Gage?', 'abbott-gage' ); ?></h2>
+                <?php if ( $sales_why_buy_title ) : ?>
+                    <h2><?php echo esc_html( $sales_why_buy_title ); ?></h2>
+                <?php endif; ?>
             </div>
             <div class="row g-4">
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="benefit-card h-100">
-                        <div class="benefit-icon">
-                            <i class="fas fa-certificate"></i>
+                <?php foreach ( $sales_why_buy_items as $benefit ) : 
+                    $benefit_icon = isset( $benefit['icon'] ) ? $benefit['icon'] : '';
+                    $benefit_title = isset( $benefit['title'] ) ? $benefit['title'] : '';
+                    $benefit_description = isset( $benefit['description'] ) ? $benefit['description'] : '';
+                    ?>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="benefit-card h-100">
+                            <?php if ( $benefit_icon ) : ?>
+                                <div class="benefit-icon">
+                                    <i class="<?php echo esc_attr( $benefit_icon ); ?>"></i>
+                                </div>
+                            <?php endif; ?>
+                            <?php if ( $benefit_title ) : ?>
+                                <h3><?php echo esc_html( $benefit_title ); ?></h3>
+                            <?php endif; ?>
+                            <?php if ( $benefit_description ) : ?>
+                                <p><?php echo esc_html( $benefit_description ); ?></p>
+                            <?php endif; ?>
                         </div>
-                        <h3><?php esc_html_e( 'Authorized Distributor', 'abbott-gage' ); ?></h3>
-                        <p><?php esc_html_e( 'Official distributor for all major precision tool brands', 'abbott-gage' ); ?></p>
                     </div>
-                </div>
-                
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="benefit-card h-100">
-                        <div class="benefit-icon">
-                            <i class="fas fa-dollar-sign"></i>
-                        </div>
-                        <h3><?php esc_html_e( 'Competitive Pricing', 'abbott-gage' ); ?></h3>
-                        <p><?php esc_html_e( 'Best prices on quality precision measuring equipment', 'abbott-gage' ); ?></p>
-                    </div>
-                </div>
-                
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="benefit-card h-100">
-                        <div class="benefit-icon">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        <h3><?php esc_html_e( 'Expert Guidance', 'abbott-gage' ); ?></h3>
-                        <p><?php esc_html_e( 'Professional advice to select the right tools for your needs', 'abbott-gage' ); ?></p>
-                    </div>
-                </div>
-                
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="benefit-card h-100">
-                        <div class="benefit-icon">
-                            <i class="fas fa-shipping-fast"></i>
-                        </div>
-                        <h3><?php esc_html_e( 'Fast Delivery', 'abbott-gage' ); ?></h3>
-                        <p><?php esc_html_e( 'Quick shipping or local pickup options available', 'abbott-gage' ); ?></p>
-                    </div>
-                </div>
-                
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="benefit-card h-100">
-                        <div class="benefit-icon">
-                            <i class="fas fa-tools"></i>
-                        </div>
-                        <h3><?php esc_html_e( 'Service & Support', 'abbott-gage' ); ?></h3>
-                        <p><?php esc_html_e( 'Calibration and repair services for equipment purchased', 'abbott-gage' ); ?></p>
-                    </div>
-                </div>
-                
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="benefit-card h-100">
-                        <div class="benefit-icon">
-                            <i class="fas fa-file-invoice-dollar"></i>
-                        </div>
-                        <h3><?php esc_html_e( 'Flexible Payment', 'abbott-gage' ); ?></h3>
-                        <p><?php esc_html_e( 'Multiple payment options and NET 30 terms available', 'abbott-gage' ); ?></p>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
+    <?php endif; ?>
     
     <!-- Featured Manufacturers -->
-    <?php get_template_part( 'template-parts/manufacturers', 'section' ); ?>
+    <?php 
+    $sales_manufacturers_title = get_field( 'sales_manufacturers_title' );
+    $sales_manufacturers_description = get_field( 'sales_manufacturers_description' );
+    $sales_manufacturers_items = get_field( 'sales_manufacturers_items' );
+    
+    if ( $sales_manufacturers_items && ! empty( $sales_manufacturers_items ) ) : ?>
+    <section class="manufacturers-section section">
+        <div class="container">
+            <div class="section-header text-center">
+                <?php if ( $sales_manufacturers_title ) : ?>
+                    <h2><?php echo esc_html( $sales_manufacturers_title ); ?></h2>
+                <?php endif; ?>
+                <?php if ( $sales_manufacturers_description ) : ?>
+                    <p class="section-description">
+                        <?php echo esc_html( $sales_manufacturers_description ); ?>
+                    </p>
+                <?php endif; ?>
+            </div>
+            
+            <div class="row g-4 justify-content-center">
+                <?php foreach ( $sales_manufacturers_items as $manufacturer ) : 
+                    $manufacturer_logo = isset( $manufacturer['logo'] ) ? $manufacturer['logo'] : null;
+                    $manufacturer_name = isset( $manufacturer['name'] ) ? $manufacturer['name'] : '';
+                    $manufacturer_authorized = isset( $manufacturer['authorized'] ) ? $manufacturer['authorized'] : false;
+                    ?>
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                        <div class="manufacturer-item">
+                            <?php if ( $manufacturer_logo && isset( $manufacturer_logo['url'] ) ) : ?>
+                                <img src="<?php echo esc_url( $manufacturer_logo['url'] ); ?>" 
+                                    alt="<?php echo esc_attr( $manufacturer_logo['alt'] ? $manufacturer_logo['alt'] : $manufacturer_name ); ?>" 
+                                    loading="lazy">
+                            <?php endif; ?>
+                            <?php if ( $manufacturer_authorized ) : ?>
+                                <div class="manufacturer-badge"><?php esc_html_e( 'Factory Authorized', 'abbott-gage' ); ?></div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+    <?php endif; ?>
     
     <!-- Ordering Process Section -->
+    <?php 
+    $sales_ordering_title = get_field( 'sales_ordering_title' );
+    $sales_ordering_description = get_field( 'sales_ordering_description' );
+    $sales_ordering_steps = get_field( 'sales_ordering_steps' );
+    $sales_payment_title = get_field( 'sales_payment_title' );
+    $sales_payment_image = get_field( 'sales_payment_image' );
+    $sales_payment_image_alt = get_field( 'sales_payment_image_alt' );
+    $sales_payment_footer = get_field( 'sales_payment_footer' );
+    
+    if ( $sales_ordering_steps && ! empty( $sales_ordering_steps ) ) : ?>
     <section class="ordering-section section bg-light">
         <div class="container">
             <div class="section-header text-center">
-                <h2><?php esc_html_e( 'How to Order', 'abbott-gage' ); ?></h2>
-                <p class="section-description">
-                    <?php esc_html_e( 'Simple and straightforward ordering process', 'abbott-gage' ); ?>
-                </p>
+                <?php if ( $sales_ordering_title ) : ?>
+                    <h2><?php echo esc_html( $sales_ordering_title ); ?></h2>
+                <?php endif; ?>
+                <?php if ( $sales_ordering_description ) : ?>
+                    <p class="section-description">
+                        <?php echo esc_html( $sales_ordering_description ); ?>
+                    </p>
+                <?php endif; ?>
             </div>
             
             <div class="ordering-steps">
-                <div class="ordering-step">
-                    <div class="step-icon">
-                        <i class="fas fa-phone-alt"></i>
+                <?php foreach ( $sales_ordering_steps as $step ) : 
+                    $step_icon = isset( $step['icon'] ) ? $step['icon'] : '';
+                    $step_title = isset( $step['title'] ) ? $step['title'] : '';
+                    $step_description = isset( $step['description'] ) ? $step['description'] : '';
+                    ?>
+                    <div class="ordering-step">
+                        <?php if ( $step_icon ) : ?>
+                            <div class="step-icon">
+                                <i class="<?php echo esc_attr( $step_icon ); ?>"></i>
+                            </div>
+                        <?php endif; ?>
+                        <?php if ( $step_title ) : ?>
+                            <h3><?php echo esc_html( $step_title ); ?></h3>
+                        <?php endif; ?>
+                        <?php if ( $step_description ) : ?>
+                            <p><?php echo esc_html( $step_description ); ?></p>
+                        <?php endif; ?>
                     </div>
-                    <h3><?php esc_html_e( 'Step 1: Contact Us', 'abbott-gage' ); ?></h3>
-                    <p><?php esc_html_e( 'Call (256) 378-3286, toll-free 1-800-481-4243, email info@abbottgageinc.com, or use our contact form with product details.', 'abbott-gage' ); ?></p>
-                </div>
-                
-                <div class="ordering-step">
-                    <div class="step-icon">
-                        <i class="fas fa-file-invoice-dollar"></i>
-                    </div>
-                    <h3><?php esc_html_e( 'Step 2: Get Quote', 'abbott-gage' ); ?></h3>
-                    <p><?php esc_html_e( 'Receive a detailed quote within 24 hours with competitive pricing.', 'abbott-gage' ); ?></p>
-                </div>
-                
-                <div class="ordering-step">
-                    <div class="step-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <h3><?php esc_html_e( 'Step 3: Place Order', 'abbott-gage' ); ?></h3>
-                    <p><?php esc_html_e( 'Approve the quote and place your order with order confirmation provided.', 'abbott-gage' ); ?></p>
-                </div>
-                
-                <div class="ordering-step">
-                    <div class="step-icon">
-                        <i class="fas fa-truck"></i>
-                    </div>
-                    <h3><?php esc_html_e( 'Step 4: Receive', 'abbott-gage' ); ?></h3>
-                    <p><?php esc_html_e( 'Fast shipping to your location or pick up locally if preferred.', 'abbott-gage' ); ?></p>
-                </div>
+                <?php endforeach; ?>
             </div>
             
+            <?php if ( $sales_payment_title || $sales_payment_image || $sales_payment_footer ) : ?>
             <div class="payment-info text-center">
-                <h3><?php esc_html_e( 'Payment Methods Accepted', 'abbott-gage' ); ?></h3>
-                <div class="payment-methods-image">
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/cards-accepted.png' ); ?>" 
-                         alt="<?php esc_attr_e( 'Accepted Payment Methods: Visa, Mastercard, Discover, American Express', 'abbott-gage' ); ?>"
-                         loading="lazy">
-                </div>
-                <p><?php esc_html_e( 'NET 30 terms available for approved accounts', 'abbott-gage' ); ?></p>
+                <?php if ( $sales_payment_title ) : ?>
+                    <h3><?php echo esc_html( $sales_payment_title ); ?></h3>
+                <?php endif; ?>
+                <?php if ( $sales_payment_image && isset( $sales_payment_image['url'] ) ) : ?>
+                    <div class="payment-methods-image">
+                        <img src="<?php echo esc_url( $sales_payment_image['url'] ); ?>" 
+                             alt="<?php echo esc_attr( $sales_payment_image_alt ? $sales_payment_image_alt : ( $sales_payment_image['alt'] ? $sales_payment_image['alt'] : 'Payment Methods' ) ); ?>"
+                             loading="lazy">
+                    </div>
+                <?php endif; ?>
+                <?php if ( $sales_payment_footer ) : ?>
+                    <p><?php echo esc_html( $sales_payment_footer ); ?></p>
+                <?php endif; ?>
             </div>
+            <?php endif; ?>
         </div>
     </section>
+    <?php endif; ?>
     
     <!-- Special Offer Section -->
+    <?php 
+    $sales_promo_cards = get_field( 'sales_promo_cards' );
+    
+    if ( $sales_promo_cards && ! empty( $sales_promo_cards ) ) : ?>
     <section class="special-offer-section section">
         <div class="container">
             <div class="promo-cards-grid">
-                <!-- Free Certification Card -->
-                <div class="promo-card promo-card--certification">
-                    <div class="promo-card__icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="promo-card__content">
-                        <h3 class="promo-card__title"><?php esc_html_e( 'Free First-Time Certification', 'abbott-gage' ); ?></h3>
-                        <p class="promo-card__text">
-                            <?php esc_html_e( 'Most new precision measuring tools purchased from Abbott Gage Inc will receive the first-time certification traceable to NIST at no charge.', 'abbott-gage' ); ?>
-                        </p>
-                        <a href="<?php echo esc_url( home_url( '/contact#quote' ) ); ?>" class="btn btn-primary">
-                            <i class="fas fa-shopping-cart"></i> <?php esc_html_e( 'Shop Now', 'abbott-gage' ); ?>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Call for Pricing Card -->
-                <div class="promo-card promo-card--contact">
-                    <div class="promo-card__icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <div class="promo-card__content">
-                        <h3 class="promo-card__title"><?php esc_html_e( 'Need a Tool Not Listed?', 'abbott-gage' ); ?></h3>
-                        <p class="promo-card__text">
-                            <?php esc_html_e( 'Call us for pricing or information on any precision measuring equipment you need.', 'abbott-gage' ); ?>
-                        </p>
-                        <div class="promo-card__phones">
-                            <a href="tel:+12563783286" class="phone-link">
-                                <i class="fas fa-phone-alt"></i>
-                                <span>(256) 378-3286</span>
-                            </a>
-                            <a href="tel:+18004814243" class="phone-link phone-link--toll-free">
-                                <i class="fas fa-phone-alt"></i>
-                                <span>1-800-481-4243</span>
-                            </a>
+                <?php foreach ( $sales_promo_cards as $index => $card ) : 
+                    $card_icon = isset( $card['icon'] ) ? $card['icon'] : '';
+                    $card_title = isset( $card['title'] ) ? $card['title'] : '';
+                    $card_text = isset( $card['text'] ) ? $card['text'] : '';
+                    $card_button_text = isset( $card['button_text'] ) ? $card['button_text'] : '';
+                    $card_button_url = isset( $card['button_url'] ) ? $card['button_url'] : '';
+                    $show_phone_links = isset( $card['show_phone_links'] ) ? $card['show_phone_links'] : false;
+                    $card_class = ( $index === 0 ) ? 'promo-card--certification' : 'promo-card--contact';
+                    ?>
+                    <div class="promo-card <?php echo esc_attr( $card_class ); ?>">
+                        <?php if ( $card_icon ) : ?>
+                            <div class="promo-card__icon">
+                                <i class="<?php echo esc_attr( $card_icon ); ?>"></i>
+                            </div>
+                        <?php endif; ?>
+                        <div class="promo-card__content">
+                            <?php if ( $card_title ) : ?>
+                                <h3 class="promo-card__title"><?php echo esc_html( $card_title ); ?></h3>
+                            <?php endif; ?>
+                            <?php if ( $card_text ) : ?>
+                                <p class="promo-card__text">
+                                    <?php echo esc_html( $card_text ); ?>
+                                </p>
+                            <?php endif; ?>
+                            <?php if ( $show_phone_links ) : ?>
+                                <div class="promo-card__phones">
+                                    <a href="tel:+12563783286" class="phone-link">
+                                        <i class="fas fa-phone-alt"></i>
+                                        <span>(256) 378-3286</span>
+                                    </a>
+                                    <a href="tel:+18004814243" class="phone-link phone-link--toll-free">
+                                        <i class="fas fa-phone-alt"></i>
+                                        <span>1-800-481-4243</span>
+                                    </a>
+                                </div>
+                            <?php elseif ( $card_button_text && $card_button_url ) : ?>
+                                <a href="<?php echo esc_url( home_url( $card_button_url ) ); ?>" class="btn btn-primary">
+                                    <i class="fas fa-shopping-cart"></i> <?php echo esc_html( $card_button_text ); ?>
+                                </a>
+                            <?php endif; ?>
                         </div>
                     </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
+    <?php endif; ?>
     
     <!-- CTA Section -->
     <?php get_template_part( 'template-parts/cta', 'section' ); ?>

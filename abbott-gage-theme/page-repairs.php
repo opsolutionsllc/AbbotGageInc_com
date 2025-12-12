@@ -24,7 +24,7 @@ get_header();
     <!-- Page Header -->
     <header class="page-header-section">
         <div class="container">
-            <h1 class="page-title"><?php esc_html_e( 'Repair Services', 'abbott-gage' ); ?></h1>
+            <h1 class="page-title"><?php the_title(); ?></h1>
             <p class="page-description">
                 <?php esc_html_e( 'Expert repair services for precision measuring tools and equipment', 'abbott-gage' ); ?>
             </p>
@@ -44,84 +44,121 @@ get_header();
                     <?php endwhile; ?>
                     
                     <!-- Repair Services Include -->
+                    <?php 
+                    $repairs_services_title = get_field( 'repairs_services_title' );
+                    $repairs_services_columns = get_field( 'repairs_services_columns' );
+                    $repairs_services_callout = get_field( 'repairs_services_callout' );
+                    
+                    if ( $repairs_services_columns && ! empty( $repairs_services_columns ) ) : ?>
                     <div class="services-include-section">
-                        <h3><?php esc_html_e( 'Repair Services Include', 'abbott-gage' ); ?></h3>
+                        <?php if ( $repairs_services_title ) : ?>
+                            <h3><?php echo esc_html( $repairs_services_title ); ?></h3>
+                        <?php endif; ?>
                         <div class="services-columns">
-                            <div class="service-column">
-                                <ul class="checkmark-list">
-                                    <li><?php esc_html_e( 'Complete overhaul and refurbishment', 'abbott-gage' ); ?></li>
-                                    <li><?php esc_html_e( 'Parts replacement with genuine OEM components', 'abbott-gage' ); ?></li>
-                                    <li><?php esc_html_e( 'Accuracy testing and calibration', 'abbott-gage' ); ?></li>
-                                    <li><?php esc_html_e( 'Technical support to ensure your equipment is repaired to original specifications', 'abbott-gage' ); ?></li>
-                                </ul>
-                            </div>
-                            <div class="service-column">
-                                <ul class="checkmark-list">
-                                    <li><?php esc_html_e( 'Cosmetic restoration when needed', 'abbott-gage' ); ?></li>
-                                    <li><?php esc_html_e( 'Warranty support for authorized brands', 'abbott-gage' ); ?></li>
-                                    <li><?php esc_html_e( 'Post-Repair Certification when Requested', 'abbott-gage' ); ?></li>
-                                </ul>
-                            </div>
+                            <?php foreach ( $repairs_services_columns as $column ) : 
+                                $column_items = isset( $column['items'] ) ? $column['items'] : array();
+                                ?>
+                                <?php if ( ! empty( $column_items ) ) : ?>
+                                    <?php
+                                        // Split $column_items into 2 groups as evenly as possible
+                                        $total = count( $column_items );
+                                        $half = (int) ceil( $total / 2 );
+                                        $chunks = array_chunk( $column_items, $half );
+                                    ?>
+                                    <?php foreach ( $chunks as $group ) : ?>
+                                        <div class="service-column">
+                                            <ul class="checkmark-list">
+                                                <?php foreach ( $group as $item ) : 
+                                                    $item_text = isset( $item['text'] ) ? $item['text'] : '';
+                                                    if ( $item_text ) : ?>
+                                                        <li><?php echo esc_html( $item_text ); ?></li>
+                                                    <?php endif; ?>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
                         </div>
-                        <div class="info-callout">
-                            <i class="fas fa-info-circle"></i>
-                            <p><?php esc_html_e( 'All repaired equipment is calibrated before return.', 'abbott-gage' ); ?></p>
-                        </div>
+                        <?php if ( $repairs_services_callout ) : ?>
+                            <div class="info-callout">
+                                <i class="fas fa-info-circle"></i>
+                                <p><?php echo esc_html( $repairs_services_callout ); ?></p>
+                            </div>
+                        <?php endif; ?>
                     </div>
+                    <?php endif; ?>
                     
                     <!-- Repair Process -->
+                    <?php 
+                    $repairs_process_title = get_field( 'repairs_process_title' );
+                    $repairs_process_steps = get_field( 'repairs_process_steps' );
+                    $repairs_turnaround_label = get_field( 'repairs_turnaround_label' );
+                    $repairs_turnaround_text = get_field( 'repairs_turnaround_text' );
+                    
+                    if ( $repairs_process_steps && ! empty( $repairs_process_steps ) ) : ?>
                     <div class="repair-process-section">
-                        <h3><?php esc_html_e( 'Our Repair Process', 'abbott-gage' ); ?></h3>
+                        <?php if ( $repairs_process_title ) : ?>
+                            <h3><?php echo esc_html( $repairs_process_title ); ?></h3>
+                        <?php endif; ?>
                         <div class="process-steps">
-                            <div class="process-step">
-                                <div class="step-number">1</div>
-                                <h4><?php esc_html_e( 'Contact Us', 'abbott-gage' ); ?></h4>
-                                <p><?php esc_html_e( 'Discuss the issue with our staff', 'abbott-gage' ); ?></p>
-                            </div>
-                            <div class="process-step">
-                                <div class="step-number">2</div>
-                                <h4><?php esc_html_e( 'Send Equipment', 'abbott-gage' ); ?></h4>
-                                <p><?php esc_html_e( 'Ship to our facility or drop off locally', 'abbott-gage' ); ?></p>
-                            </div>
-                            <div class="process-step">
-                                <div class="step-number">3</div>
-                                <h4><?php esc_html_e( 'Diagnosis & Quote', 'abbott-gage' ); ?></h4>
-                                <p><?php esc_html_e( 'We diagnose and provide a repair quote when requested', 'abbott-gage' ); ?></p>
-                            </div>
-                            <div class="process-step">
-                                <div class="step-number">4</div>
-                                <h4><?php esc_html_e( 'Repair & Test', 'abbott-gage' ); ?></h4>
-                                <p><?php esc_html_e( 'Complete repair with thorough testing', 'abbott-gage' ); ?></p>
-                            </div>
-                            <div class="process-step">
-                                <div class="step-number">5</div>
-                                <h4><?php esc_html_e( 'Calibrate & Return', 'abbott-gage' ); ?></h4>
-                                <p><?php esc_html_e( 'Calibrated and returned', 'abbott-gage' ); ?></p>
-                            </div>
+                            <?php foreach ( $repairs_process_steps as $step ) : 
+                                $step_number = isset( $step['number'] ) ? $step['number'] : '';
+                                $step_title = isset( $step['title'] ) ? $step['title'] : '';
+                                $step_description = isset( $step['description'] ) ? $step['description'] : '';
+                                ?>
+                                <div class="process-step">
+                                    <?php if ( $step_number ) : ?>
+                                        <div class="step-number"><?php echo esc_html( $step_number ); ?></div>
+                                    <?php endif; ?>
+                                    <?php if ( $step_title ) : ?>
+                                        <h4><?php echo esc_html( $step_title ); ?></h4>
+                                    <?php endif; ?>
+                                    <?php if ( $step_description ) : ?>
+                                        <p><?php echo esc_html( $step_description ); ?></p>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
-                        <p class="turnaround-time">
-                            <strong><?php esc_html_e( 'Average Turnaround:', 'abbott-gage' ); ?></strong>
-                            <?php esc_html_e( ' 5-10 business days depending on parts availability', 'abbott-gage' ); ?>
-                        </p>
+                        <?php if ( $repairs_turnaround_label || $repairs_turnaround_text ) : ?>
+                            <p class="turnaround-time">
+                                <?php if ( $repairs_turnaround_label ) : ?>
+                                    <strong><?php echo esc_html( $repairs_turnaround_label ); ?></strong>
+                                <?php endif; ?>
+                                <?php if ( $repairs_turnaround_text ) : ?>
+                                    <?php echo esc_html( $repairs_turnaround_text ); ?>
+                                <?php endif; ?>
+                            </p>
+                        <?php endif; ?>
                     </div>
+                    <?php endif; ?>
                     
                     <!-- Brands We Service -->
+                    <?php 
+                    $repairs_brands_title = get_field( 'repairs_brands_title' );
+                    $repairs_brands_items = get_field( 'repairs_brands_items' );
+                    $repairs_brands_footer = get_field( 'repairs_brands_footer' );
+                    
+                    if ( $repairs_brands_items && ! empty( $repairs_brands_items ) ) : ?>
                     <div class="brands-serviced-section">
-                        <h3><?php esc_html_e( 'Brands We Service', 'abbott-gage' ); ?></h3>
+                        <?php if ( $repairs_brands_title ) : ?>
+                            <h3><?php echo esc_html( $repairs_brands_title ); ?></h3>
+                        <?php endif; ?>
                         <div class="brands-grid">
-                            <span class="brand-tag">Mitutoyo</span>
-                            <span class="brand-tag">Fowler</span>
-                            <span class="brand-tag">Brown & Sharpe</span>
-                            <span class="brand-tag">TESA</span>
-                            <span class="brand-tag">Starrett</span>
-                            <span class="brand-tag">CDI Torque</span>
-                            <span class="brand-tag">Snap-On</span>
-                            <span class="brand-tag">Williams</span>
+                            <?php foreach ( $repairs_brands_items as $brand ) : 
+                                $brand_name = isset( $brand['name'] ) ? $brand['name'] : '';
+                                if ( $brand_name ) : ?>
+                                    <span class="brand-tag"><?php echo esc_html( $brand_name ); ?></span>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
                         </div>
-                        <p class="text-center mt-3">
-                            <?php esc_html_e( 'And many other major brands', 'abbott-gage' ); ?>
-                        </p>
+                        <?php if ( $repairs_brands_footer ) : ?>
+                            <p class="text-center mt-3">
+                                <?php echo esc_html( $repairs_brands_footer ); ?>
+                            </p>
+                        <?php endif; ?>
                     </div>
+                    <?php endif; ?>
                     
                 </div>
                 

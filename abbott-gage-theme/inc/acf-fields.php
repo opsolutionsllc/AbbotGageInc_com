@@ -28,100 +28,124 @@ if( function_exists('acf_add_options_page') ) {
     
 }
 
-/**
- * Common Icon Choices for Dropdowns
- */
 function abbott_gage_get_icon_choices() {
     return array(
-        // Certifications & Quality
-        'fas fa-certificate' => '🏅 Certificate',
-        'fas fa-award' => '🏆 Award/Trophy',
-        'fas fa-medal' => '🥇 Medal',
-        'fas fa-stamp' => '📋 Stamp',
-        'fas fa-check-circle' => '✓ Check Circle',
-        'fas fa-check-square' => '☑ Check Square',
-        'fas fa-shield-alt' => '🛡️ Shield',
-        'fas fa-balance-scale' => '⚖️ Balance Scale',
-        
-        // Tools & Equipment
-        'fas fa-tools' => '🔧 Tools',
-        'fas fa-wrench' => '🔧 Wrench',
-        'fas fa-screwdriver' => '🪛 Screwdriver',
-        'fas fa-hammer' => '🔨 Hammer',
-        'fas fa-cogs' => '⚙️ Gears/Settings',
-        'fas fa-cog' => '⚙️ Single Gear',
-        
-        // Science & Lab
-        'fas fa-flask' => '🧪 Laboratory Flask',
-        'fas fa-microscope' => '🔬 Microscope',
-        'fas fa-atom' => '⚛️ Atom/Science',
-        'fas fa-vial' => '🧪 Vial',
-        'fas fa-temperature-high' => '🌡️ Temperature',
-        
-        // Business & Service
-        'fas fa-handshake' => '🤝 Handshake',
-        'fas fa-user-friends' => '👥 Team/People',
-        'fas fa-users' => '👥 Multiple Users',
-        'fas fa-user-check' => '✓ Verified User',
-        'fas fa-graduation-cap' => '🎓 Education/Training',
-        'fas fa-briefcase' => '💼 Business/Briefcase',
-        
-        // Time & History
-        'fas fa-history' => '🕐 History/Time',
-        'fas fa-clock' => '🕐 Clock',
-        'fas fa-calendar' => '📅 Calendar',
-        'fas fa-hourglass-half' => '⏳ Hourglass',
-        
-        // Service & Delivery
-        'fas fa-truck' => '🚚 Truck/Delivery',
-        'fas fa-shipping-fast' => '📦 Fast Shipping',
-        'fas fa-box' => '📦 Package/Box',
-        'fas fa-dolly' => '🛒 Cart/Dolly',
-        
-        // Communication
-        'fas fa-phone' => '📞 Phone',
-        'fas fa-phone-alt' => '☎️ Phone Alt',
-        'fas fa-envelope' => '✉️ Email/Envelope',
-        'fas fa-comments' => '💬 Comments',
-        'fas fa-comment' => '💬 Comment',
-        'fas fa-fax' => '📠 Fax',
-        
-        // Location
-        'fas fa-map-marker-alt' => '📍 Location Pin',
-        'fas fa-building' => '🏢 Building',
-        'fas fa-industry' => '🏭 Factory/Industry',
-        'fas fa-warehouse' => '🏭 Warehouse',
-        
-        // Shopping & Sales
-        'fas fa-shopping-cart' => '🛒 Shopping Cart',
-        'fas fa-shopping-bag' => '🛍️ Shopping Bag',
-        'fas fa-cash-register' => '💰 Cash Register',
-        'fas fa-dollar-sign' => '💵 Dollar Sign',
-        
-        // Documents
-        'fas fa-file-pdf' => '📄 PDF File',
-        'fas fa-file-alt' => '📄 Document',
-        'fas fa-clipboard-check' => '📋 Clipboard Check',
-        'fas fa-clipboard-list' => '📋 Clipboard List',
-        
-        // Actions
-        'fas fa-arrow-right' => '→ Arrow Right',
-        'fas fa-arrow-circle-right' => '➡️ Arrow Circle Right',
-        'fas fa-chevron-right' => '› Chevron Right',
-        'fas fa-angle-right' => '› Angle Right',
-        
-        // Misc
-        'fas fa-star' => '⭐ Star',
-        'fas fa-heart' => '❤️ Heart',
-        'fas fa-thumbs-up' => '👍 Thumbs Up',
-        'fas fa-lightbulb' => '💡 Light Bulb',
-        'fas fa-rocket' => '🚀 Rocket',
-        'fas fa-paper-plane' => '✈️ Paper Plane',
-        'fas fa-info-circle' => 'ℹ️ Info Circle',
-        'fas fa-question-circle' => '❓ Question Circle',
-        'fas fa-exclamation-circle' => '❗ Exclamation Circle',
+
+        // A
+        'fas fa-angle-right'       => '› Angle Right',
+        'fas fa-arrows-alt-v'      => '↕️ Arrows Vertical',
+        'fas fa-atom'              => '⚛️ Atom/Science',
+        'fas fa-award'             => '🏆 Award/Trophy',
+
+        // B
+        'fas fa-balance-scale'     => '⚖️ Balance Scale',
+        'fas fa-bolt'              => '⚡ Bolt',
+        'fas fa-box'               => '📦 Package/Box',
+        'fas fa-boxes'              => '📦📦 Boxes/Inventory',
+        'fas fa-briefcase'         => '💼 Business/Briefcase',
+        'fas fa-building'          => '🏢 Building',
+
+        // C
+        'fas fa-calendar'          => '📅 Calendar',
+        'fas fa-cash-register'     => '💰 Cash Register',
+        'fas fa-certificate'       => '🏅 Certificate',
+        'fas fa-check-circle'      => '✓ Check Circle',
+        'fas fa-check-square'      => '☑ Check Square',
+        'fas fa-chevron-right'     => '› Chevron Right',
+        'fas fa-circle-notch'      => '⭕ Circle Notch',
+        'fas fa-clipboard-check'   => '📋 Clipboard Check',
+        'fas fa-clipboard-list'    => '📋 Clipboard List',
+        'fas fa-clock'             => '🕐 Clock',
+        'fas fa-cog'               => '⚙️ Single Gear',
+        'fas fa-cogs'              => '⚙️ Gears/Settings',
+        'fas fa-comment'           => '💬 Comment',
+        'fas fa-comments'          => '💬 Comments',
+        'fas fa-cubes'             => '🧊 Cubes/Blocks',
+
+        // D
+        'fas fa-dollar-sign'       => '💵 Dollar Sign',
+        'fas fa-dolly'             => '🛒 Cart/Dolly',
+
+        // E
+        'fas fa-envelope'          => '✉️ Email/Envelope',
+        'fas fa-exclamation-circle'=> '❗ Exclamation Circle',
+
+        // F
+        'fas fa-fax'               => '📠 Fax',
+        'fas fa-file-alt'          => '📄 Document',
+        'fas fa-file-invoice-dollar' => '💰 Invoice/Payment',
+        'fas fa-file-pdf'          => '📄 PDF File',
+        'fas fa-flask'             => '🧪 Laboratory Flask',
+
+        // G
+        'fas fa-graduation-cap'    => '🎓 Education/Training',
+        'fas fa-grip-vertical'     => '⋮ Grip Vertical',
+
+        // H
+        'fas fa-hammer'            => '🔨 Hammer',
+        'fas fa-handshake'         => '🤝 Handshake',
+        'fas fa-headset'           => '🎧 Headset/Support',
+        'fas fa-heart'             => '❤️ Heart',
+        'fas fa-history'           => '🕐 History/Time',
+        'fas fa-hourglass-half'    => '⏳ Hourglass',
+        'fas fa-info-circle'       => 'ℹ️ Info Circle',
+        'fas fa-industry'          => '🏭 Factory/Industry',
+
+        // L
+        'fas fa-lightbulb'         => '💡 Light Bulb',
+        'fas fa-map-marker-alt'    => '📍 Location Pin',
+        'fas fa-medal'             => '🥇 Medal',
+        'fas fa-microscope'        => '🔬 Microscope',
+
+        // P
+        'fas fa-paper-plane'       => '✈️ Paper Plane',
+        'fas fa-phone'             => '📞 Phone',
+        'fas fa-phone-alt'         => '☎️ Phone Alt',
+
+        // Q
+        'fas fa-question-circle'   => '❓ Question Circle',
+
+        // R
+        'fas fa-ruler'             => '📏 Ruler',
+        'fas fa-ruler-combined'    => '📐 Ruler Combined',
+        'fas fa-rocket'            => '🚀 Rocket',
+
+        // S
+        'fas fa-screwdriver'       => '🪛 Screwdriver',
+        'fas fa-shield-alt'        => '🛡️ Shield',
+        'fas fa-shipping-fast'     => '📦 Fast Shipping',
+        'fas fa-shopping-bag'      => '🛍️ Shopping Bag',
+        'fas fa-shopping-cart'     => '🛒 Shopping Cart',
+        'fas fa-star'              => '⭐ Star',
+        'fas fa-stamp'             => '📋 Stamp',
+
+        // T
+        'fas fa-tachometer-alt'    => '⏱️ Tachometer Alt',
+        'fas fa-team'              => '👥 Team/People',
+        'fas fa-temperature-high'  => '🌡️ Temperature',
+        'fas fa-thumbs-up'         => '👍 Thumbs Up',
+        'fas fa-tools'             => '🔧 Tools',
+        'fas fa-truck'             => '🚚 Truck/Delivery',
+
+        // U
+        'fas fa-user-check'        => '✓ Verified User',
+        'fas fa-user-friends'      => '👥 Team/People',
+        'fas fa-user-tie'           => '👔 Professional/Expert',
+        'fas fa-users'             => '👥 Multiple Users',
+
+        // V
+        'fas fa-vial'              => '🧪 Vial',
+
+        // W
+        'fas fa-warehouse'         => '🏭 Warehouse',
+        'fas fa-wrench'            => '🔧 Wrench',
+
+        // Z
+        'fas fa-arrow-circle-right'=> '➡️ Arrow Circle Right',
+        'fas fa-arrow-right'       => '→ Arrow Right',
     );
 }
+
 
 /**
  * Register ACF Field Groups
@@ -251,20 +275,10 @@ add_action('acf/include_fields', function() {
             // ==========================================
             array(
                 'key' => 'field_shared_tab',
-                'label' => 'Shared Content',
+                'label' => 'Services',
                 'name' => '',
                 'type' => 'tab',
                 'instructions' => 'Content sections that can be reused across multiple pages.',
-            ),
-            array(
-                'key' => 'field_shared_info',
-                'label' => '',
-                'name' => '',
-                'type' => 'message',
-                'message' => '<div style="background:#f0f6fc;border-left:4px solid #0073aa;padding:12px 15px;margin-bottom:15px;">
-                    <strong>💡 How Shared Content Works:</strong><br>
-                    Content defined here can be displayed on any page using template parts. Individual pages can optionally override these defaults with their own content.
-                </div>',
             ),
             
             // Shared Services Section
@@ -382,6 +396,14 @@ add_action('acf/include_fields', function() {
                 'type' => 'accordion',
                 'endpoint' => 1,
             ),
+
+            array(
+                'key' => 'field_cta_tab',
+                'label' => 'CTA Information',
+                'name' => '',
+                'type' => 'tab',
+                'placement' => 'top',
+            ),
             
             // Shared CTA Section
             array(
@@ -470,7 +492,13 @@ add_action('acf/include_fields', function() {
                 'endpoint' => 1,
             ),
             
-            // Shared Certifications Section
+            array(
+                'key' => 'field_certifications_tab',
+                'label' => 'Certifications',
+                'name' => '',
+                'type' => 'tab',
+                'placement' => 'top',
+            ),
             array(
                 'key' => 'field_shared_certs_heading',
                 'label' => 'Certifications Section',
@@ -1499,6 +1527,198 @@ add_action('acf/include_fields', function() {
                     'param' => 'page_template',
                     'operator' => '==',
                     'value' => 'page-contact.php',
+                ),
+            ),
+        ),
+        'style' => 'default',
+        'position' => 'normal',
+    ));
+
+    // ==========================================
+    // SERVICES PAGE
+    // ==========================================
+    acf_add_local_field_group(array(
+        'key' => 'group_services_page',
+        'title' => 'Services Page Content',
+        'fields' => array(
+            
+            // Service Areas Section Tab
+            array(
+                'key' => 'field_services_areas_tab',
+                'label' => 'Service Areas Section',
+                'name' => '',
+                'type' => 'tab',
+                'placement' => 'left',
+            ),
+            array(
+                'key' => 'field_services_areas_title',
+                'label' => 'Section Title',
+                'name' => 'services_areas_title',
+                'type' => 'text',
+                'default_value' => 'Whatever Your Needs',
+            ),
+            array(
+                'key' => 'field_services_areas_description',
+                'label' => 'Section Description',
+                'name' => 'services_areas_description',
+                'type' => 'textarea',
+                'rows' => 2,
+                'default_value' => 'We handle all types of precision measuring equipment',
+            ),
+            array(
+                'key' => 'field_services_areas_items',
+                'label' => 'Service Areas',
+                'name' => 'services_areas_items',
+                'type' => 'repeater',
+                'min' => 1,
+                'layout' => 'block',
+                'button_label' => 'Add Service Area',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_service_area_icon',
+                        'label' => 'Icon',
+                        'name' => 'icon',
+                        'type' => 'select',
+                        'choices' => $icon_choices,
+                        'default_value' => 'fas fa-ruler',
+                        'required' => 1,
+                        'ui' => 1,
+                    ),
+                    array(
+                        'key' => 'field_service_area_title',
+                        'label' => 'Title',
+                        'name' => 'title',
+                        'type' => 'text',
+                        'required' => 1,
+                    ),
+                    array(
+                        'key' => 'field_service_area_items',
+                        'label' => 'Equipment List',
+                        'name' => 'items',
+                        'type' => 'repeater',
+                        'min' => 1,
+                        'layout' => 'table',
+                        'button_label' => 'Add Equipment Item',
+                        'sub_fields' => array(
+                            array(
+                                'key' => 'field_service_area_item_text',
+                                'label' => 'Equipment Name',
+                                'name' => 'text',
+                                'type' => 'text',
+                                'required' => 1,
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            
+            // Process Section Tab
+            array(
+                'key' => 'field_services_process_tab',
+                'label' => 'Process Section',
+                'name' => '',
+                'type' => 'tab',
+                'placement' => 'left',
+            ),
+            array(
+                'key' => 'field_services_process_title',
+                'label' => 'Section Title',
+                'name' => 'services_process_title',
+                'type' => 'text',
+                'default_value' => 'Our Process',
+            ),
+            array(
+                'key' => 'field_services_process_description',
+                'label' => 'Section Description',
+                'name' => 'services_process_description',
+                'type' => 'textarea',
+                'rows' => 2,
+                'default_value' => 'Simple, professional, and reliable',
+            ),
+            array(
+                'key' => 'field_services_process_steps',
+                'label' => 'Process Steps',
+                'name' => 'services_process_steps',
+                'type' => 'repeater',
+                'min' => 1,
+                'layout' => 'block',
+                'button_label' => 'Add Process Step',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_process_step_number',
+                        'label' => 'Step Number',
+                        'name' => 'number',
+                        'type' => 'number',
+                        'default_value' => 1,
+                        'min' => 1,
+                        'required' => 1,
+                    ),
+                    array(
+                        'key' => 'field_process_step_title',
+                        'label' => 'Step Title',
+                        'name' => 'title',
+                        'type' => 'text',
+                        'required' => 1,
+                    ),
+                    array(
+                        'key' => 'field_process_step_description',
+                        'label' => 'Step Description',
+                        'name' => 'description',
+                        'type' => 'textarea',
+                        'rows' => 2,
+                        'required' => 1,
+                    ),
+                ),
+            ),
+            
+            // FAQ Section Tab
+            array(
+                'key' => 'field_services_faq_tab',
+                'label' => 'FAQ Section',
+                'name' => '',
+                'type' => 'tab',
+                'placement' => 'left',
+            ),
+            array(
+                'key' => 'field_services_faq_title',
+                'label' => 'FAQ Section Title',
+                'name' => 'services_faq_title',
+                'type' => 'text',
+                'default_value' => 'Calibration Services FAQs',
+            ),
+            array(
+                'key' => 'field_services_faq_items',
+                'label' => 'FAQ Items',
+                'name' => 'services_faq_items',
+                'type' => 'repeater',
+                'min' => 0,
+                'layout' => 'block',
+                'button_label' => 'Add FAQ',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_faq_question',
+                        'label' => 'Question',
+                        'name' => 'question',
+                        'type' => 'text',
+                        'required' => 1,
+                    ),
+                    array(
+                        'key' => 'field_faq_answer',
+                        'label' => 'Answer',
+                        'name' => 'answer',
+                        'type' => 'textarea',
+                        'rows' => 4,
+                        'required' => 1,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-services.php',
                 ),
             ),
         ),

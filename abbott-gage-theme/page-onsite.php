@@ -24,7 +24,7 @@ get_header();
     <!-- Page Header -->
     <header class="page-header-section">
         <div class="container">
-            <h1 class="page-title"><?php esc_html_e( 'Onsite Calibration Services', 'abbott-gage' ); ?></h1>
+            <h1 class="page-title"><?php the_title(); ?></h1>
             <p class="page-description">
                 <?php esc_html_e( 'Professional calibration services at your facility - minimize downtime and maximize efficiency', 'abbott-gage' ); ?>
             </p>
@@ -32,90 +32,101 @@ get_header();
     </header>
     
     <!-- Main Content -->
+    <?php 
+    $onsite_main_title = get_field( 'onsite_main_title' );
+    $onsite_lead_text = get_field( 'onsite_lead_text' );
+    $onsite_description = get_field( 'onsite_description' );
+    $onsite_benefits_title = get_field( 'onsite_benefits_title' );
+    $onsite_benefits_items = get_field( 'onsite_benefits_items' );
+    $onsite_services_title = get_field( 'onsite_services_title' );
+    $onsite_services_columns = get_field( 'onsite_services_columns' );
+    ?>
     <section class="section">
         <div class="container">
             <div class="two-column-layout">
                 <div class="content-column">
-                    <h2><?php esc_html_e( 'Convenient On-Site Service', 'abbott-gage' ); ?></h2>
+                    <?php if ( $onsite_main_title ) : ?>
+                        <h2><?php echo esc_html( $onsite_main_title ); ?></h2>
+                    <?php endif; ?>
                     
-                    <p class="lead">
-                        <?php esc_html_e( 'We bring our state-of-the-art equipment and experienced technicians directly to your facility for professional calibration services.', 'abbott-gage' ); ?>
-                    </p>
+                    <?php if ( $onsite_lead_text ) : ?>
+                        <p class="lead">
+                            <?php echo esc_html( $onsite_lead_text ); ?>
+                        </p>
+                    <?php endif; ?>
                     
-                    <p>
-                        <?php esc_html_e( 'On-site calibrations by Abbott Gage, Inc. range from basic micrometers and indicators to surface plates and pressure equipment. Our mobile calibration service minimizes equipment downtime and keeps your operations running smoothly.', 'abbott-gage' ); ?>
-                    </p>
+                    <?php if ( $onsite_description ) : ?>
+                        <p>
+                            <?php echo esc_html( $onsite_description ); ?>
+                        </p>
+                    <?php endif; ?>
                     
                     <!-- Benefits Section -->
+                    <?php if ( $onsite_benefits_items && ! empty( $onsite_benefits_items ) ) : ?>
                     <div class="benefits-section">
-                        <h3><?php esc_html_e( 'On-Site Advantages', 'abbott-gage' ); ?></h3>
+                        <?php if ( $onsite_benefits_title ) : ?>
+                            <h3><?php echo esc_html( $onsite_benefits_title ); ?></h3>
+                        <?php endif; ?>
                         <div class="row g-4">
-                            <div class="col-12 col-md-6">
-                                <div class="benefit-item h-100">
-                                    <i class="fas fa-shipping-fast"></i>
-                                    <div>
-                                        <h4><?php esc_html_e( 'Reduced Downtime', 'abbott-gage' ); ?></h4>
-                                        <p><?php esc_html_e( 'Equipment stays at your facility, eliminating shipping time and keeping your operations running.', 'abbott-gage' ); ?></p>
+                            <?php foreach ( $onsite_benefits_items as $benefit ) : 
+                                $benefit_icon = isset( $benefit['icon'] ) ? $benefit['icon'] : '';
+                                $benefit_title = isset( $benefit['title'] ) ? $benefit['title'] : '';
+                                $benefit_description = isset( $benefit['description'] ) ? $benefit['description'] : '';
+                                ?>
+                                <div class="col-12 col-md-6">
+                                    <div class="benefit-item h-100">
+                                        <?php if ( $benefit_icon ) : ?>
+                                            <i class="<?php echo esc_attr( $benefit_icon ); ?>"></i>
+                                        <?php endif; ?>
+                                        <div>
+                                            <?php if ( $benefit_title ) : ?>
+                                                <h4><?php echo esc_html( $benefit_title ); ?></h4>
+                                            <?php endif; ?>
+                                            <?php if ( $benefit_description ) : ?>
+                                                <p><?php echo esc_html( $benefit_description ); ?></p>
+                                            <?php endif; ?>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                            <div class="col-12 col-md-6">
-                                <div class="benefit-item h-100">
-                                    <i class="fas fa-dollar-sign"></i>
-                                    <div>
-                                        <h4><?php esc_html_e( 'Cost-Effective', 'abbott-gage' ); ?></h4>
-                                        <p><?php esc_html_e( 'No packaging or shipping costs. We come to you with everything needed for calibration.', 'abbott-gage' ); ?></p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-12 col-md-6">
-                                <div class="benefit-item h-100">
-                                    <i class="fas fa-user-tie"></i>
-                                    <div>
-                                        <h4><?php esc_html_e( 'Expert Technicians', 'abbott-gage' ); ?></h4>
-                                        <p><?php esc_html_e( 'Experienced professionals with decades of expertise in precision measurement.', 'abbott-gage' ); ?></p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-12 col-md-6">
-                                <div class="benefit-item h-100">
-                                    <i class="fas fa-file-alt"></i>
-                                    <div>
-                                        <h4><?php esc_html_e( 'Complete Documentation', 'abbott-gage' ); ?></h4>
-                                        <p><?php esc_html_e( 'Full certification with NIST traceable standards.', 'abbott-gage' ); ?></p>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
+                    <?php endif; ?>
                     
                     <!-- Services Include -->
+                    <?php if ( $onsite_services_columns && ! empty( $onsite_services_columns ) ) : ?>
                     <div class="services-include-section">
-                        <h3><?php esc_html_e( 'On-Site Calibration Services Include', 'abbott-gage' ); ?></h3>
+                        <?php if ( $onsite_services_title ) : ?>
+                            <h3><?php echo esc_html( $onsite_services_title ); ?></h3>
+                        <?php endif; ?>
                         <div class="services-columns">
-                            <div class="service-column">
-                                <ul class="checkmark-list">
-                                    <li><?php esc_html_e( 'Micrometers (Inside, Outside, Depth)', 'abbott-gage' ); ?></li>
-                                    <li><?php esc_html_e( 'Calipers (Dial, Digital, Vernier)', 'abbott-gage' ); ?></li>
-                                    <li><?php esc_html_e( 'Indicators (Dial, Digital, Test)', 'abbott-gage' ); ?></li>
-                                    <li><?php esc_html_e( 'Height Gages', 'abbott-gage' ); ?></li>
-                                    <li><?php esc_html_e( 'Surface Plates', 'abbott-gage' ); ?></li>
-                                </ul>
-                            </div>
-                            <div class="service-column">
-                                <ul class="checkmark-list">
-                                    <li><?php esc_html_e( 'Optical Comparators', 'abbott-gage' ); ?></li>
-                                    <li><?php esc_html_e( 'Hardness Testers', 'abbott-gage' ); ?></li>
-                                    <li><?php esc_html_e( 'Pressure Gauges', 'abbott-gage' ); ?></li>
-                                    <li><?php esc_html_e( 'Scales & Balances', 'abbott-gage' ); ?></li>
-                                    <li><?php esc_html_e( 'And Much More', 'abbott-gage' ); ?></li>
-                                </ul>
-                            </div>
+                            <?php foreach ( $onsite_services_columns as $column ) : 
+                                $column_items = isset( $column['items'] ) ? $column['items'] : array();
+                                ?>
+                                <?php if ( ! empty( $column_items ) ) : ?>
+                                    <?php
+                                        // Split $column_items into 2 groups as evenly as possible
+                                        $total = count( $column_items );
+                                        $half = (int) ceil( $total / 2 );
+                                        $chunks = array_chunk( $column_items, $half );
+                                    ?>
+                                    <?php foreach ( $chunks as $group ) : ?>
+                                        <div class="service-column">
+                                            <ul class="checkmark-list">
+                                                <?php foreach ( $group as $item ) : 
+                                                    $item_text = isset( $item['text'] ) ? $item['text'] : '';
+                                                    if ( $item_text ) : ?>
+                                                        <li><?php echo esc_html( $item_text ); ?></li>
+                                                    <?php endif; ?>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
                         </div>
                     </div>
+                    <?php endif; ?>
                     
                 </div>
                 

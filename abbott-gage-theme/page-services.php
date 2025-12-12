@@ -35,144 +35,124 @@ get_header();
     <?php get_template_part( 'template-parts/services', 'cards' ); ?>
     
     <!-- Service Areas Section -->
+    <?php 
+    $services_areas_title = get_field( 'services_areas_title' );
+    $services_areas_description = get_field( 'services_areas_description' );
+    $services_areas_items = get_field( 'services_areas_items' );
+    
+    if ( $services_areas_items ) : ?>
     <section class="service-areas section bg-light">
         <div class="container">
             <div class="section-header text-center">
-                <h2><?php esc_html_e( 'Whatever Your Needs', 'abbott-gage' ); ?></h2>
-                <p class="section-description">
-                    <?php esc_html_e( 'We handle all types of precision measuring equipment', 'abbott-gage' ); ?>
-                </p>
+                <?php if ( $services_areas_title ) : ?>
+                    <h2><?php echo esc_html( $services_areas_title ); ?></h2>
+                <?php endif; ?>
+                <?php if ( $services_areas_description ) : ?>
+                    <p class="section-description">
+                        <?php echo esc_html( $services_areas_description ); ?>
+                    </p>
+                <?php endif; ?>
             </div>
             
             <div class="service-areas-grid">
-                <div class="service-area-card">
-                    <div class="service-area-icon">
-                        <i class="fas fa-ruler"></i>
+                <?php foreach ( $services_areas_items as $area ) : 
+                    $area_icon = isset( $area['icon'] ) ? $area['icon'] : '';
+                    $area_title = isset( $area['title'] ) ? $area['title'] : '';
+                    $area_items = isset( $area['items'] ) ? $area['items'] : array();
+                    ?>
+                    <div class="service-area-card">
+                        <?php if ( $area_icon ) : ?>
+                            <div class="service-area-icon">
+                                <i class="<?php echo esc_attr( $area_icon ); ?>"></i>
+                            </div>
+                        <?php endif; ?>
+                        <?php if ( $area_title ) : ?>
+                            <h3><?php echo esc_html( $area_title ); ?></h3>
+                        <?php endif; ?>
+                        <?php if ( ! empty( $area_items ) ) : ?>
+                            <ul>
+                                <?php foreach ( $area_items as $item ) : 
+                                    $item_text = isset( $item['text'] ) ? $item['text'] : '';
+                                    if ( $item_text ) : ?>
+                                        <li><?php echo esc_html( $item_text ); ?></li>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
                     </div>
-                    <h3><?php esc_html_e( 'Dimensional', 'abbott-gage' ); ?></h3>
-                    <ul>
-                        <li><?php esc_html_e( 'Micrometers', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Calipers', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Height Gages', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Surface Plates', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'And More', 'abbott-gage' ); ?></li>
-                    </ul>
-                </div>
-                
-                <div class="service-area-card">
-                    <div class="service-area-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3><?php esc_html_e( 'Electronic', 'abbott-gage' ); ?></h3>
-                    <ul>
-                        <li><?php esc_html_e( 'Multimeters', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Oscilloscopes', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Tachometers', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Thermometers', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'And More', 'abbott-gage' ); ?></li>
-                    </ul>
-                </div>
-                
-                <div class="service-area-card">
-                    <div class="service-area-icon">
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
-                    <h3><?php esc_html_e( 'Pressure', 'abbott-gage' ); ?></h3>
-                    <ul>
-                        <li><?php esc_html_e( 'Pressure Gages', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Dead Weight Testers', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Pressure Accessories', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'And More', 'abbott-gage' ); ?></li>
-                    </ul>
-                </div>
-                
-                <div class="service-area-card">
-                    <div class="service-area-icon">
-                        <i class="fas fa-cog"></i>
-                    </div>
-                    <h3><?php esc_html_e( 'Torque', 'abbott-gage' ); ?></h3>
-                    <ul>
-                        <li><?php esc_html_e( 'Torque Wrenches', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Torque Analyzers', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'Torque Screwdrivers', 'abbott-gage' ); ?></li>
-                        <li><?php esc_html_e( 'And More', 'abbott-gage' ); ?></li>
-                    </ul>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
+    <?php endif; ?>
     
     <!-- Process Section -->
+    <?php 
+    $services_process_title = get_field( 'services_process_title' );
+    $services_process_description = get_field( 'services_process_description' );
+    $services_process_steps = get_field( 'services_process_steps' );
+    
+    if ( $services_process_steps ) : ?>
     <section class="process-section section">
         <div class="container">
             <div class="section-header text-center">
-                <h2><?php esc_html_e( 'Our Process', 'abbott-gage' ); ?></h2>
-                <p class="section-description">
-                    <?php esc_html_e( 'Simple, professional, and reliable', 'abbott-gage' ); ?>
-                </p>
+                <?php if ( $services_process_title ) : ?>
+                    <h2><?php echo esc_html( $services_process_title ); ?></h2>
+                <?php endif; ?>
+                <?php if ( $services_process_description ) : ?>
+                    <p class="section-description">
+                        <?php echo esc_html( $services_process_description ); ?>
+                    </p>
+                <?php endif; ?>
             </div>
             
             <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3><?php esc_html_e( 'Contact Us', 'abbott-gage' ); ?></h3>
-                    <p><?php esc_html_e( 'Reach out via phone, email, or our contact form to discuss your needs.', 'abbott-gage' ); ?></p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3><?php esc_html_e( 'Receive Quote', 'abbott-gage' ); ?></h3>
-                    <p><?php esc_html_e( 'Get a detailed quote tailored to your equipment and requirements.', 'abbott-gage' ); ?></p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3><?php esc_html_e( 'Service Delivery', 'abbott-gage' ); ?></h3>
-                    <p><?php esc_html_e( 'We perform calibration, certification, or repairs with expert precision.', 'abbott-gage' ); ?></p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3><?php esc_html_e( 'Documentation', 'abbott-gage' ); ?></h3>
-                    <p><?php esc_html_e( 'Receive comprehensive certification documentation with NIST traceability.', 'abbott-gage' ); ?></p>
-                </div>
+                <?php foreach ( $services_process_steps as $step ) : 
+                    $step_number = isset( $step['number'] ) ? $step['number'] : '';
+                    $step_title = isset( $step['title'] ) ? $step['title'] : '';
+                    $step_description = isset( $step['description'] ) ? $step['description'] : '';
+                    ?>
+                    <div class="process-step">
+                        <?php if ( $step_number ) : ?>
+                            <div class="step-number"><?php echo esc_html( $step_number ); ?></div>
+                        <?php endif; ?>
+                        <?php if ( $step_title ) : ?>
+                            <h3><?php echo esc_html( $step_title ); ?></h3>
+                        <?php endif; ?>
+                        <?php if ( $step_description ) : ?>
+                            <p><?php echo esc_html( $step_description ); ?></p>
+                        <?php endif; ?>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
+    <?php endif; ?>
     
     <!-- FAQ Section -->
     <?php 
-    $services_faqs = array(
-        array(
-            'question' => 'What types of calibration services do you offer?',
-            'answer' => 'We offer comprehensive calibration services including laboratory calibration and on-site calibration. Our services cover dimensional equipment (micrometers, calipers, gages), electronic equipment (multimeters, oscilloscopes, thermometers), pressure, torque, and temperature equipment. All calibrations are NIST traceable and ISO 9001:2015 certified.'
-        ),
-        array(
-            'question' => 'Are you ISO certified?',
-            'answer' => 'Yes, Abbott Gage Inc. is ISO 9001:2015 certified. Our quality management system meets international standards for excellence and continuous improvement. All our calibrations include NIST traceable standards.'
-        ),
-        array(
-            'question' => 'Do you offer same-day or expedited service?',
-            'answer' => 'Yes, we offer expedited service options for urgent calibration needs. Standard turnaround is 3-5 business days for laboratory calibration, but we can accommodate rush requests. On-site calibration can often be scheduled within 1-2 weeks depending on location and availability. Contact us to discuss your specific timing requirements.'
-        ),
-        array(
-            'question' => 'What is the difference between laboratory and on-site calibration?',
-            'answer' => 'Both methods are NIST traceable, but on-site is ideal for large quantities of precision measuring tools, or stationary equipment when you need to minimize production interruption.'
-        ),
-        array(
-            'question' => 'Do you repair equipment?',
-            'answer' => 'Yes, we can repair precision measuring equipment from major brands including Mitutoyo, Fowler, Brown & Sharpe, and Starrett. We can repair most precision measuring equipment and recalibrate it before returning it to you. We also offer preventive maintenance services to extend equipment life.'
-        ),
-        array(
-            'question' => 'How do I request a quote for calibration services?',
-            'answer' => 'You can request a quote by contacting us via phone at (256) 378-3286, email at info@abbottgageinc.com, or through our online contact form. Please provide details about the type and quantity of equipment you need calibrated, and we\'ll respond promptly with a competitive quote.'
-        )
-    );
+    $services_faq_title = get_field( 'services_faq_title' );
+    $services_faq_items = get_field( 'services_faq_items' );
     
-    get_template_part( 'template-parts/faq', 'section', array( 
-        'title' => 'Calibration Services FAQs',
-        'items' => $services_faqs 
-    ) ); 
+    if ( $services_faq_items && ! empty( $services_faq_items ) ) {
+        // Format FAQ items for the template part
+        $faq_items = array();
+        foreach ( $services_faq_items as $faq ) {
+            if ( isset( $faq['question'] ) && isset( $faq['answer'] ) ) {
+                $faq_items[] = array(
+                    'question' => $faq['question'],
+                    'answer' => $faq['answer']
+                );
+            }
+        }
+        
+        if ( ! empty( $faq_items ) ) {
+            get_template_part( 'template-parts/faq', 'section', array( 
+                'title' => $services_faq_title ? $services_faq_title : 'Calibration Services FAQs',
+                'items' => $faq_items 
+            ) );
+        }
+    }
     ?>
     
     <!-- CTA Section -->

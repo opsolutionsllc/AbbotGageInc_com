@@ -24,7 +24,7 @@ get_header();
     <!-- Page Header -->
     <header class="page-header-section">
         <div class="container">
-            <h1 class="page-title"><?php esc_html_e( 'Laboratory Calibration Services', 'abbott-gage' ); ?></h1>
+            <h1 class="page-title"><?php the_title(); ?></h1>
             <p class="page-description">
                 <?php esc_html_e( 'Send equipment to our state-of-the-art lab for precise calibration and certification', 'abbott-gage' ); ?>
             </p>
@@ -32,98 +32,97 @@ get_header();
     </header>
     
     <!-- Main Content -->
+    <?php 
+    $laboratory_main_title = get_field( 'laboratory_main_title' );
+    $laboratory_lead_text = get_field( 'laboratory_lead_text' );
+    $laboratory_description = get_field( 'laboratory_description' );
+    $laboratory_equipment_title = get_field( 'laboratory_equipment_title' );
+    $laboratory_equipment_categories = get_field( 'laboratory_equipment_categories' );
+    $laboratory_benefits_title = get_field( 'laboratory_benefits_title' );
+    $laboratory_benefits_items = get_field( 'laboratory_benefits_items' );
+    ?>
     <section class="section">
         <div class="container">
             <div class="two-column-layout">
                 <div class="content-column">
-                    <h2><?php esc_html_e( 'Calibration & Certification Process', 'abbott-gage' ); ?></h2>
+                    <?php if ( $laboratory_main_title ) : ?>
+                        <h2><?php echo esc_html( $laboratory_main_title ); ?></h2>
+                    <?php endif; ?>
                     
-                    <p class="lead">
-                        <?php esc_html_e( 'We have the tools necessary to work on a wide range of customers with various needs. Our experienced technical staff and trained technicians will be glad to help you through the certification process.', 'abbott-gage' ); ?>
-                    </p>
+                    <?php if ( $laboratory_lead_text ) : ?>
+                        <p class="lead">
+                            <?php echo esc_html( $laboratory_lead_text ); ?>
+                        </p>
+                    <?php endif; ?>
                     
-                    <p>
-                        <?php esc_html_e( 'Take the guesswork out of the certification process and call Abbott Gage for your calibration needs. Laboratory calibrations by Abbott Gage, Inc. range from basic micrometers and indicators to surface plates and pressure equipment.', 'abbott-gage' ); ?>
-                    </p>
+                    <?php if ( $laboratory_description ) : ?>
+                        <p>
+                            <?php echo esc_html( $laboratory_description ); ?>
+                        </p>
+                    <?php endif; ?>
                     
                     <!-- What We Calibrate -->
+                    <?php if ( $laboratory_equipment_categories && ! empty( $laboratory_equipment_categories ) ) : ?>
                     <div class="calibration-equipment-section">
-                        <h3><?php esc_html_e( 'What We Calibrate', 'abbott-gage' ); ?></h3>
+                        <?php if ( $laboratory_equipment_title ) : ?>
+                            <h3><?php echo esc_html( $laboratory_equipment_title ); ?></h3>
+                        <?php endif; ?>
                         <div class="row g-4">
-                            <div class="col-12 col-md-6">
-                                <div class="equipment-category h-100">
-                                    <h4><?php esc_html_e( 'Dimensional Equipment', 'abbott-gage' ); ?></h4>
-                                    <ul>
-                                        <li><?php esc_html_e( 'Micrometers & Calipers', 'abbott-gage' ); ?></li>
-                                        <li><?php esc_html_e( 'Height Gages & Depth Gages', 'abbott-gage' ); ?></li>
-                                        <li><?php esc_html_e( 'Indicators & Comparators', 'abbott-gage' ); ?></li>
-                                        <li><?php esc_html_e( 'Surface Plates', 'abbott-gage' ); ?></li>
-                                        <li><?php esc_html_e( 'Pin Gages & Ring Gages', 'abbott-gage' ); ?></li>
-                                        <li><?php esc_html_e( 'Angle Plates & V-Blocks', 'abbott-gage' ); ?></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <div class="col-12 col-md-6">
-                                <div class="equipment-category h-100">
-                                    <h4><?php esc_html_e( 'Electronic Equipment', 'abbott-gage' ); ?></h4>
-                                    <ul>
-                                        <li><?php esc_html_e( 'Multimeters & Voltmeters', 'abbott-gage' ); ?></li>
-                                        <li><?php esc_html_e( 'Oscilloscopes', 'abbott-gage' ); ?></li>
-                                        <li><?php esc_html_e( 'Thermometers & Thermocouples', 'abbott-gage' ); ?></li>
-                                        <li><?php esc_html_e( 'Balances & Scales', 'abbott-gage' ); ?></li>
-                                        <li><?php esc_html_e( 'Tachometers', 'abbott-gage' ); ?></li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <?php foreach ( $laboratory_equipment_categories as $category ) : 
+                                $category_title = isset( $category['title'] ) ? $category['title'] : '';
+                                $category_items = isset( $category['items'] ) ? $category['items'] : array();
+                                ?>
+                                <?php if ( $category_title && ! empty( $category_items ) ) : ?>
+                                    <div class="col-12 col-md-6">
+                                        <div class="equipment-category h-100">
+                                            <h4><?php echo esc_html( $category_title ); ?></h4>
+                                            <ul>
+                                                <?php foreach ( $category_items as $item ) : 
+                                                    $item_text = isset( $item['text'] ) ? $item['text'] : '';
+                                                    if ( $item_text ) : ?>
+                                                        <li><?php echo esc_html( $item_text ); ?></li>
+                                                    <?php endif; ?>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
                         </div>
                     </div>
+                    <?php endif; ?>
                     
                     <!-- Benefits -->
+                    <?php if ( $laboratory_benefits_items && ! empty( $laboratory_benefits_items ) ) : ?>
                     <div class="benefits-section">
-                        <h3><?php esc_html_e( 'Laboratory Calibration Benefits', 'abbott-gage' ); ?></h3>
+                        <?php if ( $laboratory_benefits_title ) : ?>
+                            <h3><?php echo esc_html( $laboratory_benefits_title ); ?></h3>
+                        <?php endif; ?>
                         <div class="row g-4">
-                            <div class="col-12 col-md-6">
-                                <div class="benefit-item h-100">
-                                    <i class="fas fa-certificate"></i>
-                                    <div>
-                                        <h4><?php esc_html_e( 'Full Certification', 'abbott-gage' ); ?></h4>
-                                        <p><?php esc_html_e( 'Complete documentation with NIST traceability', 'abbott-gage' ); ?></p>
+                            <?php foreach ( $laboratory_benefits_items as $benefit ) : 
+                                $benefit_icon = isset( $benefit['icon'] ) ? $benefit['icon'] : '';
+                                $benefit_title = isset( $benefit['title'] ) ? $benefit['title'] : '';
+                                $benefit_description = isset( $benefit['description'] ) ? $benefit['description'] : '';
+                                ?>
+                                <div class="col-12 col-md-6">
+                                    <div class="benefit-item h-100">
+                                        <?php if ( $benefit_icon ) : ?>
+                                            <i class="<?php echo esc_attr( $benefit_icon ); ?>"></i>
+                                        <?php endif; ?>
+                                        <div>
+                                            <?php if ( $benefit_title ) : ?>
+                                                <h4><?php echo esc_html( $benefit_title ); ?></h4>
+                                            <?php endif; ?>
+                                            <?php if ( $benefit_description ) : ?>
+                                                <p><?php echo esc_html( $benefit_description ); ?></p>
+                                            <?php endif; ?>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                            <div class="col-12 col-md-6">
-                                <div class="benefit-item h-100">
-                                    <i class="fas fa-microscope"></i>
-                                    <div>
-                                        <h4><?php esc_html_e( 'Controlled Environment', 'abbott-gage' ); ?></h4>
-                                        <p><?php esc_html_e( 'Temperature and humidity controlled lab', 'abbott-gage' ); ?></p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-12 col-md-6">
-                                <div class="benefit-item h-100">
-                                    <i class="fas fa-clock"></i>
-                                    <div>
-                                        <h4><?php esc_html_e( 'Quick Turnaround', 'abbott-gage' ); ?></h4>
-                                        <p><?php esc_html_e( 'Fast processing to minimize downtime', 'abbott-gage' ); ?></p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-12 col-md-6">
-                                <div class="benefit-item h-100">
-                                    <i class="fas fa-tools"></i>
-                                    <div>
-                                        <h4><?php esc_html_e( 'High Quality Facility', 'abbott-gage' ); ?></h4>
-                                        <p><?php esc_html_e( 'Modern equipment and proven procedures', 'abbott-gage' ); ?></p>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
+                    <?php endif; ?>
                 </div>
                 
                 <div class="sidebar-column">
@@ -176,37 +175,28 @@ get_header();
     
     <!-- FAQ Section -->
     <?php 
-    $lab_faqs = array(
-        array(
-            'question' => 'What is NIST traceable calibration?',
-            'answer' => 'NIST traceable calibration means that our calibration standards are traceable back to the National Institute of Standards and Technology (NIST). This ensures that all measurements meet national and international standards, providing documented proof of accuracy through an unbroken chain of calibrations.'
-        ),
-        array(
-            'question' => 'How long does laboratory calibration take?',
-            'answer' => 'Standard laboratory calibration typically takes 3-5 business days from when we receive your equipment. We offer expedited service for urgent needs. Turnaround time may vary depending on the type and quantity of equipment, as well as any necessary repairs.'
-        ),
-        array(
-            'question' => 'Do you provide calibration certificates?',
-            'answer' => 'Yes, every calibration includes a detailed certificate showing traceability information and technician signature. Our certificates are accepted by all major quality management systems.'
-        ),
-        array(
-            'question' => 'How often should I calibrate my equipment?',
-            'answer' => 'Calibration frequency depends on several factors including manufacturer recommendations, industry standards, usage frequency, and environmental conditions. Most precision measuring equipment should be calibrated annually, but some applications may require more frequent calibration. We can help you establish an appropriate calibration schedule.'
-        ),
-        array(
-            'question' => 'What equipment do you calibrate?',
-            'answer' => 'We calibrate a wide range of dimensional, electronic, pressure, torque, and temperature equipment including micrometers, calipers, height gages, indicators, surface plates, multimeters, oscilloscopes, thermometers, pressure gages, torque wrenches, and more. If you have specific equipment needs, please contact us to confirm we can service it.'
-        ),
-        array(
-            'question' => 'Can you repair equipment that fails calibration?',
-            'answer' => 'Yes, we offer repair services for equipment that fails calibration or shows excessive wear. We service major brands like Mitutoyo, Fowler, Brown & Sharpe, and Starrett. We can perform most repairs in-house and recalibrate the equipment before returning it to you.'
-        )
-    );
+    $laboratory_faq_title = get_field( 'laboratory_faq_title' );
+    $laboratory_faq_items = get_field( 'laboratory_faq_items' );
     
-    get_template_part( 'template-parts/faq', 'section', array( 
-        'title' => 'Laboratory Calibration FAQs',
-        'items' => $lab_faqs 
-    ) ); 
+    if ( $laboratory_faq_items && ! empty( $laboratory_faq_items ) ) {
+        // Format FAQ items for the template part
+        $faq_items = array();
+        foreach ( $laboratory_faq_items as $faq ) {
+            if ( isset( $faq['question'] ) && isset( $faq['answer'] ) ) {
+                $faq_items[] = array(
+                    'question' => $faq['question'],
+                    'answer' => $faq['answer']
+                );
+            }
+        }
+        
+        if ( ! empty( $faq_items ) ) {
+            get_template_part( 'template-parts/faq', 'section', array( 
+                'title' => $laboratory_faq_title ? $laboratory_faq_title : 'Laboratory Calibration FAQs',
+                'items' => $faq_items 
+            ) );
+        }
+    }
     ?>
     
     <!-- CTA Section -->

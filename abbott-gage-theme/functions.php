@@ -271,6 +271,31 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/acf-fields.php';
 
 /**
+ * ACF Field Groups for Manufacturers Page
+ */
+require get_template_directory() . '/inc/acf-manufacturers-fields.php';
+
+/**
+ * ACF Field Groups for Laboratory Page
+ */
+require get_template_directory() . '/inc/acf-laboratory-fields.php';
+
+/**
+ * ACF Field Groups for Onsite Page
+ */
+require get_template_directory() . '/inc/acf-onsite-fields.php';
+
+/**
+ * ACF Field Groups for Repairs Page
+ */
+require get_template_directory() . '/inc/acf-repairs-fields.php';
+
+/**
+ * ACF Field Groups for Sales Page
+ */
+require get_template_directory() . '/inc/acf-sales-fields.php';
+
+/**
  * SEO Functions and Schema Markup
  */
 require get_template_directory() . '/inc/seo-functions.php';
