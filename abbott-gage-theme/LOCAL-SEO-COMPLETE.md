@@ -58,7 +58,7 @@ WordPress Admin → Custom Fields → Options → Company Information
 - Address: 40 Industrial Park, Childersburg, AL 35044
 - Primary Phone: (256) 378-3286
 - Toll-Free: 1-800-481-4243
-- Email: info@abbottgageinc.com
+- Email: shelby@abbottgageinc.com
 - Business Hours: Correct and current
 
 ### Step 3: Test Your Schema (10 minutes)
@@ -79,7 +79,7 @@ WordPress Admin → Custom Fields → Options → Company Information
 ```
 [business_name]           → Abbott Gage, Inc.
 [business_phone]          → (256) 378-3286 (clickable)
-[business_email]          → info@abbottgageinc.com (clickable)
+[business_email]          → shelby@abbottgageinc.com (clickable)
 [business_address]        → Full address with proper formatting
 ```
 

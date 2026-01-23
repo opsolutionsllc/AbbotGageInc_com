@@ -268,7 +268,7 @@ The schema markup needs your actual business details. Update these in WordPress:
 Edit line 50-60 in `inc/seo-functions.php` with your actual details:
 ```php
 'telephone' => '+1-256-378-3286',  // Your phone
-'email' => 'info@abbottgageinc.com',   // Your email
+'email' => 'shelby@abbottgageinc.com',   // Your email
 ```
 
 ---

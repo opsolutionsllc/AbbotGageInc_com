@@ -184,7 +184,7 @@ For each page, the SEO settings are in the template file header comments. Just c
 
 **Your Business Details (in schema):**
 - Phone: +1-256-378-3286
-- Email: info@abbottgageinc.com
+- Email: shelby@abbottgageinc.com
 - Address: 40 Industrial Park, Childersburg, AL 35044
 
 **Certifications Highlighted:**

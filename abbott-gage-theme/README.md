@@ -366,7 +366,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 For support or inquiries about this theme:
 - **Company:** Abbott Gage, Inc.
-- **Email:** info@abbottgageinc.com
+- **Email:** shelby@abbottgageinc.com
 - **Phone:** (256) 378-3286
 - **Toll Free:** 1-800-481-4243
 

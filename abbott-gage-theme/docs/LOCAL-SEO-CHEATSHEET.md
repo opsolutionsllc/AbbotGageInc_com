@@ -12,7 +12,7 @@
 | `[business_phone]` | (256) 378-3286 | Primary phone (clickable) |
 | `[business_phone type="tollfree"]` | 1-800-481-4243 | Toll-free number |
 | `[business_phone type="fax"]` | (256) 378-3287 | Fax number |
-| `[business_email]` | info@abbottgageinc.com | Email (clickable) |
+| `[business_email]` | shelby@abbottgageinc.com | Email (clickable) |
 | `[business_address]` | Multi-line address | Full address block |
 | `[business_address format="inline"]` | Single-line address | Inline text |
 | `[business_hours]` | Hours with schema | Business hours |

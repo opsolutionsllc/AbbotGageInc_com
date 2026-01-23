@@ -168,7 +168,7 @@ A **complete local SEO solution** that replicates all features of Yoast Premium'
 [business_phone type="fax"]                     → (256) 378-3287
 [business_phone link="no"]                      → Non-clickable number
 
-[business_email]                                → info@abbottgageinc.com (clickable)
+[business_email]                                → shelby@abbottgageinc.com (clickable)
 [business_email link="no"]                      → Plain text email
 
 [business_hours]                                → Business hours with schema

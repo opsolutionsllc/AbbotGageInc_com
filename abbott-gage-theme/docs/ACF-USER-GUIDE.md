@@ -83,7 +83,7 @@ This is where you'll edit:
 ```
 Primary Phone: (256) 378-3286
 Toll Free: 1-800-481-4243
-Email: info@abbottgageinc.com
+Email: shelby@abbottgageinc.com
 Button Text: Get a Quote
 Button Link: /contact
 ```

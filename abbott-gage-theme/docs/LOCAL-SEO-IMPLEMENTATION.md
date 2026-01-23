@@ -87,7 +87,7 @@ The enhanced LocalBusiness schema includes:
     "longitude": "-86.3553"
   },
   "telephone": "+1-256-378-3286",
-  "email": "info@abbottgageinc.com",
+  "email": "shelby@abbottgageinc.com",
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
@@ -155,7 +155,7 @@ The enhanced LocalBusiness schema includes:
 ```
 
 **Examples:**
-- `[business_email]` → info@abbottgageinc.com (clickable)
+- `[business_email]` → shelby@abbottgageinc.com (clickable)
 - `[business_email link="no"]` → Plain text email
 
 #### 5. Business Hours

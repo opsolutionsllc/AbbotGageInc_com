@@ -63,7 +63,7 @@ This guide will walk you through setting up Contact Form 7 for the Abbott Gage I
 ```
 
 **Mail Settings:**
-- **To:** `info@abbottgageinc.com`
+- **To:** `shelby@abbottgageinc.com`
 - **From:** `[your-name] <wordpress@yourdomain.com>`
 - **Subject:** `Website Contact Form - [your-name]`
 - **Message Body:**
@@ -142,7 +142,7 @@ This email was sent from the contact form on Abbott Gage Inc (https://abbottgage
 ```
 
 **Mail Settings:**
-- **To:** `info@abbottgageinc.com`
+- **To:** `shelby@abbottgageinc.com`
 - **From:** `[your-name] <wordpress@yourdomain.com>`
 - **Subject:** `Quote Request - [service-type] - [company-name]`
 - **Message Body:**
@@ -363,7 +363,7 @@ To receive notifications for specific team members:
 2. Go to "Mail" tab
 3. Add multiple recipients:
    ```
-   info@abbottgageinc.com, sales@abbottgageinc.com
+   shelby@abbottgageinc.com, sales@abbottgageinc.com
    ```
 
 ---

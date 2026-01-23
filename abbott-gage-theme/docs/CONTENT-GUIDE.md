@@ -205,7 +205,7 @@ Whether you need a single micrometer or outfitting an entire quality control dep
 
 ```
 1. Call us at (256) 378-3286 or 1-800-481-4243
-2. Email us at info@abbottgageinc.com
+2. Email us at shelby@abbottgageinc.com
 3. Use our contact form with product details
 4. We'll provide a quote within 24 hours
 5. Place your order and receive confirmation

@@ -257,7 +257,7 @@ For comprehensive guides, see:
 **Abbott Gage, Inc.**
 - Phone: (256) 378-3286
 - Toll Free: 1-800-481-4243
-- Email: info@abbottgageinc.com
+- Email: shelby@abbottgageinc.com
 - Address: 40 Industrial Park, Childersburg, AL 35044
 
 ---

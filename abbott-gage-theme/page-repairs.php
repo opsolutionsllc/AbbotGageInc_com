@@ -185,7 +185,7 @@ get_header();
                             </li>
                             <li>
                                 <i class="fas fa-envelope"></i>
-                                <a href="mailto:info@abbottgageinc.com">info@abbottgageinc.com</a>
+                                <a href="mailto:shelby@abbottgageinc.com">shelby@abbottgageinc.com</a>
                             </li>
                         </ul>
                     </div>

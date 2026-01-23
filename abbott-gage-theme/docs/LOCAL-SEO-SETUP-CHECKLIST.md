@@ -20,7 +20,7 @@ Use this checklist to ensure your local SEO implementation is fully optimized an
 - [ ] **Primary Phone** is formatted: "(256) 378-3286"
 - [ ] **Toll-Free Phone** is formatted: "1-800-481-4243"
 - [ ] **Fax Number** is formatted: "(256) 378-3287"
-- [ ] **Email** is set to: "info@abbottgageinc.com"
+- [ ] **Email** is set to: "shelby@abbottgageinc.com"
 - [ ] **Business Hours** are correct and updated
 
 **Note:** If any ACF fields don't exist, the code uses fallback values.
@@ -240,7 +240,7 @@ Find and replace hard-coded business info with shortcodes:
 #### Example Replacements:
 - Replace: "Abbott Gage, Inc." → `[business_name]`
 - Replace: "(256) 378-3286" → `[business_phone]`
-- Replace: "info@abbottgageinc.com" → `[business_email]`
+- Replace: "shelby@abbottgageinc.com" → `[business_email]`
 - Replace: Address text → `[business_address format="inline"]`
 
 ---
