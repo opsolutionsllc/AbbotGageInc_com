@@ -19,7 +19,7 @@ function abbott_gage_get_business_info() {
         'telephone' => get_field('phone_primary', 'option') ?: '+1-256-378-3286',
         'tollFreeNumber' => get_field('phone_toll_free', 'option') ?: '+1-800-481-4243',
         'faxNumber' => get_field('fax', 'option') ?: '+1-256-378-3287',
-        'email' => get_field('email', 'option') ?: 'shelby@abbottgageinc.com',
+        'email' => get_field('email', 'option') ?: 'hello@abbottgageinc.com',
         'street' => get_field('address_street', 'option') ?: '40 Industrial Park',
         'city' => get_field('address_city', 'option') ?: 'Childersburg',
         'state' => get_field('address_state', 'option') ?: 'AL',

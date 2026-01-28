@@ -43,7 +43,7 @@
                         </span>
                         <span class="contact-item">
                             <i class="far fa-envelope"></i>
-                            <a href="mailto:shelby@abbottgageinc.com">shelby@abbottgageinc.com</a>
+                            <a href="mailto:hello@abbottgageinc.com">hello@abbottgageinc.com</a>
                         </span>
                     </div>
                     <div class="header-certs">
@@ -111,7 +111,7 @@
                                         </span>
                                         <span class="contact-item">
                                             <i class="far fa-envelope"></i>
-                                            <a href="mailto:shelby@abbottgageinc.com">shelby@abbottgageinc.com</a>
+                                            <a href="mailto:hello@abbottgageinc.com">hello@abbottgageinc.com</a>
                                         </span>
                                     </div>
                                     <div class="header-certs">

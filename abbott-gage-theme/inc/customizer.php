@@ -62,7 +62,7 @@ function abbott_gage_customize_register( $wp_customize ) {
 
     // Email
     $wp_customize->add_setting( 'abbott_gage_email', array(
-        'default'           => 'shelby@abbottgageinc.com',
+        'default'           => 'hello@abbottgageinc.com',
         'sanitize_callback' => 'sanitize_email',
     ) );
 
