@@ -1212,6 +1212,28 @@ body.menu-open .mobile-menu-overlay {
   color: rgba(255, 255, 255, 0.3);
 }
 
+.footer-credit {
+  width: 100%;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.footer-credit p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8125rem;
+  margin: 0;
+}
+
+.footer-credit a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-credit a:hover {
+  color: var(--color-secondary);
+}
+
 /* Back to Top Button */
 .back-to-top {
   position: fixed;

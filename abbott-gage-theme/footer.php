@@ -160,6 +160,9 @@
                             <?php esc_html_e( 'Terms of Service', 'abbott-gage' ); ?>
                         </a>
                     </div>
+                    <div class="footer-credit">
+                        <p>Website by <a href="https://www.opsolutions.io" target="_blank" rel="noopener">opsolutions.io</a></p>
+                    </div>
                 </div>
             </div>
         </div>
